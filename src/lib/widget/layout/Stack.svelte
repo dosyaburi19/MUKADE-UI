@@ -1,0 +1,34 @@
+<script lang="ts">
+	import { alignMap, justifyMap, type Algin, type Justify } from '$lib/utils/flex.ts';
+	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
+
+	interface Props extends HTMLAttributes<HTMLDivElement> {
+		direction?: 'row' | 'column';
+		gap?: string;
+		align?: Algin;
+		justify?: Justify;
+		wrap?: boolean;
+		children?: Snippet<[]>;
+	}
+
+	let { direction = 'row', gap, align = 'start', justify = 'start', wrap = false, children, ...props }: Props = $props();
+</script>
+
+<div
+	class="stack"
+	style:flex-direction={direction}
+	style:gap
+	style:align-items={alignMap[align]}
+	style:justify-content={justifyMap[justify]}
+	style:flex-wrap={wrap ? 'wrap' : 'nowrap'}
+	{...props}
+>
+	{@render children?.()}
+</div>
+
+<style>
+	.stack {
+		display: flex;
+	}
+</style>
