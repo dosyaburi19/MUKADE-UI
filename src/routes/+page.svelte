@@ -4,6 +4,7 @@
 	import Select from '$lib/widget/input/Select/Select.svelte';
 	import SelectOption from '$lib/widget/input/Select/SelectOption.svelte';
 	import Toggle from '$lib/widget/input/Toggle.svelte';
+	import Alert from '$lib/widget/overlay/alert/Alert.svelte';
 	import Divider from '$lib/widget/primitive/Divider.svelte';
 
 	let checkbox = $state(false);
@@ -70,11 +71,17 @@
 
 	<div style="display: flex; flex-direction: row; gap: 1rem; margin-top: 1rem">
 		<Select>
-			<SelectOption key="good-ka" label="good1" />
-			<SelectOption key="good-uk" label="good2" />
+			<SelectOption key="good-ka a a" label="good1 e asasefasf ea" />
+			<SelectOption key="good-uk12" />
 			<SelectOption key="good-jp" label="good3" />
 			<SelectOption key="good-en" label="good4" />
 		</Select>
+	</div>
+
+	<div style="display: flex; flex-direction: row; gap: 1rem; margin-top: 1rem">
+		<Alert title="ERROR / Alert Test" variant="danger" size="15rem">This is Error Alert. You can create this alert.</Alert>
+		<Alert title="ERROR / Alert Test" variant="warn">This is Error Alert. You can create this alert.</Alert>
+		<Alert title="ERROR / Alert Test" variant="success">This is Error Alert. You can create this alert.</Alert>
 	</div>
 
 	<!-- <div class="header">
@@ -123,113 +130,4 @@
 </div>
 
 <style>
-	.container {
-		display: flex;
-		flex-direction: column;
-
-		width: 100%;
-		height: 100%;
-
-		background-color: var(--mukade-bg-main);
-	}
-
-	.header {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-
-		width: 100%;
-		height: fit-content;
-		padding: 1rem 0;
-
-		border-bottom: 3px solid var(--mukade-primary-700);
-
-		font-family: monospace;
-		font-size: 20px;
-		font-weight: 700;
-		color: var(--mukade-text-1);
-	}
-
-	.header-title {
-		display: flex;
-		flex-direction: row;
-		gap: 1rem;
-	}
-
-	.network {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-	}
-
-	.body {
-		display: flex;
-		flex-direction: row;
-
-		width: 100%;
-		flex: 1;
-	}
-
-	.chatting {
-		display: flex;
-		flex-direction: column;
-		flex: 4;
-
-		width: 2000px;
-
-		height: 100%;
-	}
-
-	.title {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-
-		width: 100%;
-		height: fit-content;
-		padding: 1rem 0;
-
-		font-size: 20px;
-		font-weight: 700;
-		font-family: monospace;
-		color: var(--mukade-text-1);
-	}
-
-	.chat-body {
-		flex: 1;
-
-		width: 100%;
-	}
-
-	.message-input {
-		width: 100%;
-		height: fit-content;
-		padding: 1rem 0;
-	}
-
-	.menu {
-		flex: 1;
-		height: 100%;
-		border-left: 3px solid var(--mukade-primary-500);
-	}
-
-	.navigation {
-		display: flex;
-		flex-direction: row;
-
-		height: 8%;
-
-		border-bottom: solid 2px var(--mukade-primary-500);
-	}
-
-	.navi-item {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-
-		font-size: 20px;
-		color: var(--mukade-primary-500);
-	}
 </style>

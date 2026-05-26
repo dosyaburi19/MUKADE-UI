@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext, onMount } from 'svelte';
-	import { type Option, type SelectContext } from './Select.svelte';
+	import { type SelectContext } from './Select.svelte';
 
 	interface Props {
 		key: string;
@@ -11,7 +11,7 @@
 	let { select, addOptions } = getContext<SelectContext>('mukade-select');
 
 	onMount(() => {
-		addOptions({ key, label } as Option);
+		if (key && label) addOptions({ key, label });
 	});
 </script>
 
@@ -29,5 +29,8 @@
 		font-family: var(--mukade-font-mono);
 		font-size: 1rem;
 		color: var(--mukade-primary);
+
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 </style>
