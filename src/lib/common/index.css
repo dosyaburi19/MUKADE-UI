@@ -1,3 +1,4 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap'); */
 /*
 	common 1 palette
 */
@@ -28,78 +29,6 @@
 	--mukade-border-subtle: #1a1a1a;
 
 	/* ============ Font ============ */
-	--mukade-font-mono: monospace;
-	--mukade-font-vt: 'VT323', monospace;
-}
-/*
-	common 2 palette
-*/
-:root {
-	/* ── Primary Palette ── */
-	--color-primary: #e03030; /* 메인 레드 */
-	--color-primary-dim: #7a1a1a; /* 어두운 레드 (배경, 비활성) */
-	--color-primary-bright: #ff4444; /* 밝은 레드 (에러, 강조) */
-	--color-ok: #39ff14; /* 그린 (성공, ONLINE) */
-	--color-ok-dim: #1a5c0a; /* 어두운 그린 */
-	--color-warn: #ff9900; /* 주황 (경고) */
-
-	/* ── Background ── */
-	--color-bg: #0a0a0a; /* 최하위 배경 */
-	--color-bg-surface: #0f0f0f; /* 카드·패널 배경 */
-	--color-bg-input: #141a1a; /* 인풋 배경 */
-
-	/* ── Text ── */
-	--color-text: #e8e8e8; /* 기본 텍스트 */
-	--color-text-sub: #c8d8d8; /* 보조 텍스트 */
-	--color-text-dim: #556677; /* 비활성·placeholder */
-
-	/* ── Border ── */
-	--color-border: #e03030; /* 활성 테두리 */
-	--color-border-dim: #2a3535; /* 비활성 테두리 */
-	--color-border-subtle: #1a1a1a; /* 구분선 */
-
-	/* ── Typography ── */
-	--font-mono: 'Share Tech Mono', monospace;
-	--font-display: 'VT323', monospace;
-}
-
-/* 삭제 예정 */
-:root {
-	/* primary (accent reds) */
-	---mukade-primary-50: #ffe9e8;
-	---mukade-primary-100: #ffc6c4;
-	---mukade-primary-200: #ff9f9c;
-	---mukade-primary-300: #ff7b76;
-	---mukade-primary-400: #ff5b57; /* hover */
-	---mukade-primary-500: #e14b4a; /* normal */
-	---mukade-primary-600: #c43c3c;
-	---mukade-primary-700: #ad3030;
-	---mukade-primary-800: #8c2525;
-	---mukade-primary-900: #671919;
-
-	/* secondary (dark backgrounds) */
-	---mukade-secondary-50: #e8f0f1;
-	---mukade-secondary-100: #c3d3d5;
-	---mukade-secondary-200: #9bb5b7;
-	---mukade-secondary-300: #738798;
-	---mukade-secondary-400: #4d6b6d;
-	---mukade-secondary-500: #2d4040; /* hover */
-	---mukade-secondary-600: #223233;
-	---mukade-secondary-700: #1c292b;
-	---mukade-secondary-800: #182122; /* active */
-	---mukade-secondary-900: #111819;
-	---mukade-secondary-base: #162629; /* normal */
-
-	/* text mukades */
-	---mukade-text-1: #f8f9fa;
-	---mukade-text-2: #cfd3d7;
-	---mukade-text-danger: #ff7b76; /* primary-300 */
-	---mukade-text-muted: #8b9095;
-
-	/* borders / backgrounds */
-	---mukade-border-soft: #3b4c4e;
-	---mukade-border-strong: #ff5b57;
-	---mukade-bg-soft: #1b2627;
-	---mukade-bg-main: #101010;
-	---mukade-bg-elevated: #202c2e;
+	--mukade-font-mono: monospace, 'Share Tech mono';
+	--mukade-font-vt: monospace, 'VT323';
 }

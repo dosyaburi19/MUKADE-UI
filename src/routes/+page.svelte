@@ -4,7 +4,9 @@
 	import Select from '$lib/widget/input/Select/Select.svelte';
 	import SelectOption from '$lib/widget/input/Select/SelectOption.svelte';
 	import Toggle from '$lib/widget/input/Toggle.svelte';
+	import Panel from '$lib/widget/layout/Panel.svelte';
 	import Alert from '$lib/widget/overlay/alert/Alert.svelte';
+	import Avatar from '$lib/widget/primitive/Avatar.svelte';
 	import Divider from '$lib/widget/primitive/Divider.svelte';
 
 	let checkbox = $state(false);
@@ -82,6 +84,42 @@
 		<Alert title="ERROR / Alert Test" variant="danger" size="15rem">This is Error Alert. You can create this alert.</Alert>
 		<Alert title="ERROR / Alert Test" variant="warn">This is Error Alert. You can create this alert.</Alert>
 		<Alert title="ERROR / Alert Test" variant="success">This is Error Alert. You can create this alert.</Alert>
+	</div>
+
+	<div style="display: flex; flex-direction: row; gap: 1rem; margin-top: 1rem">
+		<Avatar
+			online={true}
+			profile="https://assets.clip-studio.com/ko-kr/description/1983627/img/e7a490f340-e64d-3088-a085-0f6baf88e6.jpg"
+			name="good"
+			sub="yeahhhhh"
+		></Avatar>
+
+		<Avatar
+			profile="https://assets.clip-studio.com/ko-kr/description/1983627/img/e7a490f340-e64d-3088-a085-0f6baf88e6.jpg"
+			name="AVATAR"
+			sub="good. yeah. avatar"
+		>
+			<Badge label="ON" />
+		</Avatar>
+		<Avatar online={false} name="Good" sub="yeahhhhh"></Avatar>
+		<Avatar online={false} name="Good"></Avatar>
+		<Avatar online={false} profile="https://assets.clip-studio.com/ko-kr/description/1983627/img/e7a490f340-e64d-3088-a085-0f6baf88e6.jpg"></Avatar>
+	</div>
+
+	<div style="display: flex; flex-direction: row; gap: 1rem; margin-top: 1rem">
+		<Panel dots={{ max: 4, index: 3 }} size="20rem">
+			{#snippet header()}
+				<span style="font-size:1.1rem; font-family: var(--mukade-font-mono);">SYS_INFO</span>
+			{/snippet}
+			<div style="height: 7rem;">
+				<div>CONTENT1</div>
+				<div>CONTENT2</div>
+			</div>
+			{#snippet footer()}
+				<Button size="small" variant="success">[CONFIRM]</Button>
+				<Button size="small">[DELETE]</Button>
+			{/snippet}
+		</Panel>
 	</div>
 
 	<!-- <div class="header">

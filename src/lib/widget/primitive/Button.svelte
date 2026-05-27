@@ -5,12 +5,13 @@
 	interface Props extends HTMLButtonAttributes {
 		children?: Snippet<[]>;
 		variant?: 'primary' | 'danger' | 'warn' | 'success' | 'ghost';
+		size?: 'large' | 'medium' | 'small';
 	}
 
-	const { children, variant = 'primary', ...props }: Props = $props();
+	const { children, variant = 'primary', size = 'medium', ...props }: Props = $props();
 </script>
 
-<button class="button {variant}" {...props}>
+<button class="button {variant} {size}" {...props}>
 	{@render children?.()}
 </button>
 
@@ -36,6 +37,14 @@
 	.button[disabled] {
 		cursor: not-allowed;
 		opacity: 0.6;
+	}
+
+	.button.large {
+		font-size: 1.5rem;
+	}
+
+	.button.small {
+		font-size: 0.7rem;
 	}
 
 	/* ============ PRIMARY VARIANT STYLE ============ */

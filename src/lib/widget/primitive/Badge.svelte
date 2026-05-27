@@ -130,6 +130,8 @@
 		font-size: 0.6rem;
 		font-family: var(--mukade-font-mono);
 		letter-spacing: 0.15rem;
+
+		background-color: var(--mukade-bg);
 	}
 
 	.tag-badge.primary {
