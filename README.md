@@ -1,58 +1,127 @@
-# Svelte library
+# MUKADE-UI
 
-Everything you need to build a Svelte library, powered by [`sv`](https://npmjs.com/package/sv).
+Terminal-style Svelte 5 UI component library.  
+Retro hacker aesthetics for modern web applications.
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
+---
 
-## Creating a project
+## Installation
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+```bash
+npm install mukade-ui
 ```
 
-## Developing
+**Peer dependency:** `svelte ^5.0.0`
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+---
 
-```sh
-npm run dev
+## Setup
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+MUKADE-UI uses CSS custom properties for theming. Add the following variables to your global CSS:
+
+```css
+:root {
+	--mukade-primary: #00ff88;
+	--mukade-bg-soft: #0d0d0d;
+	--mukade-text: #e0e0e0;
+	--mukade-text-dim: #666666;
+	--mukade-placeholder: #444444;
+	--mukade-success: #00ff88;
+	--mukade-danger: #ff4444;
+	--mukade-warn: #ffaa00;
+	--mukade-font-mono: monospace;
+}
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+---
 
-## Building
+## Usage
 
-To build your library:
+```svelte
+<script>
+	import { Button, Container, Input, Panel } from 'mukade-ui';
+	import 'mukade-ui/dist/index.css';
+</script>
 
-```sh
-npm pack
+<Container style="display:flex; justify-content:center; align-items:center; height: 100%;">
+	<Panel size="20rem">
+		{#snippet header()}
+			<span>LOGIN</span>
+		{/snippet}
+
+		<Input style="width: 100%" placeholder="username" />
+		<Input style="width: 100%" placeholder="password" />
+
+		{#snippet footer()}
+			<Button variant="primary">[CONFIRM]</Button>
+		{/snippet}
+	</Panel>
+</Container>
 ```
 
-To create a production version of your showcase app:
+---
 
-```sh
-npm run build
+## Components
+
+### Base
+
+| Component | Description                              |
+| --------- | ---------------------------------------- |
+| `Text`    | Styled text with color and size variants |
+| `Badge`   | Status indicator with count support      |
+| `Divider` | Horizontal / vertical separator          |
+
+### Action
+
+| Component      | Description                             |
+| -------------- | --------------------------------------- |
+| `Button`       | Clickable button with variants          |
+| `Input`        | Single-line text input                  |
+| `Textarea`     | Multi-line text input                   |
+| `Checkbox`     | Boolean toggle with indeterminate state |
+| `Toggle`       | Switch-style boolean input              |
+| `Select`       | Dropdown selector                       |
+| `SelectOption` | Option item for Select                  |
+| `TextField`    | Input with label and variants           |
+
+### Layout
+
+| Component    | Description                              |
+| ------------ | ---------------------------------------- |
+| `Panel`      | Card-like container with header / footer |
+| `Container`  | Block layout wrapper                     |
+| `Stack`      | Flex-based stacking layout               |
+| `ScrollArea` | Overflow container with scroll           |
+
+### Display
+
+| Component   | Description                                |
+| ----------- | ------------------------------------------ |
+| `Avatar`    | User profile image with status indicator   |
+| `Table`     | Data table with fixed / fit-content sizing |
+| `TableRow`  | Table row                                  |
+| `TableCell` | Table cell (supports any content)          |
+
+### Feedback
+
+| Component | Description                      |
+| --------- | -------------------------------- |
+| `Alert`   | Status message box with variants |
+
+---
+
+## Variants
+
+```svelte
+<Button variant="primary">[CONFIRM]</Button>
+<Button variant="danger">[DELETE]</Button>
+<Button variant="warn">[CAUTION]</Button>
+<Button variant="success">[OK]</Button>
+<Button variant="ghost">[CANCEL]</Button>
 ```
 
-You can preview the production build with `npm run preview`.
+---
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## License
 
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```sh
-npm publish
-```
+MIT © dosyaburi
