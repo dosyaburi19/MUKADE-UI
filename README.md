@@ -1,4 +1,4 @@
-# MUKADE-UI
+# MUKADE-UI (DEMO)
 
 Terminal-style Svelte 5 UI component library.  
 Retro hacker aesthetics for modern web applications.
