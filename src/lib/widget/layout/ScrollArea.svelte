@@ -41,10 +41,10 @@
 	}
 
 	.scroll-area::-webkit-scrollbar-thumb {
-		background-color: var(--mukade-primary-500);
+		background-color: var(--mukade-primary);
 	}
 
 	.scroll-area::-webkit-scrollbar-thumb:hover {
-		background-color: var(--mukade-primary-400);
+		background-color: var(--mukade-bright);
 	}
 </style>

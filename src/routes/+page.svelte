@@ -1,10 +1,15 @@
 <script>
 	import { Button, Input, Text, Badge } from '$lib/index.ts';
 	import Checkbox from '$lib/widget/input/Checkbox.svelte';
+	import Table from '$lib/widget/input/data/table/Table.svelte';
+	import TableCell from '$lib/widget/input/data/table/TableCell.svelte';
+	import TableRow from '$lib/widget/input/data/table/TableRow.svelte';
 	import Select from '$lib/widget/input/Select/Select.svelte';
 	import SelectOption from '$lib/widget/input/Select/SelectOption.svelte';
+	import Textarea from '$lib/widget/input/Textarea.svelte';
 	import Toggle from '$lib/widget/input/Toggle.svelte';
 	import Panel from '$lib/widget/layout/Panel.svelte';
+	import ScrollArea from '$lib/widget/layout/ScrollArea.svelte';
 	import Alert from '$lib/widget/overlay/alert/Alert.svelte';
 	import Avatar from '$lib/widget/primitive/Avatar.svelte';
 	import Divider from '$lib/widget/primitive/Divider.svelte';
@@ -17,7 +22,7 @@
 <p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
 <p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p> -->
 
-<div class="container">
+<ScrollArea maxHeight="100%">
 	<div style="padding: 16px;">
 		<Input variant="outlined" placeholder="1231" />
 	</div>
@@ -122,6 +127,37 @@
 		</Panel>
 	</div>
 
+	<div style="display: flex; flex-direction: row; gap: 1rem; margin-top: 1rem">
+		<Textarea placeholder="$100m" width="30rem" height="15rem" />
+	</div>
+
+	<div style="display: flex; flex-direction: row; gap: 1rem; margin-top: 1rem">
+		<Table columns={['one', 'two', 'three']}>
+			<TableRow>
+				<TableCell
+					>123412123412341212341212341234123ma12341234123412341234123412343412341212341234123ma12341234123412341234123412343412341212341234123ma12341234123412341234123412343412341212341234123ma12341234123412341234123412343412341212341234123ma12341234123412341234123412343412341212341234123ma12341234123412341234123412343412341212341234123ma1234123412341234123412341234343ma123412341234123412341234123434</TableCell
+				>
+				<TableCell>
+					<Badge variant="success" label="GOOD" />
+				</TableCell>
+				<TableCell>12</TableCell>
+			</TableRow>
+			<TableRow>
+				<TableCell>12341234</TableCell>
+				<TableCell>1234</TableCell>
+				<TableCell>
+					<Badge variant="danger" label="BAD" />
+				</TableCell>
+			</TableRow>
+			<TableRow>
+				<TableCell>
+					<Badge variant="warn" label="WARNING" />
+				</TableCell>
+				<TableCell>1234</TableCell>
+				<TableCell>12</TableCell>
+			</TableRow>
+		</Table>
+	</div>
 	<!-- <div class="header">
 		<div class="header-title">
 			<Text style="font-size: 20px; font-weight: 700; color: var(--mukade-primary-500)">{'>_ root@mssenger:~$'}</Text>
@@ -165,7 +201,7 @@
 			<div class="menu-content"></div>
 		</div>
 	</div> -->
-</div>
+</ScrollArea>
 
 <style>
 </style>

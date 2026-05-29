@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { alignMap, justifyMap, type Algin, type Justify } from '$lib/utils/flex.ts';
+	import { alignMap, justifyMap, type Algin, type Justify } from '$lib/utils/type.ts';
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 

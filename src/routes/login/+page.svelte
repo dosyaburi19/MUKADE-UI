@@ -22,7 +22,7 @@
 			<TextField variant="filled" label="ID" />
 			<TextField variant="outlined" label="Password" type="password" />
 		</div>
-		<Button>Login</Button>
+		<Button style="width: 20rem;">Login</Button>
 	</Container>
 </div>
 
