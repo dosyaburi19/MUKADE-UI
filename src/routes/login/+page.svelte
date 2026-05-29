@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import { Button, Container, Text } from '$lib/index.ts';
 	import TextField from '$lib/widget/input/TextField/TextField.svelte';
 
@@ -22,7 +22,7 @@
 			<TextField variant="filled" label="ID" />
 			<TextField variant="outlined" label="Password" type="password" />
 		</div>
-		<Button style="width: 20rem;">Login</Button>
+		<Button>Login</Button>
 	</Container>
 </div>
 
@@ -35,4 +35,23 @@
 		width: 100%;
 		height: 100%;
 	}
-</style>
+</style> -->
+
+<script>
+	import { Button, Container, Input, Panel } from '$lib/index.ts';
+</script>
+
+<Container style="display:flex; justify-content:center; align-items:center; height: 100%;">
+	<Panel size="20rem">
+		{#snippet header()}
+			<span>LOGIN</span>
+		{/snippet}
+
+		<Input style="width: 100%" placeholder="username" />
+		<Input style="width: 100%" placeholder="password" />
+
+		{#snippet footer()}
+			<Button variant="primary">[CONFIRM]</Button>
+		{/snippet}
+	</Panel>
+</Container>

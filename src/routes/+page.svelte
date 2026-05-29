@@ -1,26 +1,26 @@
 <script>
-	import { Button, Input, Text, Badge } from '$lib/index.ts';
-	import Checkbox from '$lib/widget/input/Checkbox.svelte';
-	import Table from '$lib/widget/data/table/Table.svelte';
-	import TableCell from '$lib/widget/data/table/TableCell.svelte';
-	import TableRow from '$lib/widget/data/table/TableRow.svelte';
-	import Select from '$lib/widget/input/Select/Select.svelte';
-	import SelectOption from '$lib/widget/input/Select/SelectOption.svelte';
-	import Textarea from '$lib/widget/input/Textarea.svelte';
-	import Toggle from '$lib/widget/input/Toggle.svelte';
-	import Panel from '$lib/widget/layout/Panel.svelte';
-	import ScrollArea from '$lib/widget/layout/ScrollArea.svelte';
-	import Alert from '$lib/widget/feedback/Alert.svelte';
-	import Avatar from '$lib/widget/primitive/Avatar.svelte';
-	import Divider from '$lib/widget/primitive/Divider.svelte';
+	import {
+		Button,
+		Input,
+		Text,
+		Badge,
+		Panel,
+		Divider,
+		Toggle,
+		Checkbox,
+		Select,
+		SelectOption,
+		Alert,
+		Avatar,
+		ScrollArea,
+		Table,
+		TableRow,
+		TableCell,
+		Textarea
+	} from '$lib/index.ts';
 
 	let checkbox = $state(false);
 </script>
-
-<!-- 
-<h1>Welcome to your library project</h1>
-<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p> -->
 
 <ScrollArea maxHeight="100%">
 	<div style="padding: 16px;">
