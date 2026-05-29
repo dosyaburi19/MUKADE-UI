@@ -1,0 +1,34 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap'); */
+/*
+	common 1 palette
+*/
+:root {
+	/* ============ Primary Palette ============*/
+	--mukade-primary: #e03030;
+	--mukade-dim: #7a1a1a;
+	--mukade-bright: #ff4444;
+	--mukade-success: #39ff14;
+	--mukade-success-dim: #1a5c0a;
+	--mukade-warn: #ff9900;
+	--mukade-warn-dim: #be7200;
+
+	/* ============ Background ============ */
+	--mukade-bg: #0a0a0a;
+	--mukade-bg-soft: #0f0f0f;
+	--mukade-bg-inset: #141a1a;
+
+	/* ============ Text ============ */
+	--mukade-text-dark: #000000;
+	--mukade-text: #e8e8e8;
+	--mukade-text-dim: #888;
+	--mukade-placeholder: #333;
+
+	/* ============ Border ============ */
+	--mukade-border: #e03030;
+	--mukade-border-soft: #2a3535;
+	--mukade-border-subtle: #1a1a1a;
+
+	/* ============ Font ============ */
+	--mukade-font-mono: monospace, 'Share Tech mono';
+	--mukade-font-vt: monospace, 'VT323';
+}
