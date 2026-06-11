@@ -1,22 +1,26 @@
 <script lang="ts">
+	import type { TextAlign } from '$lib/utils/type.ts';
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 
 	type TextTag = 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'label' | 'small';
-	type TextColor = 'default' | 'dim' | 'primary' | 'danger' | 'success' | 'warn';
-	type TextSize = 'large' | 'medium' | 'small' | 'l' | 'm' | 's';
+	type TextColor = 'primary' | 'dim' | 'danger' | 'success' | 'warn';
+	type Font = 'mono' | 'vt';
 
 	interface Props extends HTMLAttributes<HTMLElement> {
 		tag?: TextTag;
 		color?: TextColor;
-		size?: TextSize;
+		font?: Font;
+		size?: string;
+		spacing?: string;
+		align?: TextAlign;
 		children?: Snippet<[]>;
 	}
 
-	const { tag = 'p', color = 'default', size = 'medium', children, ...props }: Props = $props();
+	const { tag = 'p', color = 'primary', font = 'mono', size = '1rem', spacing = '0.4rem', align = 'left', children, ...props }: Props = $props();
 </script>
 
-<svelte:element this={tag} class="text {color} {size}" {...props}>
+<svelte:element this={tag} class="text {color} {font}" style:font-size={size} style:letter-spacing={spacing} style:text-align={align} {...props}>
 	{@render children?.()}
 </svelte:element>
 
@@ -26,24 +30,17 @@
 		padding: 0;
 
 		font-size: 1rem;
-		font-family: var(--mukade-font-mono);
+		letter-spacing: 0.4rem;
 		color: var(--mukade-text);
 	}
 
-	/* ============ TEXT SIZE STYLE ============ */
-	.text.large,
-	.text.l {
-		font-size: 1.5rem;
+	/* ============ TEXT FONT STYLE ============ */
+	.text.mono {
+		font-family: var(--mukade-font-mono);
 	}
 
-	/* .text.medium,
-	.text.m {
-		font-size: 1rem;
-	} */
-
-	.text.small,
-	.text.s {
-		font-size: 0.75rem;
+	.text.vt {
+		font-family: var(--mukade-font-vt);
 	}
 
 	/* ============ TEXT COLOR STYLE ============ */

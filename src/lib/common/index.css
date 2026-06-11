@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap');
 /*
 	common 1 palette
 */
@@ -29,6 +29,6 @@
 	--mukade-border-subtle: #1a1a1a;
 
 	/* ============ Font ============ */
-	--mukade-font-mono: monospace, 'Share Tech mono';
-	--mukade-font-vt: monospace, 'VT323';
+	--mukade-font-mono: 'Share Tech mono', monospace;
+	--mukade-font-vt: 'VT323', monospace;
 }
