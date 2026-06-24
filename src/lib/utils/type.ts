@@ -13,15 +13,7 @@ export const alignMap = {
 	stretch: 'stretch'
 } as const;
 
-export const textAlignMap = {
-	start: 'start',
-	left: 'left',
-	center: 'center',
-	right: 'right',
-	end: 'end',
-	justify: 'justify'
-};
-
 export type Justify = keyof typeof justifyMap;
-export type Algin = keyof typeof alignMap;
-export type TextAlign = keyof typeof textAlignMap;
+export type Align = keyof typeof alignMap;
+
+export type TextAlign = 'start' | 'left' | 'center' | 'right' | 'end' | 'justify';

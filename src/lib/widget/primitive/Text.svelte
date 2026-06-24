@@ -17,7 +17,7 @@
 		children?: Snippet<[]>;
 	}
 
-	const { tag = 'p', color = 'primary', font = 'mono', size = '1rem', spacing = '0.4rem', align = 'left', children, ...props }: Props = $props();
+	const { tag = 'p', color = 'primary', font = 'vt', size, spacing = '0.2rem', align = 'left', children, ...props }: Props = $props();
 </script>
 
 <svelte:element this={tag} class="text {color} {font}" style:font-size={size} style:letter-spacing={spacing} style:text-align={align} {...props}>

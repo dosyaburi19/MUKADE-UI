@@ -5,7 +5,7 @@
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		maxHeight?: string;
 		maxWidth?: string;
-		direction?: 'vertical' | 'horizontal' | 'both';
+		direction?: 'vertical'; // *fixed direction type
 		variant?: 'sticky' | 'hide' | 'natural';
 		header?: Snippet<[]>;
 		// sidebar?: Snippet<[]>; *add to next version
@@ -15,6 +15,7 @@
 	let { maxHeight, maxWidth, direction = 'vertical', variant = 'sticky', header, /*sidebar,*/ children, ...props }: Props = $props();
 
 	let viewport = $state<HTMLDivElement>();
+	let content = $state<HTMLDivElement>();
 	let track = $state<HTMLDivElement>();
 	let head = $state<HTMLDivElement>();
 
@@ -24,14 +25,18 @@
 
 	let lastScrollTop = 0;
 
-	function onScroll() {
+	function thumbUpdate() {
+		if (!viewport) return;
+
 		const { scrollTop, scrollHeight, clientHeight } = viewport!;
 		const headerH = head?.clientHeight ?? 0;
-
 		const thumbH = (clientHeight / scrollHeight) * 100;
-		const ratio = scrollTop / (scrollHeight - clientHeight);
-		thumbTop = ratio * (track!.clientHeight - (track!.clientHeight * thumbH) / 100);
+
 		thumbHeight = thumbH;
+
+		if (!track) return;
+		const ratio = scrollTop / (scrollHeight - clientHeight);
+		thumbTop = ratio * (track.clientHeight - (track.clientHeight * thumbH) / 100);
 
 		if (head) {
 			if (variant === 'hide') {
@@ -50,6 +55,15 @@
 			thumbHeight = (viewport.clientHeight / viewport.scrollHeight) * 100;
 		}
 	});
+
+	$effect(() => {
+		if (!viewport || !content) return;
+
+		const resizeObserver = new ResizeObserver(() => thumbUpdate());
+		resizeObserver.observe(content);
+		resizeObserver.observe(viewport);
+		return () => resizeObserver.disconnect();
+	});
 </script>
 
 <div class="scroll-area {direction}" style:max-height={maxHeight} style:max-width={maxWidth} {...props}>
@@ -63,8 +77,10 @@
 			{@render sidebar()}
 		</div>
 	{/if} -->
-	<div class="viewport" bind:this={viewport} onscroll={onScroll} style:padding-top="{head?.clientHeight || 0}px">
-		{@render children?.()}
+	<div class="viewport" bind:this={viewport} onscroll={thumbUpdate} style:padding-top="{head?.clientHeight || 0}px">
+		<div class="content" bind:this={content}>
+			{@render children?.()}
+		</div>
 	</div>
 	{#if thumbHeight < 100 && thumbHeight > 0}
 		<div class="track" bind:this={track} style:top="{Math.max(0, (head?.clientHeight || 0) + headerTop)}px">

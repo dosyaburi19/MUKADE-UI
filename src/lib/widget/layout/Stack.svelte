@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { alignMap, justifyMap, type Algin, type Justify } from '$lib/utils/type.ts';
+	import { alignMap, justifyMap, type Align, type Justify } from '$lib/utils/type.ts';
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		direction?: 'row' | 'column';
 		gap?: string;
-		align?: Algin;
+		align?: Align;
 		justify?: Justify;
 		wrap?: boolean;
 		children?: Snippet<[]>;

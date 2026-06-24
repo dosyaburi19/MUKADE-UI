@@ -11,15 +11,9 @@
 	let { width, height, text = $bindable(''), resizing = false, placeholder, defaultText }: Props = $props();
 </script>
 
-<textarea
-	class="textarea"
-	class:no-resize={resizing}
-	style:--textarea-width-size={width}
-	style:--textarea-height-size={height}
-	bind:value={text}
-	{placeholder}
-	defaultValue={defaultText}
-></textarea>
+<textarea class="textarea" class:no-resize={!resizing} style:--textarea-width-size={width} style:--textarea-height-size={height} bind:value={text} {placeholder}
+	>{defaultText}</textarea
+>
 
 <style>
 	.textarea {
