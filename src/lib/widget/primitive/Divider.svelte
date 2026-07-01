@@ -26,6 +26,8 @@
 
 	.divider.horizontal {
 		flex-direction: row;
+
+		width: 100%;
 	}
 
 	.divider.horizontal::before,
