@@ -28,7 +28,7 @@
 
 	.checkbox-row {
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		gap: 0.5rem;
 
 		cursor: pointer;

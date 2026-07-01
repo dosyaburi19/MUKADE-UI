@@ -13,6 +13,7 @@ export { default as Container } from '$lib/widget/layout/Container.svelte';
 export { default as Stack } from '$lib/widget/layout/Stack.svelte';
 export { default as ScrollArea } from '$lib/widget/layout/ScrollArea.svelte';
 export { default as Panel } from '$lib/widget/layout/Panel.svelte';
+export { default as Section } from '$lib/widget/layout/Section.svelte';
 
 /* ============ INPUT ============ */
 

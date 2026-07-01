@@ -26,3 +26,4 @@ vite.config.ts.timestamp-*
 
 *.md
 !.README.md
+/src/routes/*
