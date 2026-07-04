@@ -31,7 +31,7 @@
 					<a class="link" href="#license">[LICENSE]</a>
 				</div>
 				<div class="github">
-					<Button variant="primary" onclick={linkToGithub}>[GITHUB]</Button>
+					<Button variant="primary" onclick={linkToGithub} style="font-size: 1.2rem">[GITHUB]</Button>
 				</div>
 			</div>
 		{/snippet}

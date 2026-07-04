@@ -1,14 +1,15 @@
 <script lang="ts">
 	interface Props {
 		checked?: boolean;
+		size?: string;
 		label?: string;
 		disabled?: boolean;
 	}
 
-	let { checked = $bindable(false), label, disabled }: Props = $props();
+	let { checked = $bindable(false), size, label, disabled }: Props = $props();
 </script>
 
-<label class="toggle-row" class:disabled>
+<label class="toggle-row" style:--toggle-size={size} class:disabled>
 	<input class="toggle-input" type="checkbox" bind:checked {disabled} />
 	<div class="toggle" class:checked></div>
 	{#if label}
@@ -45,8 +46,8 @@
 	.toggle {
 		position: relative;
 
-		width: 2rem;
-		height: 1rem;
+		width: calc(var(--toggle-size, 1rem) * 2);
+		height: var(--toggle-size, 1rem);
 		border: solid 1px var(--mukade-primary);
 
 		transition: background 0.5s;
@@ -66,9 +67,9 @@
 		top: 0;
 		left: 0;
 
-		width: 0.7rem;
-		height: 0.7rem;
-		margin: 0.15rem;
+		width: calc(var(--toggle-size, 1rem) * 0.7);
+		height: calc(var(--toggle-size, 1rem) * 0.7);
+		margin: calc(var(--toggle-size, 1rem) * 0.15);
 
 		transition:
 			background 0.5s,
@@ -77,14 +78,14 @@
 	}
 
 	.toggle.checked::after {
-		left: 1rem;
+		left: var(--toggle-size, 1rem);
 		background-color: var(--mukade-primary);
 	}
 
 	/* ============ TOGGLE LABEL STYLE ============ */
 
 	.label {
-		font-size: 1rem;
+		font-size: var(--toggle-size, 1rem);
 		font-family: var(--mukade-font-vt);
 		color: var(--mukade-primary);
 
