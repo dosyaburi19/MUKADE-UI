@@ -6,17 +6,18 @@
 	interface Props {
 		header?: Snippet;
 		footer?: Snippet;
+		variant?: 'primary' | 'soft-line';
 		size?: string;
 		dots?: Dots;
 		children?: Snippet<[]>;
 	}
 
-	let { header, footer, size, dots, children }: Props = $props();
+	let { header, footer, variant = 'primary', size, dots, children }: Props = $props();
 
 	let dotItems = $derived(Array.from({ length: dots?.max ?? 0 }, (_, index) => ({ key: index, positive: index < (dots?.index ?? 0) })));
 </script>
 
-<div class="panel" style:--panel-size={size}>
+<div class="panel {variant}" style:--panel-size={size}>
 	{#if header}
 		<div class="header">
 			{@render header()}
@@ -44,7 +45,7 @@
 
 		background-color: var(--mukade-bg-soft);
 
-		font-family: var(--mukade-font-mono);
+		font-family: var(--mukade-font-vt);
 		font-size: 1rem;
 		color: var(--mukade-text);
 	}
@@ -94,5 +95,20 @@
 		border-top: 1px solid var(--mukade-primary);
 
 		color: var(--mukade-primary);
+	}
+
+	/* ============ SOFT-LINE VARIANT STYLE ============ */
+	.panel.soft-line {
+		border-color: var(--mukade-border-soft);
+	}
+	.panel.soft-line * {
+		border-color: var(--mukade-border-soft);
+	}
+
+	.panel.soft-line .header {
+		background-color: color-mix(in srgb, var(--mukade-primary) 2%, var(--mukade-bg-soft));
+	}
+	.panel.soft-line .header .dot:not(.positive) {
+		background-color: color-mix(in srgb, var(--mukade-primary) 2%, var(--mukade-bg-soft));
 	}
 </style>

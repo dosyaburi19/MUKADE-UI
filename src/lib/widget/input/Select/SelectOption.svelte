@@ -26,7 +26,7 @@
 
 		background-color: var(--mukade-bg);
 
-		font-family: var(--mukade-font-mono);
+		font-family: var(--mukade-font-vt);
 		font-size: 1rem;
 		color: var(--mukade-primary);
 
