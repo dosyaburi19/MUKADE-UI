@@ -6,6 +6,7 @@
 <BaseSection id="TOGGLE" sectionTitle="Toggle">
 	<Toggle />
 	<Toggle label="label" />
+	<Toggle size="1.5rem" label="label" />
 	<Toggle disabled />
 	{#snippet propsContent()}
 		<TableRow>

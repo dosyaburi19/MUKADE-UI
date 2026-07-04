@@ -61,7 +61,7 @@
 
 	.label {
 		font-size: 1rem;
-		font-family: var(--mukade-font-mono);
+		font-family: var(--mukade-font-vt);
 		color: var(--mukade-primary);
 	}
 </style>

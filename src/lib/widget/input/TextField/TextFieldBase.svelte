@@ -78,7 +78,7 @@
 		display: inline-flex;
 		width: 100%;
 		min-height: 56px;
-		font-family: monospace;
+		font-family: var(--mukade-font-vt);
 	}
 
 	input {
@@ -110,12 +110,12 @@
 
 	label {
 		position: absolute;
-		left: 14px;
+		left: 1rem;
 		top: 50%;
 
-		font-size: 16px;
+		font-size: 1rem;
 		font-weight: 700;
-		font-family: monospace;
+		font-family: var(--mukade-font-vt);
 		color: var(--mukade-placeholder);
 
 		transform-origin: left center;

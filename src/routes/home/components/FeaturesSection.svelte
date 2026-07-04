@@ -8,7 +8,7 @@
 	];
 </script>
 
-<section id="feature" class="feature-section">
+<section id="features" class="features-section">
 	<Container>
 		<Stack direction="column" gap="0.5rem" style="margin-bottom: 1rem;">
 			<Text size="1rem" color="danger">// WHY CREATE MUKADE-UI</Text>
@@ -50,7 +50,7 @@
 </section>
 
 <style>
-	.feature-section {
+	.features-section {
 		padding-block: 20rem;
 	}
 

@@ -67,10 +67,11 @@
 		display: block;
 
 		width: 0.01px;
-		height: 11px;
+		height: 0.7rem;
 		padding: 0;
 
-		font-size: 12px;
+		font-size: 0.7rem;
+		font-family: var(--mukade-font-vt);
 
 		opacity: 0;
 		overflow: hidden;

@@ -68,7 +68,7 @@
 	.checkbox::before {
 		font-size: 0.75rem;
 		font-weight: 700;
-		font-family: var(--mukade-font-mono);
+		font-family: var(--mukade-font-vt);
 		color: var(--mukade-primary);
 	}
 
@@ -84,7 +84,7 @@
 
 	.label {
 		font-size: 1rem;
-		font-family: var(--mukade-font-mono);
+		font-family: var(--mukade-font-vt);
 		color: var(--mukade-primary);
 
 		user-select: none;

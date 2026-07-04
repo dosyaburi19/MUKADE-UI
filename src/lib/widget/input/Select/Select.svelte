@@ -83,7 +83,7 @@
 
 		font-weight: 700;
 		font-size: 1rem;
-		font-family: var(--mukade-font-mono);
+		font-family: var(--mukade-font-vt);
 		color: var(--mukade-primary);
 
 		overflow: hidden;
@@ -110,7 +110,7 @@
 
 		line-height: 1px;
 		font-weight: 700;
-		font-family: var(--mukade-font-mono);
+		font-family: var(--mukade-font-vt);
 		color: var(--mukade-primary);
 	}
 </style>

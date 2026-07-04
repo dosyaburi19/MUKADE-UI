@@ -2,7 +2,7 @@
 	import { Button, Container } from '$lib/index.ts';
 	import ScrollArea from '$lib/widget/layout/ScrollArea.svelte';
 	import ComponentsSection from './components/ComponentsSection.svelte';
-	import FeatureSection from './components/FeatureSection.svelte';
+	import FeaturesSection from './components/FeaturesSection.svelte';
 	import GetStartSection from './components/GetStartSection.svelte';
 	import MainSection from './components/MainSection.svelte';
 	import ShowcaseSection from './components/ShowcaseSection.svelte';
@@ -24,21 +24,21 @@
 				<div class="header-content">
 					<a class="link" href="#mukade-ui">[MUKADE-UI]</a>
 					/
-					<a class="link" href="#skill">[SKILL]</a>
+					<a class="link" href="#features">[FEATURES]</a>
 					/
 					<a class="link" href="#components">[COMPONENTS]</a>
 					/
 					<a class="link" href="#license">[LICENSE]</a>
 				</div>
 				<div class="github">
-					<Button variant="primary" onclick={linkToGithub}>[GITHUB]</Button>
+					<Button variant="primary" onclick={linkToGithub} style="font-size: 1.2rem">[GITHUB]</Button>
 				</div>
 			</div>
 		{/snippet}
 		<div class="contents">
 			<MainSection />
 			<GetStartSection />
-			<FeatureSection />
+			<FeaturesSection />
 			<ShowcaseSection />
 			<ComponentsSection />
 		</div>
