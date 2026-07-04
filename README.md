@@ -1,7 +1,10 @@
-# PATCH [v0.2.1]
+# PATCH [v0.3.0]
 
 - add variant props in Text Widget ('crt' | 'led' variant added!)
 - add glow props in Text Widget (true | false type added!)
+- swap font-family (mono -> vt)
+- add variant props in Panel Widget ('primary' | 'soft-line' variant added!)
+- add size props in Toggle Widget (string size added!)
 
 # MUKADE-UI (DEMO)
 
