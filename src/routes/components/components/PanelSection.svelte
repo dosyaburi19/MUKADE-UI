@@ -20,6 +20,9 @@
 			{/snippet}
 			<Text color="dim">// header with dots indicator</Text>
 		</Panel>
+		<Panel size="18rem" dots={{ index: 2, max: 3 }}>
+			<Text color="dim">// no header, no footer snippet</Text>
+		</Panel>
 	</Stack>
 	{#snippet propsContent()}
 		<TableRow>

@@ -42,7 +42,7 @@
 </script>
 
 <Container style="display:flex; justify-content:center; align-items:center; height: 100%;">
-	<Panel size="20rem">
+	<Panel size="20rem" dots={{ index: 3, max: 4 }}>
 		{#snippet header()}
 			<span>LOGIN</span>
 		{/snippet}

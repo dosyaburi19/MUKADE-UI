@@ -55,8 +55,8 @@
 		padding: 0.25rem 0.5rem;
 		border: 1px solid;
 
-		font-size: 0.6rem;
-		font-family: var(--mukade-font-mono);
+		font-size: 0.7rem;
+		font-family: var(--mukade-font-vt);
 		background-color: var(--mukade-bg);
 		letter-spacing: 0.1rem;
 
@@ -127,8 +127,8 @@
 
 		height: fit-content;
 
-		font-size: 0.6rem;
-		font-family: var(--mukade-font-mono);
+		font-size: 0.7rem;
+		font-family: var(--mukade-font-vt);
 		letter-spacing: 0.15rem;
 
 		background-color: var(--mukade-bg);

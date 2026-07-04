@@ -74,8 +74,8 @@
 		aspect-ratio: 1 / 1;
 
 		line-height: 1px;
-		font-family: var(--mukade-font-mono);
-		font-size: 2rem;
+		font-family: var(--mukade-font-vt);
+		font-size: 3rem;
 		font-weight: 700;
 		color: var(--mukade-primary);
 	}
@@ -119,16 +119,16 @@
 
 		box-sizing: border-box;
 
-		font-family: var(--mukade-font-mono);
+		font-family: var(--mukade-font-vt);
 	}
 
 	.name {
-		font-size: 1rem;
+		font-size: 1.2rem;
 		color: var(--mukade-text);
 	}
 
 	.sub {
-		font-size: 0.8rem;
+		font-size: 1rem;
 		color: var(--mukade-text-dim);
 	}
 </style>

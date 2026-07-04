@@ -44,8 +44,8 @@
 		height: fit-content;
 		border-left: solid 0.2rem;
 
-		font-size: 0.8rem;
-		font-family: var(--mukade-font-mono);
+		font-size: 1rem;
+		font-family: var(--mukade-font-vt);
 	}
 
 	.alert.fixed {
@@ -85,12 +85,13 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
-		gap: 0.4rem;
-		padding: 0.6rem 0.7rem;
+		gap: 0.5rem;
+		padding: 0.8rem 0.7rem;
 		padding-left: 0;
 	}
 
 	.content {
+		font-size: 0.8rem;
 		color: var(--mukade-text-dim);
 	}
 </style>

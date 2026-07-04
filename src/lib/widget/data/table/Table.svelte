@@ -33,7 +33,7 @@
 		max-width: var(--table-max-size, none);
 
 		background-color: var(--mukade-bg-soft);
-		font-family: var(--mukade-font-mono);
+		font-family: var(--mukade-font-vt);
 		font-size: 1rem;
 		color: var(--mukade-text);
 

@@ -23,7 +23,7 @@
 		border-style: solid;
 
 		font-size: 1rem;
-		font-family: monospace;
+		font-family: var(--mukade-font-vt);
 
 		transition: transform 0.08s;
 		cursor: pointer;

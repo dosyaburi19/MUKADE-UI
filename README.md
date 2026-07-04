@@ -1,3 +1,8 @@
+# PATCH [v0.2.1]
+
+- add variant props in Text Widget ('crt' | 'led' variant added!)
+- add glow props in Text Widget (true | false type added!)
+
 # MUKADE-UI (DEMO)
 
 Terminal-style Svelte 5 UI component library.  
