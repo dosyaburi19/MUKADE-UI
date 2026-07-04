@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
 	import { Container, Stack, Text } from '$lib/index.ts';
 
 	const components = [
@@ -21,13 +20,13 @@
 		{ name: 'Toggle', link: '/components#TOGGLE' },
 		{ name: 'TextField', link: '/components#TEXTFIELD' },
 		{ name: 'Select', link: '/components#SELECT' },
-		{ name: 'SelectOption', link: '/components#SELECTOPTION' },
+		// { name: 'SelectOption', link: '/components#SELECTOPTION' },
 		// feedback
 		{ name: 'Alert', link: '/components#ALERT' },
 		// data
-		{ name: 'Table', link: '/components#TABLE' },
-		{ name: 'TableRow', link: '/components#TABLEROW' },
-		{ name: 'TableCell', link: '/components#TABLECELL' }
+		{ name: 'Table', link: '/components#TABLE' }
+		// { name: 'TableRow', link: '/components#TABLEROW' },
+		// { name: 'TableCell', link: '/components#TABLECELL' }
 	];
 </script>
 
@@ -39,7 +38,7 @@
 		</Stack>
 		<Stack direction="row" wrap={true} gap="1rem">
 			{#each components as { name, link } (link)}
-				<a class="box" href={resolve(link)}>
+				<a class="box" href={link}>
 					<Text size="1.5rem" font="vt" color="danger" spacing="0.2rem">{name}</Text>
 					<Text size="1.2rem" font="vt" color="danger" spacing="0">--></Text>
 				</a>
