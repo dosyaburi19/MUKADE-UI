@@ -16,7 +16,7 @@
 	<Stack gap="1rem">
 		<Checkbox bind:checked={isIndeterminate} label="root" />
 		<Checkbox indeterminate={isIndeterminate} />
-		<Checkbox indeterminate={isIndeterminate} label="label" />
+		<Checkbox indeterminate={isIndeterminate} size="1.3rem" label="label" />
 		<Checkbox indeterminate={isIndeterminate} disabled />
 	</Stack>
 	{#snippet propsContent()}

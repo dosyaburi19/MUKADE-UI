@@ -4,9 +4,10 @@
 		checked?: boolean;
 		indeterminate?: boolean;
 		disabled?: boolean;
+		size?: string;
 	}
 
-	let { label, checked = $bindable(false), indeterminate, disabled }: Props = $props();
+	let { label, checked = $bindable(false), indeterminate, disabled, size }: Props = $props();
 
 	let inputTag: HTMLInputElement | undefined;
 
@@ -15,7 +16,7 @@
 	});
 </script>
 
-<label class="checkbox-row" class:disabled>
+<label class="checkbox-row" class:disabled style:--mukade-checkbox-size={size}>
 	<input class="checkbox-input" type="checkbox" bind:this={inputTag} bind:checked {disabled} />
 	<div class="checkbox" class:checked class:indeterminate></div>
 	{#if label}
@@ -58,15 +59,15 @@
 		align-items: center;
 		justify-content: center;
 
-		width: 1rem;
-		height: 1rem;
+		width: var(--mukade-checkbox-size, 1rem);
+		height: var(--mukade-checkbox-size, 1rem);
 		border: solid 1px var(--mukade-primary);
 
 		box-sizing: border-box;
 	}
 
 	.checkbox::before {
-		font-size: 0.75rem;
+		font-size: calc(var(--mukade-checkbox-size, 1rem) * 0.75);
 		font-weight: 700;
 		font-family: var(--mukade-font-vt);
 		color: var(--mukade-primary);
@@ -83,7 +84,7 @@
 	/* ============ CHECKBOX LABEL STYLE ============ */
 
 	.label {
-		font-size: 1rem;
+		font-size: var(--mukade-checkbox-size, 1rem);
 		font-family: var(--mukade-font-vt);
 		color: var(--mukade-primary);
 
