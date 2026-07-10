@@ -1,14 +1,15 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	interface Props {
+	interface Props extends HTMLAttributes<HTMLDivElement> {
 		variant?: 'info' | 'success' | 'warn' | 'danger';
 		title: string;
-		size?: string;
+		width?: string;
 		children?: Snippet<[]>;
 	}
 
-	let { variant = 'info', title, size, children }: Props = $props();
+	let { variant = 'info', title, width, children, ...props }: Props = $props();
 
 	let icon = $derived(getIcon());
 
@@ -26,7 +27,7 @@
 	}
 </script>
 
-<div class="alert {variant}" class:fixed={!!size} style:--size={size}>
+<div class="alert {variant}" class:fixed={!!width} style:--width={width} role={variant === 'info' || variant === 'success' ? 'status' : 'alert'} {...props}>
 	<div class="icon">{icon}</div>
 	<div class="message">
 		<span class="title">{title}</span>
@@ -50,7 +51,7 @@
 
 	.alert.fixed {
 		min-width: 0;
-		width: var(--size);
+		width: var(--width);
 	}
 
 	.alert.info,

@@ -1,5 +1,7 @@
 <script lang="ts">
-	interface Props {
+	import type { HTMLInputAttributes } from 'svelte/elements';
+
+	interface Props extends Omit<HTMLInputAttributes, 'size'> {
 		label?: string;
 		checked?: boolean;
 		indeterminate?: boolean;
@@ -7,7 +9,7 @@
 		size?: string;
 	}
 
-	let { label, checked = $bindable(false), indeterminate, disabled, size }: Props = $props();
+	let { label, checked = $bindable(false), indeterminate, disabled, size, class: className, style, ...props }: Props = $props();
 
 	let inputTag: HTMLInputElement | undefined;
 
@@ -16,8 +18,8 @@
 	});
 </script>
 
-<label class="checkbox-row" class:disabled style:--mukade-checkbox-size={size}>
-	<input class="checkbox-input" type="checkbox" bind:this={inputTag} bind:checked {disabled} />
+<label class={['checkbox-row', className]} class:disabled style:--mukade-checkbox-size={size} {style}>
+	<input class="checkbox-input" type="checkbox" bind:this={inputTag} bind:checked {disabled} {...props} />
 	<div class="checkbox" class:checked class:indeterminate></div>
 	{#if label}
 		<span class="label">{label}</span>

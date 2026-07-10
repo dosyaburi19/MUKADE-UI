@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	interface Props {
+	interface Props extends HTMLAttributes<HTMLDivElement> {
 		profile?: string;
 		online?: boolean;
 		name?: string;
@@ -10,7 +11,7 @@
 		children?: Snippet<[]>;
 	}
 
-	let { profile, online = false, name, sub, size, children }: Props = $props();
+	let { profile, online = false, name, sub, size, children, ...props }: Props = $props();
 	let imgLoadFail = $state(false);
 
 	function onImageLoadError() {
@@ -22,7 +23,7 @@
 	}
 </script>
 
-<div class="avatar" style:--avatar-size={size}>
+<div class="avatar" style:--avatar-size={size} {...props}>
 	<div class="profile">
 		<span class="profile-view">
 			{#if profile && !imgLoadFail}

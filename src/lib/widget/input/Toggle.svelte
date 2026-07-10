@@ -1,16 +1,18 @@
 <script lang="ts">
-	interface Props {
+	import type { HTMLInputAttributes } from 'svelte/elements';
+
+	interface Props extends Omit<HTMLInputAttributes, 'size'> {
 		checked?: boolean;
 		size?: string;
 		label?: string;
 		disabled?: boolean;
 	}
 
-	let { checked = $bindable(false), size, label, disabled }: Props = $props();
+	let { checked = $bindable(false), size, label, disabled, class: className, style, ...props }: Props = $props();
 </script>
 
-<label class="toggle-row" style:--toggle-size={size} class:disabled>
-	<input class="toggle-input" type="checkbox" bind:checked {disabled} />
+<label class={['toggle-row', className]} style:--toggle-size={size} class:disabled {style}>
+	<input class="toggle-input" type="checkbox" bind:checked {disabled} {...props} />
 	<div class="toggle" class:checked></div>
 	{#if label}
 		<span class="label">{label}</span>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { setContext, type Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 
 	export interface SelectContext {
 		select: (key: string) => void;
@@ -10,15 +11,15 @@
 		[key: string]: string;
 	};
 
-	interface Props {
+	interface Props extends HTMLAttributes<HTMLDivElement> {
 		selected?: string;
 		open?: boolean;
 		placeholder?: string;
-		size?: string;
+		width?: string;
 		children?: Snippet<[]>;
 	}
 
-	let { selected = $bindable(''), open = $bindable(false), placeholder, size, children }: Props = $props();
+	let { selected = $bindable(''), open = $bindable(false), placeholder, width, children, ...props }: Props = $props();
 	let options = $state<Options>({});
 
 	function toggleOpen() {
@@ -42,9 +43,9 @@
 	let display = $derived(options[selected] || selected);
 </script>
 
-<div class="select">
-	<button class="trigger" onclick={toggleOpen} style={size && `min-width: ${size}; max-width: ${size}`}>
-		<span class="selected-item" class:placeholder={!selected}>{display ?? placeholder}</span>
+<div class="select" {...props}>
+	<button class="trigger" onclick={toggleOpen} style={width && `min-width: ${width}; max-width: ${width}`}>
+		<span class="selected-item" class:placeholder={!selected}>{display || placeholder}</span>
 		<span class="arrow">{!open ? '+' : '-'}</span>
 	</button>
 	{#if open}

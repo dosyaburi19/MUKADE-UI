@@ -11,7 +11,7 @@
 	const { children, variant = 'primary', size = 'medium', ...props }: Props = $props();
 </script>
 
-<button class="button {variant} {size}" {...props}>
+<button class="button {variant} {size}" type="button" {...props}>
 	{@render children?.()}
 </button>
 

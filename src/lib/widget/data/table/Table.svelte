@@ -1,16 +1,17 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	interface Props {
-		size?: string;
+	interface Props extends HTMLAttributes<HTMLDivElement> {
+		width?: string;
 		columns?: string[];
 		children?: Snippet<[]>;
 	}
 
-	let { size, columns, children }: Props = $props();
+	let { width, columns, children, ...props }: Props = $props();
 </script>
 
-<div class="table-container" class:fixed={size} style:--table-size={size}>
+<div class="table-container" class:fixed={width} style:--table-width={width} {...props}>
 	<table class="table">
 		{#if columns}
 			<thead>
@@ -29,7 +30,7 @@
 
 <style>
 	.table-container {
-		width: var(--table-size, fit-content);
+		width: var(--table-width, fit-content);
 		max-width: var(--table-max-size, none);
 
 		background-color: var(--mukade-bg-soft);
