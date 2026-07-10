@@ -56,19 +56,19 @@
 	.alert.info,
 	.alert.danger {
 		border-color: var(--mukade-primary);
-		background-color: color-mix(in srgb, var(--mukade-dim) 10%, var(--mukade-bg));
+		background-color: color-mix(in srgb, var(--mukade-dim) 10%, transparent);
 		color: var(--mukade-primary);
 	}
 
 	.alert.warn {
 		border-color: var(--mukade-warn);
-		background-color: color-mix(in srgb, var(--mukade-warn-dim) 10%, var(--mukade-bg));
+		background-color: color-mix(in srgb, var(--mukade-warn-dim) 10%, transparent);
 		color: var(--mukade-warn);
 	}
 
 	.alert.success {
 		border-color: var(--mukade-success);
-		background-color: color-mix(in srgb, var(--mukade-success-dim) 10%, var(--mukade-bg));
+		background-color: color-mix(in srgb, var(--mukade-success-dim) 10%, transparent);
 		color: var(--mukade-success);
 	}
 

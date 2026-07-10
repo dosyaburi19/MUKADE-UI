@@ -20,10 +20,6 @@
 	function onImageLoadStart() {
 		imgLoadFail = false;
 	}
-
-	$effect(() => {
-		console.log('imgLoadFail : ', imgLoadFail);
-	});
 </script>
 
 <div class="avatar" style:--avatar-size={size}>
@@ -74,8 +70,8 @@
 		aspect-ratio: 1 / 1;
 
 		line-height: 1px;
-		font-family: var(--mukade-font-vt);
-		font-size: 3rem;
+		font-family: var(--mukade-font-mono);
+		font-size: 2rem;
 		font-weight: 700;
 		color: var(--mukade-primary);
 	}
@@ -119,16 +115,16 @@
 
 		box-sizing: border-box;
 
-		font-family: var(--mukade-font-vt);
+		font-family: var(--mukade-font-mono);
 	}
 
 	.name {
-		font-size: 1.2rem;
+		font-size: 1rem;
 		color: var(--mukade-text);
 	}
 
 	.sub {
-		font-size: 1rem;
+		font-size: 0.8rem;
 		color: var(--mukade-text-dim);
 	}
 </style>

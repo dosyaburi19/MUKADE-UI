@@ -5,7 +5,7 @@
 
 <BaseSection id="INPUT" sectionTitle="Input">
 	<Stack gap="1rem" wrap={true}>
-		<Input type="text" placeholder="// text type" />
+		<Input type="text" placeholder="// text type" style="width: 10rem;" />
 		<Input type="email" placeholder="// email type" />
 		<Input type="password" placeholder="// password type" />
 		<Input variant="filled" placeholder="// filled variant" />

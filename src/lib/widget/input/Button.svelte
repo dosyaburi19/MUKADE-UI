@@ -50,7 +50,7 @@
 	/* ============ PRIMARY VARIANT STYLE ============ */
 
 	.button.primary {
-		background-color: var(--mukade-bg);
+		background-color: transparent;
 		border-color: var(--mukade-primary);
 		color: var(--mukade-primary);
 	}
@@ -109,7 +109,7 @@
 
 	.button.ghost {
 		background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.08) 2px, rgba(0, 0, 0, 0.08) 4px);
-		background-color: var(--mukade-bg);
+		background-color: transparent;
 		border-color: var(--mukade-border-soft);
 		color: var(--mukade-text-dim);
 	}
