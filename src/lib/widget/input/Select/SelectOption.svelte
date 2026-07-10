@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { getContext, onMount } from 'svelte';
 	import { type SelectContext } from './Select.svelte';
+	import type { HTMLButtonAttributes } from 'svelte/elements';
 
-	interface Props {
+	interface Props extends HTMLButtonAttributes {
 		key: string;
 		label?: string;
 	}
 
-	let { key, label }: Props = $props();
+	let { key, label, onclick, ...props }: Props = $props();
 	let { select, addOptions } = getContext<SelectContext>('mukade-select');
 
 	onMount(() => {
@@ -15,7 +16,15 @@
 	});
 </script>
 
-<button class="select-option" onclick={() => select(key)}>
+<button
+	class="select-option"
+	type="button"
+	onclick={(event) => {
+		select(key);
+		onclick?.(event);
+	}}
+	{...props}
+>
 	{label ?? key}
 </button>
 

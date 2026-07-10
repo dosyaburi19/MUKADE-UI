@@ -1,5 +1,7 @@
 <script lang="ts">
-	interface Props {
+	import type { HTMLAttributes } from 'svelte/elements';
+
+	interface Props extends HTMLAttributes<HTMLDivElement> {
 		orientation?: 'horizontal' | 'vertical';
 		variant?: 'solid' | 'dashed' | 'dotted';
 		label?: string;
@@ -7,10 +9,17 @@
 		weight?: string;
 	}
 
-	let { orientation = 'horizontal', variant = 'solid', label, size, weight }: Props = $props();
+	let { orientation = 'horizontal', variant = 'solid', label, size, weight, ...props }: Props = $props();
 </script>
 
-<div class="divider {orientation} {variant}" role="separator" aria-orientation={orientation} style:--mukade-divider-line-weight={weight}>
+<div
+	class="divider {orientation}"
+	role="separator"
+	aria-orientation={orientation}
+	style:--mukade-divider-variant={variant}
+	style:--mukade-divider-line-weight={weight}
+	{...props}
+>
 	{#if label}
 		<span class="label" style:--mukade-divider-font-size={size}>{label}</span>
 	{/if}
@@ -36,8 +45,9 @@
 	.divider.horizontal::after {
 		content: '';
 		flex: 1;
-		height: var(--mukade-divider-line-weight, 1px);
-		background: var(--mukade-primary);
+		/* height: var(--mukade-divider-line-weight, 1px);
+		background: var(--mukade-primary); */
+		border-top: var(--mukade-divider-line-weight, 1px) var(--mukade-divider-variant) var(--mukade-primary);
 	}
 
 	.divider.vertical {
@@ -51,8 +61,9 @@
 	.divider.vertical::after {
 		content: '';
 		flex: 1;
-		width: var(--mukade-divider-line-weight, 1px);
-		background-color: var(--mukade-primary);
+		/* width: var(--mukade-divider-line-weight, 1px);
+		background-color: var(--mukade-primary); */
+		border-left: var(--mukade-divider-line-weight, 1px) var(--mukade-divider-variant) var(--mukade-primary);
 	}
 
 	.divider.vertical .label {

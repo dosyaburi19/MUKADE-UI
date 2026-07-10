@@ -1,19 +1,26 @@
 <script lang="ts">
-	interface Props {
+	import type { HTMLTextareaAttributes } from 'svelte/elements';
+
+	interface Props extends HTMLTextareaAttributes {
 		width?: string;
 		height?: string;
 		text?: string;
 		resizing?: boolean;
 		placeholder?: string;
-		defaultText?: string;
 	}
 
-	let { width, height, text = $bindable(''), resizing = false, placeholder, defaultText }: Props = $props();
+	let { width, height, text = $bindable(''), resizing = false, placeholder, ...props }: Props = $props();
 </script>
 
-<textarea class="textarea" class:no-resize={!resizing} style:--textarea-width-size={width} style:--textarea-height-size={height} bind:value={text} {placeholder}
-	>{defaultText}</textarea
->
+<textarea
+	class="textarea"
+	class:no-resize={!resizing}
+	style:--textarea-width-size={width}
+	style:--textarea-height-size={height}
+	bind:value={text}
+	{placeholder}
+	{...props}
+></textarea>
 
 <style>
 	.textarea {

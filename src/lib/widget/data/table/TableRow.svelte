@@ -1,14 +1,15 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	interface Props {
+	interface Props extends HTMLAttributes<HTMLDivElement> {
 		children?: Snippet<[]>;
 	}
 
-	let { children }: Props = $props();
+	let { children, ...props }: Props = $props();
 </script>
 
-<tr class="row">
+<tr class="row" {...props}>
 	{@render children?.()}
 </tr>
 

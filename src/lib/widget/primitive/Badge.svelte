@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	interface Props {
+	interface Props extends HTMLAttributes<HTMLSpanElement> {
 		variant?: 'primary' | 'idle' | 'danger' | 'warn' | 'success';
 		label?: string;
 		count?: number;
@@ -10,7 +11,7 @@
 		children?: Snippet<[]>;
 	}
 
-	let { variant = 'primary', label, count, position = 'top-right', children, max }: Props = $props();
+	let { variant = 'primary', label, count, position = 'top-right', children, max, ...props }: Props = $props();
 
 	function getDisplay() {
 		if (count !== undefined) {
@@ -26,14 +27,14 @@
 </script>
 
 {#if children}
-	<span class="overlay-badge {variant}">
+	<span class="overlay-badge {variant}" {...props}>
 		{@render children?.()}
 		<span class="overlay-badge-item {position}">
 			{display}
 		</span>
 	</span>
 {:else}
-	<span class="tag-badge {variant}">
+	<span class="tag-badge {variant}" {...props}>
 		{display}
 	</span>
 {/if}

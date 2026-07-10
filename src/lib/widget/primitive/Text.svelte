@@ -20,8 +20,8 @@
 
 	const {
 		tag = 'p',
-		variant = 'crt',
-		glow = true,
+		variant = 'led',
+		glow = false,
 		color = 'primary',
 		font = 'vt',
 		size,

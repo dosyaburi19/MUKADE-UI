@@ -6,12 +6,13 @@
 	interface Props extends HTMLInputAttributes {
 		variant?: InputVariant;
 		type?: 'text' | 'password' | 'number' | 'email' | 'search';
+		value?: string | number;
 	}
 
-	const { variant = 'outlined', type = 'text', ...props }: Props = $props();
+	let { variant = 'outlined', value = $bindable(''), type = 'text', ...props }: Props = $props();
 </script>
 
-<input class="input {variant}" {type} {...props} />
+<input class="input {variant}" bind:value {type} {...props} />
 
 <style>
 	.input {

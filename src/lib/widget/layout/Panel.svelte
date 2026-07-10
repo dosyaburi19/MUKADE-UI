@@ -1,23 +1,24 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 
 	type Dots = { index: number; max: number };
 
-	interface Props {
+	interface Props extends HTMLAttributes<HTMLDivElement> {
 		header?: Snippet;
 		footer?: Snippet;
 		variant?: 'primary' | 'soft-line';
-		size?: string;
+		width?: string;
 		dots?: Dots;
 		children?: Snippet<[]>;
 	}
 
-	let { header, footer, variant = 'primary', size, dots, children }: Props = $props();
+	let { header, footer, variant = 'primary', width, dots, children, ...props }: Props = $props();
 
 	let dotItems = $derived(Array.from({ length: dots?.max ?? 0 }, (_, index) => ({ key: index, positive: index < (dots?.index ?? 0) })));
 </script>
 
-<div class="panel {variant}" style:--panel-size={size}>
+<div class="panel {variant}" style:--panel-width={width} {...props}>
 	{#if header}
 		<div class="header">
 			{@render header()}
@@ -40,7 +41,7 @@
 
 <style>
 	.panel {
-		width: var(--panel-size, fit-content);
+		width: var(--panel-width, fit-content);
 		border: solid 1px var(--mukade-primary);
 
 		background-color: var(--mukade-bg-soft);
