@@ -57,7 +57,7 @@
 
 		font-size: 0.7rem;
 		font-family: var(--mukade-font-vt);
-		background-color: var(--mukade-bg);
+		background-color: transparent;
 		letter-spacing: 0.1rem;
 
 		pointer-events: none;
@@ -131,7 +131,7 @@
 		font-family: var(--mukade-font-vt);
 		letter-spacing: 0.15rem;
 
-		background-color: var(--mukade-bg);
+		background-color: transparent;
 	}
 
 	.tag-badge.primary {
