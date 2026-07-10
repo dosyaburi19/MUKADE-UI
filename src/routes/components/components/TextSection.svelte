@@ -12,8 +12,8 @@
 		<Text color="success">// success color</Text>
 	</Stack>
 	<Stack gap="1.5rem" wrap={true} align="center">
-		<Text font="mono">mono font</Text>
-		<Text font="vt" size="1.5rem">vt font</Text>
+		<Text font="mono" glow={false}>mono font</Text>
+		<Text variant="led" font="vt" size="1.5rem">vt font</Text>
 		<Text tag="h2" size="2rem" spacing="0.1rem">heading</Text>
 	</Stack>
 	{#snippet propsContent()}

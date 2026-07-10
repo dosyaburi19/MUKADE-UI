@@ -6,12 +6,12 @@
 <BaseSection id="DIVIDER" sectionTitle="Divider">
 	<Stack direction="column" gap="1rem" style="width: 100%;">
 		<Divider />
-		<Divider label="LABEL" />
+		<Divider label="LABEL" weight="3px" />
 	</Stack>
 	<Divider label="vertical" />
-	<Stack gap="1.5rem" style="height: 4rem;">
+	<Stack gap="1.5rem" style="height: 10rem;">
 		<Divider orientation="vertical" />
-		<Divider orientation="vertical" label="VERT" />
+		<Divider orientation="vertical" label="VERT" size="1.2rem" />
 	</Stack>
 	{#snippet propsContent()}
 		<TableRow>
