@@ -5,7 +5,7 @@
 
 <BaseSection id="PANEL" sectionTitle="Panel">
 	<Stack gap="1.5rem" wrap={true}>
-		<Panel size="18rem">
+		<Panel width="18rem">
 			{#snippet header()}
 				<Text size="1rem" font="vt" color="danger">SYSTEM</Text>
 			{/snippet}
@@ -14,13 +14,13 @@
 				<Button variant="ghost">[OK]</Button>
 			{/snippet}
 		</Panel>
-		<Panel size="18rem" dots={{ index: 2, max: 3 }}>
+		<Panel width="18rem" dots={{ index: 2, max: 3 }}>
 			{#snippet header()}
 				<Text size="1rem" font="vt" color="danger">PROGRESS</Text>
 			{/snippet}
 			<Text color="dim">// header with dots indicator</Text>
 		</Panel>
-		<Panel size="18rem" dots={{ index: 2, max: 3 }}>
+		<Panel width="18rem" dots={{ index: 2, max: 3 }}>
 			<Text color="dim">// no header, no footer snippet</Text>
 		</Panel>
 	</Stack>
@@ -36,7 +36,12 @@
 			<TableCell>undefined</TableCell>
 		</TableRow>
 		<TableRow>
-			<TableCell>size</TableCell>
+			<TableCell>variant</TableCell>
+			<TableCell>'primary' | 'soft-line'</TableCell>
+			<TableCell>'primary'</TableCell>
+		</TableRow>
+		<TableRow>
+			<TableCell>width</TableCell>
 			<TableCell>string | undefined</TableCell>
 			<TableCell>undefined</TableCell>
 		</TableRow>
@@ -49,6 +54,11 @@
 			<TableCell>children</TableCell>
 			<TableCell>Snippet</TableCell>
 			<TableCell>undefined</TableCell>
+		</TableRow>
+		<TableRow>
+			<TableCell>others</TableCell>
+			<TableCell>HTMLAttributes</TableCell>
+			<TableCell>-</TableCell>
 		</TableRow>
 	{/snippet}
 </BaseSection>

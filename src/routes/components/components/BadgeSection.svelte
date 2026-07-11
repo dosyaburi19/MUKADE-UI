@@ -51,5 +51,10 @@
 			<TableCell>Snippet</TableCell>
 			<TableCell>undefined</TableCell>
 		</TableRow>
+		<TableRow>
+			<TableCell>others</TableCell>
+			<TableCell>HTMLAttributes</TableCell>
+			<TableCell>-</TableCell>
+		</TableRow>
 	{/snippet}
 </BaseSection>

@@ -24,5 +24,15 @@
 			<TableCell>boolean | undefined</TableCell>
 			<TableCell>false</TableCell>
 		</TableRow>
+		<TableRow>
+			<TableCell>size</TableCell>
+			<TableCell>string | undefined</TableCell>
+			<TableCell>undefined</TableCell>
+		</TableRow>
+		<TableRow>
+			<TableCell>others</TableCell>
+			<TableCell>HTMLInputAttributes</TableCell>
+			<TableCell>-</TableCell>
+		</TableRow>
 	{/snippet}
 </BaseSection>

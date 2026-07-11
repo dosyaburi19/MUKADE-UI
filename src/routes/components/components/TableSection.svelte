@@ -4,7 +4,7 @@
 </script>
 
 <BaseSection id="TABLE" sectionTitle="Table">
-	<Table size="24rem" columns={['id', 'name', 'status']}>
+	<Table width="24rem" columns={['id', 'name', 'status']}>
 		<TableRow>
 			<TableCell>01</TableCell>
 			<TableCell>mukade-core</TableCell>
@@ -23,7 +23,7 @@
 	</Table>
 	{#snippet propsContent()}
 		<TableRow>
-			<TableCell>size</TableCell>
+			<TableCell>width</TableCell>
 			<TableCell>string | undefined</TableCell>
 			<TableCell>undefined</TableCell>
 		</TableRow>
@@ -41,6 +41,11 @@
 			<TableCell>TableCell.width</TableCell>
 			<TableCell>string | undefined</TableCell>
 			<TableCell>undefined</TableCell>
+		</TableRow>
+		<TableRow>
+			<TableCell>others</TableCell>
+			<TableCell>HTMLAttributes</TableCell>
+			<TableCell>-</TableCell>
 		</TableRow>
 	{/snippet}
 </BaseSection>

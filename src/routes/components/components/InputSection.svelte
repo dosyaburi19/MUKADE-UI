@@ -23,8 +23,14 @@
 			<TableCell>'text'</TableCell>
 		</TableRow>
 		<TableRow>
+			<TableCell>value</TableCell>
+			<TableCell>string | number (bindable)</TableCell>
+			<TableCell>''</TableCell>
+		</TableRow>
+		<TableRow>
 			<TableCell>others</TableCell>
 			<TableCell>HTMLInputAttributes</TableCell>
+			<TableCell>-</TableCell>
 		</TableRow>
 	{/snippet}
 </BaseSection>

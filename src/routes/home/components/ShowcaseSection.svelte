@@ -8,7 +8,7 @@
 			<Text size="1rem" color="danger">// LIVE PREVIEW</Text>
 			<Text font="vt" size="3rem">Show Case</Text>
 		</Stack>
-		<Panel dots={{ index: 3, max: 4 }} size="100%">
+		<Panel dots={{ index: 3, max: 4 }} width="100%">
 			{#snippet header()}
 				SHOW CASE
 			{/snippet}
