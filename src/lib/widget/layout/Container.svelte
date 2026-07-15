@@ -16,7 +16,6 @@
 <style>
 	.container {
 		width: 100%;
-		padding-inline: 1rem;
 		box-sizing: border-box;
 		margin: 0 auto;
 	}

@@ -1,33 +1,39 @@
 <script lang="ts">
-	import { Container, Stack, Text } from '$lib/index.ts';
+	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
+	import { Button, Container, Stack, Text } from '$lib/index.ts';
 
 	const components = [
 		// primitive
-		{ name: 'Avatar', link: '/components#AVATAR' },
-		{ name: 'Badge', link: '/components#BADGE' },
-		{ name: 'Divider', link: '/components#DIVIDER' },
-		{ name: 'Text', link: '/components#TEXT' },
+		{ name: 'Avatar', id: 'AVATAR' },
+		{ name: 'Badge', id: 'BADGE' },
+		{ name: 'Divider', id: 'DIVIDER' },
+		{ name: 'Text', id: 'TEXT' },
 		// layout
-		{ name: 'Container', link: '/components#CONTAINER' },
-		{ name: 'Stack', link: '/components#STACK' },
-		{ name: 'ScrollArea', link: '/components#SCROLLAREA' },
-		{ name: 'Panel', link: '/components#PANEL' },
+		{ name: 'Container', id: 'CONTAINER' },
+		{ name: 'Stack', id: 'STACK' },
+		{ name: 'ScrollArea', id: 'SCROLLAREA' },
+		{ name: 'Panel', id: 'PANEL' },
 		// input
-		{ name: 'Button', link: '/components#BUTTON' },
-		{ name: 'Checkbox', link: '/components#CHECKBOX' },
-		{ name: 'Input', link: '/components#INPUT' },
-		{ name: 'Textarea', link: '/components#TEXTAREA' },
-		{ name: 'Toggle', link: '/components#TOGGLE' },
-		{ name: 'TextField', link: '/components#TEXTFIELD' },
-		{ name: 'Select', link: '/components#SELECT' },
-		// { name: 'SelectOption', link: '/components#SELECTOPTION' },
+		{ name: 'Button', id: 'BUTTON' },
+		{ name: 'Checkbox', id: 'CHECKBOX' },
+		{ name: 'Input', id: 'INPUT' },
+		{ name: 'Textarea', id: 'TEXTAREA' },
+		{ name: 'Toggle', id: 'TOGGLE' },
+		{ name: 'TextField', id: 'TEXTFIELD' },
+		{ name: 'Select', id: 'SELECT' },
+		// { name: 'SelectOption', id:'SELECTOPTION' },
 		// feedback
-		{ name: 'Alert', link: '/components#ALERT' },
+		{ name: 'Alert', id: 'ALERT' },
 		// data
-		{ name: 'Table', link: '/components#TABLE' }
-		// { name: 'TableRow', link: '/components#TABLEROW' },
-		// { name: 'TableCell', link: '/components#TABLECELL' }
+		{ name: 'Table', id: 'TABLE' }
+		// { name: 'TableRow', id:'TABLEROW' },
+		// { name: 'TableCell', id:'TABLECELL' }
 	];
+
+	function moveTo(id: string) {
+		goto(`${resolve('/components')}#${id}`);
+	}
 </script>
 
 <section id="components" class="components-section">
@@ -37,11 +43,12 @@
 			<Text font="vt" size="3rem">Components</Text>
 		</Stack>
 		<Stack direction="row" wrap={true} gap="1rem">
-			{#each components as { name, link } (link)}
-				<a class="box" href={link}>
-					<Text size="1.5rem" font="vt" color="danger" spacing="0.2rem">{name}</Text>
-					<Text size="1.2rem" font="vt" color="danger" spacing="0">--></Text>
-				</a>
+			{#each components as { name, id } (id)}
+				<Button size="large" style="padding: 0.5rem 1rem;" onclick={() => moveTo(id)}>
+					{name} -->
+					<!-- <Text size="1.5rem" font="vt" color="danger" spacing="0.2rem">{name}</Text>
+					<Text size="1.2rem" font="vt" color="danger" spacing="0"></Text> -->
+				</Button>
 			{/each}
 		</Stack>
 	</Container>
@@ -51,7 +58,7 @@
 	.components-section {
 		padding-bottom: 20rem;
 	}
-	.box {
+	/* .box {
 		display: flex;
 		flex-direction: row;
 		gap: 2rem;
@@ -69,5 +76,5 @@
 	.box:hover {
 		border: 1px solid var(--mukade-border);
 		transform: scale(1.05);
-	}
+	} */
 </style>
