@@ -6,7 +6,7 @@
 <BaseSection id="TEXTAREA" sectionTitle="Textarea">
 	<Stack gap="1rem" wrap={true}>
 		<Textarea placeholder="// placeholder" width="10rem" />
-		<Textarea placeholder="// placeholder" width="10rem" defaultText="defaultText" />
+		<Textarea placeholder="// resizable" width="10rem" resizing />
 	</Stack>
 	{#snippet propsContent()}
 		<TableRow>
@@ -36,9 +36,9 @@
 		</TableRow>
 
 		<TableRow>
-			<TableCell>defaultText</TableCell>
-			<TableCell>string | undefined</TableCell>
-			<TableCell>undefined</TableCell>
+			<TableCell>others</TableCell>
+			<TableCell>HTMLTextareaAttributes</TableCell>
+			<TableCell>-</TableCell>
 		</TableRow>
 	{/snippet}
 </BaseSection>

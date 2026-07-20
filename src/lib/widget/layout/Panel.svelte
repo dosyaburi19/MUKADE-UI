@@ -1,114 +1,121 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 
 	type Dots = { index: number; max: number };
 
-	interface Props {
+	interface Props extends HTMLAttributes<HTMLDivElement> {
 		header?: Snippet;
 		footer?: Snippet;
 		variant?: 'primary' | 'soft-line';
-		size?: string;
+		width?: string;
 		dots?: Dots;
 		children?: Snippet<[]>;
 	}
 
-	let { header, footer, variant = 'primary', size, dots, children }: Props = $props();
+	let { header, footer, variant = 'primary', width, dots, children, ...props }: Props = $props();
 
 	let dotItems = $derived(Array.from({ length: dots?.max ?? 0 }, (_, index) => ({ key: index, positive: index < (dots?.index ?? 0) })));
 </script>
 
-<div class="panel {variant}" style:--panel-size={size}>
+<div class="mukade-panel mukade-panel-{variant}" style:--_mukade-panel-width={width} {...props}>
 	{#if header}
-		<div class="header">
+		<div class="mukade-panel-header">
 			{@render header()}
 			{#if dots}
-				<div class="dots">
+				<div class="mukade-panel-dots">
 					{#each dotItems as { key, positive } (key)}
-						<span class="dot" class:positive></span>
+						<span class="mukade-panel-dot" class:mukade-panel-dot-positive={positive}></span>
 					{/each}
 				</div>
 			{/if}
 		</div>
 	{/if}
-	<div class="content">
+	<div class="mukade-panel-content">
 		{@render children?.()}
 	</div>
 	{#if footer}
-		<div class="footer">{@render footer()}</div>
+		<div class="mukade-panel-footer">{@render footer()}</div>
 	{/if}
 </div>
 
 <style>
-	.panel {
-		width: var(--panel-size, fit-content);
-		border: solid 1px var(--mukade-primary);
+	/* 내부 전용: 상속 차단 (같은 요소에서 설정→소비) */
+	@property --_mukade-panel-width {
+		syntax: '*';
+		inherits: false;
+	}
 
-		background-color: var(--mukade-bg-soft);
+	.mukade-panel {
+		width: var(--_mukade-panel-width, fit-content);
+		border: solid 1px var(--mukade-panel-accent, var(--mukade-primary));
+
+		background-color: var(--mukade-panel-bg, var(--mukade-bg-soft));
 
 		font-family: var(--mukade-font-vt);
 		font-size: 1rem;
 		color: var(--mukade-text);
 	}
 
-	.header {
+	.mukade-panel-header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		gap: 2rem;
 
 		padding: 0.4rem 0.7rem;
-		border-bottom: 1px solid var(--mukade-primary);
-		background-color: color-mix(in srgb, var(--mukade-primary) 5%, var(--mukade-bg-soft));
+		border-bottom: 1px solid var(--mukade-panel-accent, var(--mukade-primary));
+		background-color: color-mix(in srgb, var(--mukade-panel-accent, var(--mukade-primary)) 5%, var(--mukade-panel-bg, var(--mukade-bg-soft)));
 
-		color: var(--mukade-primary);
+		color: var(--mukade-panel-accent, var(--mukade-primary));
 	}
 
-	.dots {
+	.mukade-panel-dots {
 		display: flex;
 		align-items: center;
 		gap: 0.3rem;
 	}
 
-	.dot {
+	.mukade-panel-dot {
 		width: 0.4rem;
 		height: 0.4rem;
 
-		border: solid 1px var(--mukade-primary);
-		background-color: color-mix(in srgb, var(--mukade-primary) 5%, var(--mukade-bg-soft));
+		border: solid 1px var(--mukade-panel-accent, var(--mukade-primary));
+		background-color: color-mix(in srgb, var(--mukade-panel-accent, var(--mukade-primary)) 5%, var(--mukade-panel-bg, var(--mukade-bg-soft)));
 	}
 
-	.dot.positive {
-		background-color: var(--mukade-primary);
+	.mukade-panel-dot.mukade-panel-dot-positive {
+		background-color: var(--mukade-panel-accent, var(--mukade-primary));
 	}
 
-	.content {
+	.mukade-panel-content {
 		padding: 0.7rem;
 	}
 
-	.footer {
+	.mukade-panel-footer {
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
 		gap: 0.3rem;
 
 		padding: 0.4rem 0.7rem;
-		border-top: 1px solid var(--mukade-primary);
+		border-top: 1px solid var(--mukade-panel-accent, var(--mukade-primary));
 
-		color: var(--mukade-primary);
+		color: var(--mukade-panel-accent, var(--mukade-primary));
 	}
 
 	/* ============ SOFT-LINE VARIANT STYLE ============ */
-	.panel.soft-line {
+	.mukade-panel.mukade-panel-soft-line {
 		border-color: var(--mukade-border-soft);
 	}
-	.panel.soft-line * {
+	.mukade-panel.mukade-panel-soft-line * {
 		border-color: var(--mukade-border-soft);
 	}
 
-	.panel.soft-line .header {
-		background-color: color-mix(in srgb, var(--mukade-primary) 2%, var(--mukade-bg-soft));
+	.mukade-panel.mukade-panel-soft-line .mukade-panel-header {
+		background-color: color-mix(in srgb, var(--mukade-panel-accent, var(--mukade-primary)) 2%, var(--mukade-panel-bg, var(--mukade-bg-soft)));
 	}
-	.panel.soft-line .header .dot:not(.positive) {
-		background-color: color-mix(in srgb, var(--mukade-primary) 2%, var(--mukade-bg-soft));
+	.mukade-panel.mukade-panel-soft-line .mukade-panel-header .mukade-panel-dot:not(.mukade-panel-dot-positive) {
+		background-color: color-mix(in srgb, var(--mukade-panel-accent, var(--mukade-primary)) 2%, var(--mukade-panel-bg, var(--mukade-bg-soft)));
 	}
 </style>

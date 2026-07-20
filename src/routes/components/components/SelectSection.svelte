@@ -6,7 +6,7 @@
 </script>
 
 <BaseSection id="SELECT" sectionTitle="Select">
-	<Select bind:selected placeholder="// SELECT" size="10rem">
+	<Select bind:selected placeholder="// SELECT" width="10rem">
 		<SelectOption key="scan" label="[SCAN]" />
 		<SelectOption key="build" label="[BUILD]" />
 		<SelectOption key="deploy" label="[DEPLOY]" />
@@ -28,9 +28,14 @@
 			<TableCell>undefined</TableCell>
 		</TableRow>
 		<TableRow>
-			<TableCell>size</TableCell>
+			<TableCell>width</TableCell>
 			<TableCell>string | undefined</TableCell>
 			<TableCell>undefined</TableCell>
+		</TableRow>
+		<TableRow>
+			<TableCell>others</TableCell>
+			<TableCell>HTMLAttributes</TableCell>
+			<TableCell>-</TableCell>
 		</TableRow>
 		<TableRow>
 			<TableCell>SelectOption.key</TableCell>

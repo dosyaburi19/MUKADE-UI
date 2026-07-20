@@ -1,23 +1,24 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	interface Props {
+	interface Props extends HTMLAttributes<HTMLDivElement> {
 		children?: Snippet<[]>;
 	}
 
-	let { children }: Props = $props();
+	let { children, ...props }: Props = $props();
 </script>
 
-<tr class="row">
+<tr class="mukade-table-row" {...props}>
 	{@render children?.()}
 </tr>
 
 <style>
-	.row {
+	.mukade-table-row {
 		border-bottom: 1px solid var(--mukade-border-soft);
 	}
 
-	.row:last-child {
+	.mukade-table-row:last-child {
 		border-bottom: none;
 	}
 </style>

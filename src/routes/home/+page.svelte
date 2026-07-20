@@ -6,6 +6,7 @@
 	import GetStartSection from './components/GetStartSection.svelte';
 	import MainSection from './components/MainSection.svelte';
 	import ShowcaseSection from './components/ShowcaseSection.svelte';
+	import SystemStatusSection from './components/SystemStatusSection.svelte';
 
 	function linkToPage(url: string) {
 		window.open(url, 'noopener');
@@ -38,6 +39,7 @@
 		<div class="contents">
 			<MainSection />
 			<GetStartSection />
+			<SystemStatusSection />
 			<FeaturesSection />
 			<ShowcaseSection />
 			<ComponentsSection />

@@ -23,7 +23,7 @@
 		<Text size="3rem" font="mono" spacing="0.2rem" color="danger">{sectionTitle}</Text>
 	{/snippet}
 	<Stack direction="column" gap="1rem" style="margin-top:3rem">
-		<Panel size="80%" dots={{ index: 1, max: 3 }}>
+		<Panel width="80%" dots={{ index: 1, max: 3 }}>
 			{#snippet header()}
 				<Text size="1rem" font="vt" spacing="0.2rem" color="danger">Preview</Text>
 			{/snippet}
@@ -40,7 +40,7 @@
 				{/if}] PROPS API
 			</Button>
 			{#if isOpen}
-				<Table size="100%" columns={['props', 'type', 'default']}>
+				<Table width="100%" columns={['props', 'type', 'default']}>
 					{@render propsContent()}
 				</Table>
 			{/if}

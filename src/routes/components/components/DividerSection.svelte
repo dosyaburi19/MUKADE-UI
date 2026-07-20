@@ -6,12 +6,12 @@
 <BaseSection id="DIVIDER" sectionTitle="Divider">
 	<Stack direction="column" gap="1rem" style="width: 100%;">
 		<Divider />
-		<Divider label="LABEL" weight="3px" />
+		<Divider variant="dotted" label="LABEL" weight="3px" />
 	</Stack>
 	<Divider label="vertical" />
 	<Stack gap="1.5rem" style="height: 10rem;">
 		<Divider orientation="vertical" />
-		<Divider orientation="vertical" label="VERT" size="1.2rem" />
+		<Divider variant="dashed" orientation="vertical" label="VERT" size="1.2rem" />
 	</Stack>
 	{#snippet propsContent()}
 		<TableRow>
@@ -28,6 +28,21 @@
 			<TableCell>label</TableCell>
 			<TableCell>string | undefined</TableCell>
 			<TableCell>undefined</TableCell>
+		</TableRow>
+		<TableRow>
+			<TableCell>size</TableCell>
+			<TableCell>string | undefined</TableCell>
+			<TableCell>undefined</TableCell>
+		</TableRow>
+		<TableRow>
+			<TableCell>weight</TableCell>
+			<TableCell>string | undefined</TableCell>
+			<TableCell>undefined</TableCell>
+		</TableRow>
+		<TableRow>
+			<TableCell>others</TableCell>
+			<TableCell>HTMLAttributes</TableCell>
+			<TableCell>-</TableCell>
 		</TableRow>
 	{/snippet}
 </BaseSection>

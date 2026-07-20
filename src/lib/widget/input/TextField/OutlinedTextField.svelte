@@ -12,12 +12,12 @@
 	let { type = '', label = '', placeholder = '', value = $bindable(''), width = '' }: Props = $props();
 </script>
 
-<div class="outlined-textfield" style="width: {width ?? '100%'}">
+<div class="mukade-textfield-outlined" style="width: {width ?? '100%'}">
 	<TextFieldBase {type} {label} {placeholder} bind:value>
 		{#snippet children({ focused, floated, label })}
-			<fieldset class:focused>
+			<fieldset class:mukade-textfield-focused={focused}>
 				{#if label}
-					<legend class:floated>
+					<legend class:mukade-textfield-floated={floated}>
 						<span>{floated ? label : ''}</span>
 					</legend>
 				{/if}
@@ -27,10 +27,10 @@
 </div>
 
 <style>
-	.outlined-textfield {
-		--label-floated-top: 0;
-		--label-floated-left: 16px;
-		--label-floated-transform: translateY(-50%) scale(0.75);
+	.mukade-textfield-outlined {
+		--_mukade-textfield-label-floated-top: 0;
+		--_mukade-textfield-label-floated-left: 16px;
+		--_mukade-textfield-label-floated-transform: translateY(-50%) scale(0.75);
 
 		width: 100%;
 		height: auto;
@@ -46,20 +46,20 @@
 		inset: -5px 0 0 0;
 		border: 1px solid var(--mukade-border-soft);
 		border-radius: 4px;
-		background-color: var(--mukade-bg-soft);
+		background-color: var(--mukade-textfield-bg, var(--mukade-bg-soft));
 		transition: border-color 0.2s;
 		pointer-events: none;
 	}
 
-	fieldset.focused {
-		border: 2px solid var(--mukade-primary);
+	fieldset.mukade-textfield-focused {
+		border: 2px solid var(--mukade-textfield-accent, var(--mukade-primary));
 	}
 
 	fieldset:not(:has(legend)) {
 		inset: 0;
 	}
 
-	fieldset.focused:not(:has(legend)) {
+	fieldset.mukade-textfield-focused:not(:has(legend)) {
 		inset: 1px 0 1px 0;
 	}
 
@@ -77,7 +77,7 @@
 		overflow: hidden;
 	}
 
-	legend.floated {
+	legend.mukade-textfield-floated {
 		width: auto;
 
 		padding: 0 5px;

@@ -22,7 +22,7 @@
 			<TableCell>-</TableCell>
 		</TableRow>
 		<TableRow>
-			<TableCell>size</TableCell>
+			<TableCell>width</TableCell>
 			<TableCell>string | undefined</TableCell>
 			<TableCell>undefined</TableCell>
 		</TableRow>
@@ -30,6 +30,11 @@
 			<TableCell>children</TableCell>
 			<TableCell>Snippet</TableCell>
 			<TableCell>undefined</TableCell>
+		</TableRow>
+		<TableRow>
+			<TableCell>others</TableCell>
+			<TableCell>HTMLAttributes</TableCell>
+			<TableCell>-</TableCell>
 		</TableRow>
 	{/snippet}
 </BaseSection>
