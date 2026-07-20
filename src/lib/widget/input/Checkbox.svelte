@@ -21,7 +21,7 @@
 <label
 	class={['mukade-checkbox-row', className]}
 	class:mukade-checkbox-disabled={disabled}
-	style:--mukade-checkbox-size={size}
+	style:--_mukade-checkbox-size={size}
 	{style}
 >
 	<input class="mukade-checkbox-input" type="checkbox" bind:this={inputTag} bind:checked {disabled} {...props} />
@@ -66,15 +66,15 @@
 		align-items: center;
 		justify-content: center;
 
-		width: var(--mukade-checkbox-size, 1rem);
-		height: var(--mukade-checkbox-size, 1rem);
+		width: var(--_mukade-checkbox-size, 1rem);
+		height: var(--_mukade-checkbox-size, 1rem);
 		border: solid 1px var(--mukade-primary);
 
 		box-sizing: border-box;
 	}
 
 	.mukade-checkbox::before {
-		font-size: calc(var(--mukade-checkbox-size, 1rem) * 0.75);
+		font-size: calc(var(--_mukade-checkbox-size, 1rem) * 0.75);
 		font-weight: 700;
 		font-family: var(--mukade-font-vt);
 		color: var(--mukade-primary);
@@ -91,7 +91,7 @@
 	/* ============ CHECKBOX LABEL STYLE ============ */
 
 	.mukade-checkbox-label {
-		font-size: var(--mukade-checkbox-size, 1rem);
+		font-size: var(--_mukade-checkbox-size, 1rem);
 		font-family: var(--mukade-font-vt);
 		color: var(--mukade-primary);
 

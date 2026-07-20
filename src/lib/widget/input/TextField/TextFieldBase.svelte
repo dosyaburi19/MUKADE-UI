@@ -94,7 +94,7 @@
 
 	input {
 		width: 100%;
-		padding: var(--input-padding, 17px 14px);
+		padding: var(--_mukade-textfield-input-padding, 17px 14px);
 
 		border: none;
 		outline: none;
@@ -138,10 +138,10 @@
 	}
 
 	label.mukade-textfield-floated {
-		top: var(--label-floated-top);
-		left: var(--label-floated-left);
+		top: var(--_mukade-textfield-label-floated-top);
+		left: var(--_mukade-textfield-label-floated-left);
 
-		transform: var(--label-floated-transform);
+		transform: var(--_mukade-textfield-label-floated-transform);
 		transition: none;
 	}
 

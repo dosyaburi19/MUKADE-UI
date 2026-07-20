@@ -26,10 +26,10 @@
 
 <style>
 	.mukade-textfield-filled {
-		--input-padding: 24px 14px 8px 14px;
-		--label-floated-top: 6px;
-		--label-floated-left: 14px;
-		--label-floated-transform: translateY(0) scale(0.75);
+		--_mukade-textfield-input-padding: 24px 14px 8px 14px;
+		--_mukade-textfield-label-floated-top: 6px;
+		--_mukade-textfield-label-floated-left: 14px;
+		--_mukade-textfield-label-floated-transform: translateY(0) scale(0.75);
 
 		width: 100%;
 		height: auto;

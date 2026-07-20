@@ -28,9 +28,9 @@
 
 <style>
 	.mukade-textfield-outlined {
-		--label-floated-top: 0;
-		--label-floated-left: 16px;
-		--label-floated-transform: translateY(-50%) scale(0.75);
+		--_mukade-textfield-label-floated-top: 0;
+		--_mukade-textfield-label-floated-left: 16px;
+		--_mukade-textfield-label-floated-transform: translateY(-50%) scale(0.75);
 
 		width: 100%;
 		height: auto;

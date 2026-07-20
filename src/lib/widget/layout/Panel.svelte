@@ -18,7 +18,7 @@
 	let dotItems = $derived(Array.from({ length: dots?.max ?? 0 }, (_, index) => ({ key: index, positive: index < (dots?.index ?? 0) })));
 </script>
 
-<div class="mukade-panel mukade-panel-{variant}" style:--panel-width={width} {...props}>
+<div class="mukade-panel mukade-panel-{variant}" style:--_mukade-panel-width={width} {...props}>
 	{#if header}
 		<div class="mukade-panel-header">
 			{@render header()}
@@ -40,8 +40,14 @@
 </div>
 
 <style>
+	/* 내부 전용: 상속 차단 (같은 요소에서 설정→소비) */
+	@property --_mukade-panel-width {
+		syntax: '*';
+		inherits: false;
+	}
+
 	.mukade-panel {
-		width: var(--panel-width, fit-content);
+		width: var(--_mukade-panel-width, fit-content);
 		border: solid 1px var(--mukade-panel-accent, var(--mukade-primary));
 
 		background-color: var(--mukade-panel-bg, var(--mukade-bg-soft));

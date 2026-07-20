@@ -23,7 +23,7 @@
 	}
 </script>
 
-<div class="mukade-avatar" style:--avatar-size={size} {...props}>
+<div class="mukade-avatar" style:--_mukade-avatar-size={size} {...props}>
 	<div class="mukade-avatar-profile">
 		<span class="mukade-avatar-profile-view">
 			{#if profile && !imgLoadFail}
@@ -63,7 +63,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: var(--avatar-size, 3rem);
+		width: var(--_mukade-avatar-size, 3rem);
 		border: 1px solid var(--mukade-primary);
 		background-color: color-mix(in srgb, var(--mukade-primary) 5%, transparent);
 		overflow: hidden;

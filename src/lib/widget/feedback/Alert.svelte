@@ -30,7 +30,7 @@
 <div
 	class="mukade-alert mukade-alert-{variant}"
 	class:mukade-alert-fixed={!!width}
-	style:--width={width}
+	style:--_mukade-alert-width={width}
 	role={variant === 'info' || variant === 'success' ? 'status' : 'alert'}
 	{...props}
 >
@@ -42,6 +42,12 @@
 </div>
 
 <style>
+	/* 내부 전용: 상속 차단 (같은 요소에서 설정→소비) */
+	@property --_mukade-alert-width {
+		syntax: '*';
+		inherits: false;
+	}
+
 	.mukade-alert {
 		display: flex;
 		align-self: flex-start;
@@ -57,7 +63,7 @@
 
 	.mukade-alert.mukade-alert-fixed {
 		min-width: 0;
-		width: var(--width);
+		width: var(--_mukade-alert-width);
 	}
 
 	.mukade-alert.mukade-alert-info,

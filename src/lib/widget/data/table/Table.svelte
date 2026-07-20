@@ -11,7 +11,7 @@
 	let { width, columns, children, ...props }: Props = $props();
 </script>
 
-<div class="mukade-table-container" class:mukade-table-fixed={width} style:--table-width={width} {...props}>
+<div class="mukade-table-container" class:mukade-table-fixed={width} style:--_mukade-table-width={width} {...props}>
 	<table class="mukade-table">
 		{#if columns}
 			<thead>
@@ -29,9 +29,15 @@
 </div>
 
 <style>
+	/* 내부 전용: 상속 차단 (같은 요소에서 설정→소비) */
+	@property --_mukade-table-width {
+		syntax: '*';
+		inherits: false;
+	}
+
 	.mukade-table-container {
-		width: var(--table-width, fit-content);
-		max-width: var(--table-max-size, none);
+		width: var(--_mukade-table-width, fit-content);
+		max-width: var(--mukade-table-max-size, none);
 
 		background-color: var(--mukade-table-bg, var(--mukade-bg-soft));
 		font-family: var(--mukade-font-vt);

@@ -16,16 +16,22 @@
 	class="mukade-divider mukade-divider-{orientation}"
 	role="separator"
 	aria-orientation={orientation}
-	style:--mukade-divider-variant={variant}
-	style:--mukade-divider-line-weight={weight}
+	style:--_mukade-divider-variant={variant}
+	style:--_mukade-divider-line-weight={weight}
 	{...props}
 >
 	{#if label}
-		<span class="mukade-divider-label" style:--mukade-divider-font-size={size}>{label}</span>
+		<span class="mukade-divider-label" style:--_mukade-divider-font-size={size}>{label}</span>
 	{/if}
 </div>
 
 <style>
+	/* 내부 전용: 상속 차단 (같은 요소에서 설정→소비) */
+	@property --_mukade-divider-font-size {
+		syntax: '*';
+		inherits: false;
+	}
+
 	.mukade-divider {
 		display: flex;
 		align-items: center;
@@ -45,9 +51,9 @@
 	.mukade-divider.mukade-divider-horizontal::after {
 		content: '';
 		flex: 1;
-		/* height: var(--mukade-divider-line-weight, 1px);
+		/* height: var(--_mukade-divider-line-weight, 1px);
 		background: var(--mukade-primary); */
-		border-top: var(--mukade-divider-line-weight, 1px) var(--mukade-divider-variant) var(--mukade-divider-color, var(--mukade-primary));
+		border-top: var(--_mukade-divider-line-weight, 1px) var(--_mukade-divider-variant) var(--mukade-divider-color, var(--mukade-primary));
 	}
 
 	.mukade-divider.mukade-divider-vertical {
@@ -61,9 +67,9 @@
 	.mukade-divider.mukade-divider-vertical::after {
 		content: '';
 		flex: 1;
-		/* width: var(--mukade-divider-line-weight, 1px);
+		/* width: var(--_mukade-divider-line-weight, 1px);
 		background-color: var(--mukade-primary); */
-		border-left: var(--mukade-divider-line-weight, 1px) var(--mukade-divider-variant) var(--mukade-primary);
+		border-left: var(--_mukade-divider-line-weight, 1px) var(--_mukade-divider-variant) var(--mukade-primary);
 	}
 
 	.mukade-divider.mukade-divider-vertical .mukade-divider-label {
@@ -73,7 +79,7 @@
 	}
 
 	.mukade-divider-label {
-		font-size: var(--mukade-divider-font-size, 1rem);
+		font-size: var(--_mukade-divider-font-size, 1rem);
 		font-family: var(--mukade-font-vt);
 		color: var(--mukade-divider-color, var(--mukade-primary));
 	}

@@ -15,17 +15,28 @@
 <textarea
 	class="mukade-textarea"
 	class:mukade-textarea-no-resize={!resizing}
-	style:--textarea-width-size={width}
-	style:--textarea-height-size={height}
+	style:--_mukade-textarea-width={width}
+	style:--_mukade-textarea-height={height}
 	bind:value={text}
 	{placeholder}
 	{...props}
 ></textarea>
 
 <style>
+	/* 내부 전용: 상속 차단 (같은 요소에서 설정→소비) */
+	@property --_mukade-textarea-width {
+		syntax: '*';
+		inherits: false;
+	}
+
+	@property --_mukade-textarea-height {
+		syntax: '*';
+		inherits: false;
+	}
+
 	.mukade-textarea {
-		width: var(--textarea-width-size, 12rem);
-		height: var(--textarea-height-size, 7rem);
+		width: var(--_mukade-textarea-width, 12rem);
+		height: var(--_mukade-textarea-height, 7rem);
 		padding: 0.5rem;
 
 		background-color: var(--mukade-textarea-bg, var(--mukade-bg-inset));
