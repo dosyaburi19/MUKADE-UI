@@ -50,14 +50,14 @@
 
 		width: calc(var(--_mukade-toggle-size, 1rem) * 2);
 		height: var(--_mukade-toggle-size, 1rem);
-		border: solid 1px var(--mukade-primary);
+		border: solid 1px var(--mukade-toggle-accent, var(--mukade-primary));
 
 		transition: background 0.5s;
 	}
 
 	.mukade-toggle.mukade-toggle-checked {
 		background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.08) 2px, rgba(0, 0, 0, 0.08) 4px);
-		background-color: color-mix(in srgb, var(--mukade-primary) 15%, transparent);
+		background-color: color-mix(in srgb, var(--mukade-toggle-accent, var(--mukade-primary)) 15%, transparent);
 	}
 
 	/* ============ TOGGLE THUMB STYLE ============ */
@@ -76,12 +76,12 @@
 		transition:
 			background 0.5s,
 			left 0.5s;
-		background-color: var(--mukade-dim);
+		background-color: color-mix(in srgb, var(--mukade-toggle-accent, var(--mukade-primary)) 55%, black);
 	}
 
 	.mukade-toggle.mukade-toggle-checked::after {
 		left: var(--_mukade-toggle-size, 1rem);
-		background-color: var(--mukade-primary);
+		background-color: var(--mukade-toggle-accent, var(--mukade-primary));
 	}
 
 	/* ============ TOGGLE LABEL STYLE ============ */
@@ -89,7 +89,7 @@
 	.mukade-toggle-label {
 		font-size: var(--_mukade-toggle-size, 1rem);
 		font-family: var(--mukade-font-vt);
-		color: var(--mukade-primary);
+		color: var(--mukade-toggle-accent, var(--mukade-primary));
 
 		user-select: none;
 	}

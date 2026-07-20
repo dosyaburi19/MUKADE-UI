@@ -18,12 +18,7 @@
 	});
 </script>
 
-<label
-	class={['mukade-checkbox-row', className]}
-	class:mukade-checkbox-disabled={disabled}
-	style:--_mukade-checkbox-size={size}
-	{style}
->
+<label class={['mukade-checkbox-row', className]} class:mukade-checkbox-disabled={disabled} style:--_mukade-checkbox-size={size} {style}>
 	<input class="mukade-checkbox-input" type="checkbox" bind:this={inputTag} bind:checked {disabled} {...props} />
 	<div class="mukade-checkbox" class:mukade-checkbox-checked={checked} class:mukade-checkbox-indeterminate={indeterminate}></div>
 	{#if label}
@@ -58,7 +53,9 @@
 	/* ============ CHECKBOX MAIN STYLE ============ */
 
 	.mukade-checkbox-row:not(.mukade-checkbox-disabled):hover .mukade-checkbox {
-		border-color: var(--mukade-bright);
+		/* border-color: var(--mukade-checkbox-accent, var(--mukade-bright)); */
+		--_mukade-checkbox-accent-bright: hsl(from var(--mukade-checkbox-accent) h s calc(l * 1.19));
+		border-color: var(--_mukade-checkbox-accent-bright, var(--mukade-bright));
 	}
 
 	.mukade-checkbox {
@@ -68,7 +65,7 @@
 
 		width: var(--_mukade-checkbox-size, 1rem);
 		height: var(--_mukade-checkbox-size, 1rem);
-		border: solid 1px var(--mukade-primary);
+		border: solid 1px var(--mukade-checkbox-accent, var(--mukade-primary));
 
 		box-sizing: border-box;
 	}
@@ -77,7 +74,7 @@
 		font-size: calc(var(--_mukade-checkbox-size, 1rem) * 0.75);
 		font-weight: 700;
 		font-family: var(--mukade-font-vt);
-		color: var(--mukade-primary);
+		color: var(--mukade-checkbox-accent, var(--mukade-primary));
 	}
 
 	.mukade-checkbox:not(.mukade-checkbox-indeterminate).mukade-checkbox-checked::before {
@@ -93,7 +90,7 @@
 	.mukade-checkbox-label {
 		font-size: var(--_mukade-checkbox-size, 1rem);
 		font-family: var(--mukade-font-vt);
-		color: var(--mukade-primary);
+		color: var(--mukade-checkbox-accent, var(--mukade-primary));
 
 		user-select: none;
 	}
