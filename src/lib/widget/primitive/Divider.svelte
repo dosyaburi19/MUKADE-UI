@@ -47,7 +47,7 @@
 		flex: 1;
 		/* height: var(--mukade-divider-line-weight, 1px);
 		background: var(--mukade-primary); */
-		border-top: var(--mukade-divider-line-weight, 1px) var(--mukade-divider-variant) var(--mukade-primary);
+		border-top: var(--mukade-divider-line-weight, 1px) var(--mukade-divider-variant) var(--mukade-divider-color, var(--mukade-primary));
 	}
 
 	.divider.vertical {
@@ -75,6 +75,6 @@
 	.label {
 		font-size: var(--mukade-divider-font-size, 1rem);
 		font-family: var(--mukade-font-vt);
-		color: var(--mukade-primary);
+		color: var(--mukade-divider-color, var(--mukade-primary));
 	}
 </style>

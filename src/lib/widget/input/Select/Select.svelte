@@ -75,8 +75,8 @@
 		padding: 0.2rem 0.5rem;
 		box-sizing: border-box;
 
-		border: solid 1px var(--mukade-primary);
-		background-color: var(--mukade-bg);
+		border: solid 1px var(--mukade-select-accent, var(--mukade-primary));
+		background-color: var(--mukade-select-bg, var(--mukade-bg));
 	}
 
 	.selected-item {
@@ -85,7 +85,7 @@
 		font-weight: 700;
 		font-size: 1rem;
 		font-family: var(--mukade-font-vt);
-		color: var(--mukade-primary);
+		color: var(--mukade-select-accent, var(--mukade-primary));
 
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -112,6 +112,6 @@
 		line-height: 1px;
 		font-weight: 700;
 		font-family: var(--mukade-font-vt);
-		color: var(--mukade-primary);
+		color: var(--mukade-select-accent, var(--mukade-primary));
 	}
 </style>

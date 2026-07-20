@@ -33,11 +33,11 @@
 		border: none;
 		padding: 0.2rem 0.5rem;
 
-		background-color: var(--mukade-bg);
+		background-color: var(--mukade-select-bg, var(--mukade-bg));
 
 		font-family: var(--mukade-font-vt);
 		font-size: 1rem;
-		color: var(--mukade-primary);
+		color: var(--mukade-select-accent, var(--mukade-primary));
 
 		overflow: hidden;
 		text-overflow: ellipsis;

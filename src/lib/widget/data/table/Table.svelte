@@ -33,7 +33,7 @@
 		width: var(--table-width, fit-content);
 		max-width: var(--table-max-size, none);
 
-		background-color: var(--mukade-bg-soft);
+		background-color: var(--mukade-table-bg, var(--mukade-bg-soft));
 		font-family: var(--mukade-font-vt);
 		font-size: 1rem;
 		color: var(--mukade-text);
@@ -59,14 +59,14 @@
 	}
 
 	.header-row {
-		border-bottom: 1px solid var(--mukade-primary);
-		background-color: color-mix(in srgb, var(--mukade-primary) 5%, var(--mukade-bg-soft));
+		border-bottom: 1px solid var(--mukade-table-accent, var(--mukade-primary));
+		background-color: color-mix(in srgb, var(--mukade-table-accent, var(--mukade-primary)) 5%, var(--mukade-table-bg, var(--mukade-bg-soft)));
 	}
 
 	.header-cell {
 		padding: 0.4rem 0.7rem;
 		text-align: left;
-		color: var(--mukade-primary);
+		color: var(--mukade-table-accent, var(--mukade-primary));
 		white-space: nowrap;
 	}
 </style>

@@ -135,6 +135,6 @@
 	}
 
 	label.focused {
-		color: var(--mukade-primary);
+		color: var(--mukade-textfield-accent, var(--mukade-primary));
 	}
 </style>

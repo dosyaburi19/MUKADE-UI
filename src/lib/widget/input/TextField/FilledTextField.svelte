@@ -40,7 +40,7 @@
 
 		inset: 0;
 		border-radius: 4px 4px 0 0;
-		background-color: var(--mukade-bg);
+		background-color: var(--mukade-textfield-bg, var(--mukade-bg));
 
 		transition: background-color 0.2s;
 		pointer-events: none;
@@ -48,7 +48,7 @@
 
 	.background:hover,
 	.background.focused {
-		background-color: var(--mukade-bg-soft);
+		background-color: var(--mukade-textfield-bg, var(--mukade-bg));
 	}
 
 	.underline {
@@ -66,7 +66,7 @@
 		bottom: 0;
 		width: 0;
 		height: 2px;
-		background-color: var(--mukade-primary);
+		background-color: var(--mukade-textfield-accent, var(--mukade-primary));
 		transform: translateX(-50%);
 		transition: width 0.2s ease-out;
 	}

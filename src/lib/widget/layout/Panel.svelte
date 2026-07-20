@@ -42,9 +42,9 @@
 <style>
 	.panel {
 		width: var(--panel-width, fit-content);
-		border: solid 1px var(--mukade-primary);
+		border: solid 1px var(--mukade-panel-accent, var(--mukade-primary));
 
-		background-color: var(--mukade-bg-soft);
+		background-color: var(--mukade-panel-bg, var(--mukade-bg-soft));
 
 		font-family: var(--mukade-font-vt);
 		font-size: 1rem;
@@ -58,10 +58,10 @@
 		gap: 2rem;
 
 		padding: 0.4rem 0.7rem;
-		border-bottom: 1px solid var(--mukade-primary);
-		background-color: color-mix(in srgb, var(--mukade-primary) 5%, var(--mukade-bg-soft));
+		border-bottom: 1px solid var(--mukade-panel-accent, var(--mukade-primary));
+		background-color: color-mix(in srgb, var(--mukade-panel-accent, var(--mukade-primary)) 5%, var(--mukade-panel-bg, var(--mukade-bg-soft)));
 
-		color: var(--mukade-primary);
+		color: var(--mukade-panel-accent, var(--mukade-primary));
 	}
 
 	.dots {
@@ -74,12 +74,12 @@
 		width: 0.4rem;
 		height: 0.4rem;
 
-		border: solid 1px var(--mukade-primary);
-		background-color: color-mix(in srgb, var(--mukade-primary) 5%, var(--mukade-bg-soft));
+		border: solid 1px var(--mukade-panel-accent, var(--mukade-primary));
+		background-color: color-mix(in srgb, var(--mukade-panel-accent, var(--mukade-primary)) 5%, var(--mukade-panel-bg, var(--mukade-bg-soft)));
 	}
 
 	.dot.positive {
-		background-color: var(--mukade-primary);
+		background-color: var(--mukade-panel-accent, var(--mukade-primary));
 	}
 
 	.content {
@@ -93,9 +93,9 @@
 		gap: 0.3rem;
 
 		padding: 0.4rem 0.7rem;
-		border-top: 1px solid var(--mukade-primary);
+		border-top: 1px solid var(--mukade-panel-accent, var(--mukade-primary));
 
-		color: var(--mukade-primary);
+		color: var(--mukade-panel-accent, var(--mukade-primary));
 	}
 
 	/* ============ SOFT-LINE VARIANT STYLE ============ */
@@ -107,9 +107,9 @@
 	}
 
 	.panel.soft-line .header {
-		background-color: color-mix(in srgb, var(--mukade-primary) 2%, var(--mukade-bg-soft));
+		background-color: color-mix(in srgb, var(--mukade-panel-accent, var(--mukade-primary)) 2%, var(--mukade-panel-bg, var(--mukade-bg-soft)));
 	}
 	.panel.soft-line .header .dot:not(.positive) {
-		background-color: color-mix(in srgb, var(--mukade-primary) 2%, var(--mukade-bg-soft));
+		background-color: color-mix(in srgb, var(--mukade-panel-accent, var(--mukade-primary)) 2%, var(--mukade-panel-bg, var(--mukade-bg-soft)));
 	}
 </style>

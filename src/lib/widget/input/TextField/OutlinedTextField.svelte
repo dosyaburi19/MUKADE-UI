@@ -46,13 +46,13 @@
 		inset: -5px 0 0 0;
 		border: 1px solid var(--mukade-border-soft);
 		border-radius: 4px;
-		background-color: var(--mukade-bg-soft);
+		background-color: var(--mukade-textfield-bg, var(--mukade-bg-soft));
 		transition: border-color 0.2s;
 		pointer-events: none;
 	}
 
 	fieldset.focused {
-		border: 2px solid var(--mukade-primary);
+		border: 2px solid var(--mukade-textfield-accent, var(--mukade-primary));
 	}
 
 	fieldset:not(:has(legend)) {

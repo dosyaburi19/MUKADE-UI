@@ -18,7 +18,7 @@
 	.input {
 		padding: 0.4rem 0.6rem;
 
-		background-color: var(--mukade-bg);
+		background-color: var(--mukade-input-bg, var(--mukade-bg));
 
 		box-sizing: border-box;
 
@@ -28,17 +28,17 @@
 		color: var(--mukade-text);
 
 		outline: none;
-		caret-color: var(--mukade-primary);
+		caret-color: var(--mukade-input-accent, var(--mukade-primary));
 		transition: border-color 0.2s;
 	}
 
 	.input.outlined {
-		border: 1px solid var(--mukade-primary);
+		border: 1px solid var(--mukade-input-accent, var(--mukade-primary));
 	}
 
 	.input.filled {
 		border: 1px solid var(--mukade-border-subtle);
-		border-bottom: 1px solid var(--mukade-primary);
+		border-bottom: 1px solid var(--mukade-input-accent, var(--mukade-primary));
 	}
 
 	.input.none {

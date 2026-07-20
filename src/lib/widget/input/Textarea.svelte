@@ -28,9 +28,9 @@
 		height: var(--textarea-height-size, 7rem);
 		padding: 0.5rem;
 
-		background-color: var(--mukade-bg-inset);
+		background-color: var(--mukade-textarea-bg, var(--mukade-bg-inset));
 		box-sizing: border-box;
-		border: solid 1px var(--mukade-primary);
+		border: solid 1px var(--mukade-textarea-accent, var(--mukade-primary));
 		outline: none;
 
 		font-family: var(--mukade-font-vt);
@@ -60,7 +60,7 @@
 	}
 
 	.textarea::-webkit-scrollbar-thumb {
-		background-color: var(--mukade-primary);
+		background-color: var(--mukade-textarea-accent, var(--mukade-primary));
 	}
 
 	.textarea::-webkit-scrollbar-thumb:hover {
