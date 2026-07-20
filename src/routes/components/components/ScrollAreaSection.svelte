@@ -29,7 +29,7 @@
 		</TableRow>
 		<TableRow>
 			<TableCell>direction</TableCell>
-			<TableCell>'vertical' | 'horizontal' | 'both'</TableCell>
+			<TableCell>'vertical'</TableCell>
 			<TableCell>'vertical'</TableCell>
 		</TableRow>
 		<TableRow>

@@ -27,5 +27,10 @@
 			<TableCell>boolean</TableCell>
 			<TableCell>false</TableCell>
 		</TableRow>
+		<TableRow>
+			<TableCell>others</TableCell>
+			<TableCell>HTMLButtonAttributes (type 기본 'button')</TableCell>
+			<TableCell>-</TableCell>
+		</TableRow>
 	{/snippet}
 </BaseSection>

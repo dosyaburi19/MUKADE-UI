@@ -37,7 +37,6 @@
 		<AvatarSection />
 		<BadgeSection />
 		<DividerSection />
-		<AvatarSection />
 
 		<!-- layout -->
 		<ContainerSection />

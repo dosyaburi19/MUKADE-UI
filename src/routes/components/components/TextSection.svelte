@@ -23,6 +23,16 @@
 			<TableCell>'p'</TableCell>
 		</TableRow>
 		<TableRow>
+			<TableCell>variant</TableCell>
+			<TableCell>'crt' | 'led'</TableCell>
+			<TableCell>'led'</TableCell>
+		</TableRow>
+		<TableRow>
+			<TableCell>glow</TableCell>
+			<TableCell>boolean</TableCell>
+			<TableCell>false</TableCell>
+		</TableRow>
+		<TableRow>
 			<TableCell>color</TableCell>
 			<TableCell>'primary' | 'dim' | 'danger' | 'success' | 'warn'</TableCell>
 			<TableCell>'primary'</TableCell>
@@ -30,7 +40,7 @@
 		<TableRow>
 			<TableCell>font</TableCell>
 			<TableCell>'mono' | 'vt'</TableCell>
-			<TableCell>'mono'</TableCell>
+			<TableCell>'vt'</TableCell>
 		</TableRow>
 		<TableRow>
 			<TableCell>size</TableCell>
@@ -40,7 +50,7 @@
 		<TableRow>
 			<TableCell>spacing</TableCell>
 			<TableCell>string</TableCell>
-			<TableCell>'0.4rem'</TableCell>
+			<TableCell>'0.2rem'</TableCell>
 		</TableRow>
 		<TableRow>
 			<TableCell>align</TableCell>
