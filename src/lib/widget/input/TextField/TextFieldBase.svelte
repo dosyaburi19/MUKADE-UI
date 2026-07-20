@@ -62,18 +62,29 @@
 	}
 </script>
 
-<div class="textfield-container">
-	<input id={uuid} class:focused class:unlabeled {type} placeholder={formatTerminalStyleText(placeholder)} bind:value onfocus={onFocus} onblur={onBlur} />
+<div class="mukade-textfield-container">
+	<input
+		id={uuid}
+		class:mukade-textfield-focused={focused}
+		class:mukade-textfield-unlabeled={unlabeled}
+		{type}
+		placeholder={formatTerminalStyleText(placeholder)}
+		bind:value
+		onfocus={onFocus}
+		onblur={onBlur}
+	/>
 
 	{#if label}
-		<label for={uuid} class:floated class:focused>{floated ? typingLabel : formatTerminalStyleText(label)}</label>
+		<label for={uuid} class:mukade-textfield-floated={floated} class:mukade-textfield-focused={focused}>
+			{floated ? typingLabel : formatTerminalStyleText(label)}
+		</label>
 	{/if}
 
 	{@render children?.({ value, focused, floated, label: typingLabel })}
 </div>
 
 <style>
-	.textfield-container {
+	.mukade-textfield-container {
 		position: relative;
 		display: inline-flex;
 		width: 100%;
@@ -100,11 +111,11 @@
 		opacity: 0;
 	}
 
-	input.focused::placeholder {
+	input.mukade-textfield-focused::placeholder {
 		opacity: 1;
 	}
 
-	input.unlabeled::placeholder {
+	input.mukade-textfield-unlabeled::placeholder {
 		opacity: 1;
 	}
 
@@ -126,7 +137,7 @@
 		z-index: 2;
 	}
 
-	label.floated {
+	label.mukade-textfield-floated {
 		top: var(--label-floated-top);
 		left: var(--label-floated-left);
 
@@ -134,7 +145,7 @@
 		transition: none;
 	}
 
-	label.focused {
+	label.mukade-textfield-focused {
 		color: var(--mukade-textfield-accent, var(--mukade-primary));
 	}
 </style>

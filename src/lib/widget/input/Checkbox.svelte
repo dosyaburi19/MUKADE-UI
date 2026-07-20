@@ -18,18 +18,23 @@
 	});
 </script>
 
-<label class={['checkbox-row', className]} class:disabled style:--mukade-checkbox-size={size} {style}>
-	<input class="checkbox-input" type="checkbox" bind:this={inputTag} bind:checked {disabled} {...props} />
-	<div class="checkbox" class:checked class:indeterminate></div>
+<label
+	class={['mukade-checkbox-row', className]}
+	class:mukade-checkbox-disabled={disabled}
+	style:--mukade-checkbox-size={size}
+	{style}
+>
+	<input class="mukade-checkbox-input" type="checkbox" bind:this={inputTag} bind:checked {disabled} {...props} />
+	<div class="mukade-checkbox" class:mukade-checkbox-checked={checked} class:mukade-checkbox-indeterminate={indeterminate}></div>
 	{#if label}
-		<span class="label">{label}</span>
+		<span class="mukade-checkbox-label">{label}</span>
 	{/if}
 </label>
 
 <style>
 	/* ============ CHECKBOX ROW STYLE ============ */
 
-	.checkbox-row {
+	.mukade-checkbox-row {
 		display: flex;
 		align-items: flex-start;
 		gap: 0.5rem;
@@ -37,14 +42,14 @@
 		cursor: pointer;
 	}
 
-	.checkbox-row.disabled {
+	.mukade-checkbox-row.mukade-checkbox-disabled {
 		opacity: 0.6;
 		cursor: not-allowed;
 	}
 
 	/* ============ CHECKBOX INPUT STYLE ============ */
 
-	.checkbox-input {
+	.mukade-checkbox-input {
 		position: absolute;
 		opacity: 0;
 		pointer-events: none;
@@ -52,11 +57,11 @@
 
 	/* ============ CHECKBOX MAIN STYLE ============ */
 
-	.checkbox-row:not(.disabled):hover .checkbox {
+	.mukade-checkbox-row:not(.mukade-checkbox-disabled):hover .mukade-checkbox {
 		border-color: var(--mukade-bright);
 	}
 
-	.checkbox {
+	.mukade-checkbox {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -68,24 +73,24 @@
 		box-sizing: border-box;
 	}
 
-	.checkbox::before {
+	.mukade-checkbox::before {
 		font-size: calc(var(--mukade-checkbox-size, 1rem) * 0.75);
 		font-weight: 700;
 		font-family: var(--mukade-font-vt);
 		color: var(--mukade-primary);
 	}
 
-	.checkbox:not(.indeterminate).checked::before {
+	.mukade-checkbox:not(.mukade-checkbox-indeterminate).mukade-checkbox-checked::before {
 		content: 'X';
 	}
 
-	.checkbox.indeterminate::before {
+	.mukade-checkbox.mukade-checkbox-indeterminate::before {
 		content: '-';
 	}
 
 	/* ============ CHECKBOX LABEL STYLE ============ */
 
-	.label {
+	.mukade-checkbox-label {
 		font-size: var(--mukade-checkbox-size, 1rem);
 		font-family: var(--mukade-font-vt);
 		color: var(--mukade-primary);

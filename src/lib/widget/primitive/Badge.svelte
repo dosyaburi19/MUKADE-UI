@@ -27,14 +27,14 @@
 </script>
 
 {#if children}
-	<span class="overlay-badge {variant}" {...props}>
+	<span class="mukade-badge-overlay mukade-badge-{variant}" {...props}>
 		{@render children?.()}
-		<span class="overlay-badge-item {position}">
+		<span class="mukade-badge-overlay-item mukade-badge-{position}">
 			{display}
 		</span>
 	</span>
 {:else}
-	<span class="tag-badge {variant}" {...props}>
+	<span class="mukade-badge-tag mukade-badge-{variant}" {...props}>
 		{display}
 	</span>
 {/if}
@@ -42,7 +42,7 @@
 <style>
 	/* ============ OVERLAY-BADGE STYLE ============ */
 
-	.overlay-badge {
+	.mukade-badge-overlay {
 		position: relative;
 		display: inline-block;
 
@@ -50,7 +50,7 @@
 		height: fit-content;
 	}
 
-	.overlay-badge-item {
+	.mukade-badge-overlay-item {
 		position: absolute;
 		display: inline-block;
 		padding: 0.25rem 0.5rem;
@@ -64,41 +64,41 @@
 		pointer-events: none;
 	}
 
-	.overlay-badge-item.top-left {
+	.mukade-badge-overlay-item.mukade-badge-top-left {
 		top: 0;
 		left: 0;
 		transform: translate(-50%, -50%);
 	}
 
-	.overlay-badge-item.top-right {
+	.mukade-badge-overlay-item.mukade-badge-top-right {
 		top: 0;
 		right: 0;
 		transform: translate(50%, -50%);
 	}
 
-	.overlay-badge-item.bottom-left {
+	.mukade-badge-overlay-item.mukade-badge-bottom-left {
 		bottom: 0;
 		left: 0;
 		transform: translate(-50%, 50%);
 	}
 
-	.overlay-badge-item.bottom-right {
+	.mukade-badge-overlay-item.mukade-badge-bottom-right {
 		bottom: 0;
 		right: 0;
 		transform: translate(50%, 50%);
 	}
 
-	.overlay-badge.primary > .overlay-badge-item {
+	.mukade-badge-overlay.mukade-badge-primary > .mukade-badge-overlay-item {
 		border-color: var(--mukade-primary);
 		color: var(--mukade-primary);
 	}
 
-	.overlay-badge.idle > .overlay-badge-item {
+	.mukade-badge-overlay.mukade-badge-idle > .mukade-badge-overlay-item {
 		border-color: var(--mukade-border-soft);
 		color: var(--mukade-text-dim);
 	}
 
-	.overlay-badge.danger > .overlay-badge-item {
+	.mukade-badge-overlay.mukade-badge-danger > .mukade-badge-overlay-item {
 		padding: 0.25rem 0.4rem;
 
 		background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.08) 2px, rgba(0, 0, 0, 0.08) 4px);
@@ -109,19 +109,19 @@
 		color: var(--mukade-text-dark);
 	}
 
-	.overlay-badge.warn > .overlay-badge-item {
+	.mukade-badge-overlay.mukade-badge-warn > .mukade-badge-overlay-item {
 		border-color: var(--mukade-warn);
 		color: var(--mukade-warn);
 	}
 
-	.overlay-badge.success > .overlay-badge-item {
+	.mukade-badge-overlay.mukade-badge-success > .mukade-badge-overlay-item {
 		border-color: var(--mukade-success);
 		color: var(--mukade-success);
 	}
 
 	/* ============ TAG-BADGE STYLE ============ */
 
-	.tag-badge {
+	.mukade-badge-tag {
 		display: inline-block;
 		padding: 0.25rem 0.5rem;
 		border: 1px solid;
@@ -135,17 +135,17 @@
 		background-color: transparent;
 	}
 
-	.tag-badge.primary {
+	.mukade-badge-tag.mukade-badge-primary {
 		border-color: var(--mukade-primary);
 		color: var(--mukade-primary);
 	}
 
-	.tag-badge.idle {
+	.mukade-badge-tag.mukade-badge-idle {
 		border-color: var(--mukade-border-soft);
 		color: var(--mukade-text-dim);
 	}
 
-	.tag-badge.danger {
+	.mukade-badge-tag.mukade-badge-danger {
 		padding: 0.25rem 0.4rem;
 
 		background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.08) 2px, rgba(0, 0, 0, 0.08) 4px);
@@ -156,12 +156,12 @@
 		color: var(--mukade-text-dark);
 	}
 
-	.tag-badge.warn {
+	.mukade-badge-tag.mukade-badge-warn {
 		border-color: var(--mukade-warn);
 		color: var(--mukade-warn);
 	}
 
-	.tag-badge.success {
+	.mukade-badge-tag.mukade-badge-success {
 		border-color: var(--mukade-success);
 		color: var(--mukade-success);
 	}

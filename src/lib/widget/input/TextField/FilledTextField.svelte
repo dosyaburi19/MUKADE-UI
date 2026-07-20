@@ -12,20 +12,20 @@
 	let { type = '', label = '', placeholder = '', value = $bindable(''), width = '' }: Props = $props();
 </script>
 
-<div class="filled-textfield" style="width: {width ?? '100%'}">
+<div class="mukade-textfield-filled" style="width: {width ?? '100%'}">
 	<TextFieldBase {type} {label} {placeholder} bind:value>
 		{#snippet children({ focused })}
-			<div class="background" class:focused></div>
+			<div class="mukade-textfield-background" class:mukade-textfield-focused={focused}></div>
 
-			<div class="underline">
-				<div class="underline-effecter" class:focused></div>
+			<div class="mukade-textfield-underline">
+				<div class="mukade-textfield-underline-effecter" class:mukade-textfield-focused={focused}></div>
 			</div>
 		{/snippet}
 	</TextFieldBase>
 </div>
 
 <style>
-	.filled-textfield {
+	.mukade-textfield-filled {
 		--input-padding: 24px 14px 8px 14px;
 		--label-floated-top: 6px;
 		--label-floated-left: 14px;
@@ -35,7 +35,7 @@
 		height: auto;
 	}
 
-	.background {
+	.mukade-textfield-background {
 		position: absolute;
 
 		inset: 0;
@@ -46,12 +46,12 @@
 		pointer-events: none;
 	}
 
-	.background:hover,
-	.background.focused {
+	.mukade-textfield-background:hover,
+	.mukade-textfield-background.mukade-textfield-focused {
 		background-color: var(--mukade-textfield-bg, var(--mukade-bg));
 	}
 
-	.underline {
+	.mukade-textfield-underline {
 		position: absolute;
 		left: 0;
 		right: 0;
@@ -60,7 +60,7 @@
 		background-color: var(--mukade-border-soft);
 	}
 
-	.underline-effecter {
+	.mukade-textfield-underline-effecter {
 		position: absolute;
 		left: 50%;
 		bottom: 0;
@@ -71,7 +71,7 @@
 		transition: width 0.2s ease-out;
 	}
 
-	.underline-effecter.focused {
+	.mukade-textfield-underline-effecter.mukade-textfield-focused {
 		width: 100%;
 	}
 </style>

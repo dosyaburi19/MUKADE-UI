@@ -12,10 +12,10 @@
 	let { variant = 'outlined', value = $bindable(''), type = 'text', ...props }: Props = $props();
 </script>
 
-<input class="input {variant}" bind:value {type} {...props} />
+<input class="mukade-input mukade-input-{variant}" bind:value {type} {...props} />
 
 <style>
-	.input {
+	.mukade-input {
 		padding: 0.4rem 0.6rem;
 
 		background-color: var(--mukade-input-bg, var(--mukade-bg));
@@ -32,28 +32,28 @@
 		transition: border-color 0.2s;
 	}
 
-	.input.outlined {
+	.mukade-input.mukade-input-outlined {
 		border: 1px solid var(--mukade-input-accent, var(--mukade-primary));
 	}
 
-	.input.filled {
+	.mukade-input.mukade-input-filled {
 		border: 1px solid var(--mukade-border-subtle);
 		border-bottom: 1px solid var(--mukade-input-accent, var(--mukade-primary));
 	}
 
-	.input.none {
+	.mukade-input.mukade-input-none {
 		border: none;
 	}
 
-	.input:focus {
+	.mukade-input:focus {
 		border-color: var(--mukade-bright);
 	}
 
-	.input::placeholder {
+	.mukade-input::placeholder {
 		color: var(--mukade-placeholder);
 	}
 
-	.input:disabled {
+	.mukade-input:disabled {
 		background-color: var(--mukade-bg-soft);
 		border-color: var(--mukade-border-soft);
 		cursor: not-allowed;

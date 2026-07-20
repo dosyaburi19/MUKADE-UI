@@ -17,7 +17,7 @@
 </script>
 
 <button
-	class="select-option"
+	class="mukade-select-option"
 	type="button"
 	onclick={(event) => {
 		select(key);
@@ -29,7 +29,7 @@
 </button>
 
 <style>
-	.select-option {
+	.mukade-select-option {
 		border: none;
 		padding: 0.2rem 0.5rem;
 

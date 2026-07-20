@@ -13,8 +13,8 @@
 </script>
 
 <textarea
-	class="textarea"
-	class:no-resize={!resizing}
+	class="mukade-textarea"
+	class:mukade-textarea-no-resize={!resizing}
 	style:--textarea-width-size={width}
 	style:--textarea-height-size={height}
 	bind:value={text}
@@ -23,7 +23,7 @@
 ></textarea>
 
 <style>
-	.textarea {
+	.mukade-textarea {
 		width: var(--textarea-width-size, 12rem);
 		height: var(--textarea-height-size, 7rem);
 		padding: 0.5rem;
@@ -38,32 +38,32 @@
 		color: var(--mukade-text);
 	}
 
-	.textarea.no-resize {
+	.mukade-textarea.mukade-textarea-no-resize {
 		resize: none;
 	}
 
-	.textarea::placeholder {
+	.mukade-textarea::placeholder {
 		color: var(--mukade-placeholder);
 	}
 
-	.textarea:focus {
+	.mukade-textarea:focus {
 		outline: solid 1px var(--mukade-dim);
 	}
 
-	.textarea::-webkit-scrollbar {
+	.mukade-textarea::-webkit-scrollbar {
 		width: 6px;
 		height: 6px;
 	}
 
-	.textarea::-webkit-scrollbar-track {
+	.mukade-textarea::-webkit-scrollbar-track {
 		background-color: var(--mukade-bg-soft);
 	}
 
-	.textarea::-webkit-scrollbar-thumb {
+	.mukade-textarea::-webkit-scrollbar-thumb {
 		background-color: var(--mukade-textarea-accent, var(--mukade-primary));
 	}
 
-	.textarea::-webkit-scrollbar-thumb:hover {
+	.mukade-textarea::-webkit-scrollbar-thumb:hover {
 		background-color: var(--mukade-bright);
 	}
 </style>

@@ -13,7 +13,7 @@
 </script>
 
 <div
-	class="divider {orientation}"
+	class="mukade-divider mukade-divider-{orientation}"
 	role="separator"
 	aria-orientation={orientation}
 	style:--mukade-divider-variant={variant}
@@ -21,28 +21,28 @@
 	{...props}
 >
 	{#if label}
-		<span class="label" style:--mukade-divider-font-size={size}>{label}</span>
+		<span class="mukade-divider-label" style:--mukade-divider-font-size={size}>{label}</span>
 	{/if}
 </div>
 
 <style>
-	.divider {
+	.mukade-divider {
 		display: flex;
 		align-items: center;
 	}
 
-	.divider:has(> .label) {
+	.mukade-divider:has(> .mukade-divider-label) {
 		gap: 0.5rem;
 	}
 
-	.divider.horizontal {
+	.mukade-divider.mukade-divider-horizontal {
 		flex-direction: row;
 
 		width: 100%;
 	}
 
-	.divider.horizontal::before,
-	.divider.horizontal::after {
+	.mukade-divider.mukade-divider-horizontal::before,
+	.mukade-divider.mukade-divider-horizontal::after {
 		content: '';
 		flex: 1;
 		/* height: var(--mukade-divider-line-weight, 1px);
@@ -50,15 +50,15 @@
 		border-top: var(--mukade-divider-line-weight, 1px) var(--mukade-divider-variant) var(--mukade-divider-color, var(--mukade-primary));
 	}
 
-	.divider.vertical {
+	.mukade-divider.mukade-divider-vertical {
 		width: fit-content;
 		flex-direction: column;
 
 		height: 100%;
 	}
 
-	.divider.vertical::before,
-	.divider.vertical::after {
+	.mukade-divider.mukade-divider-vertical::before,
+	.mukade-divider.mukade-divider-vertical::after {
 		content: '';
 		flex: 1;
 		/* width: var(--mukade-divider-line-weight, 1px);
@@ -66,13 +66,13 @@
 		border-left: var(--mukade-divider-line-weight, 1px) var(--mukade-divider-variant) var(--mukade-primary);
 	}
 
-	.divider.vertical .label {
+	.mukade-divider.mukade-divider-vertical .mukade-divider-label {
 		writing-mode: vertical-lr;
 
 		text-orientation: upright;
 	}
 
-	.label {
+	.mukade-divider-label {
 		font-size: var(--mukade-divider-font-size, 1rem);
 		font-family: var(--mukade-font-vt);
 		color: var(--mukade-divider-color, var(--mukade-primary));

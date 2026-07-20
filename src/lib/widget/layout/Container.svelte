@@ -9,12 +9,12 @@
 	const { children, ...props }: Props = $props();
 </script>
 
-<div class="container" {...props}>
+<div class="mukade-container" {...props}>
 	{@render children?.()}
 </div>
 
 <style>
-	.container {
+	.mukade-container {
 		width: 100%;
 		box-sizing: border-box;
 		margin: 0 auto;

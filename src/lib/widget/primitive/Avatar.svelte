@@ -23,31 +23,31 @@
 	}
 </script>
 
-<div class="avatar" style:--avatar-size={size} {...props}>
-	<div class="profile">
-		<span class="profile-view">
+<div class="mukade-avatar" style:--avatar-size={size} {...props}>
+	<div class="mukade-avatar-profile">
+		<span class="mukade-avatar-profile-view">
 			{#if profile && !imgLoadFail}
-				<img class="image" src={profile} alt={name} onloadstart={onImageLoadStart} onerror={onImageLoadError} />
+				<img class="mukade-avatar-image" src={profile} alt={name} onloadstart={onImageLoadStart} onerror={onImageLoadError} />
 			{:else}
 				{name?.slice(0, 1)}
 			{/if}
 		</span>
 		{#if children}
-			<span class="status custom">{@render children?.()}</span>
+			<span class="mukade-avatar-status mukade-avatar-status-custom">{@render children?.()}</span>
 		{:else}
-			<span class="status" class:online></span>
+			<span class="mukade-avatar-status" class:mukade-avatar-status-online={online}></span>
 		{/if}
 	</div>
 	{#if name || sub}
-		<div class="information">
-			{#if name}<span class="name">{name}</span>{/if}
-			{#if sub}<span class="sub">{sub}</span>{/if}
+		<div class="mukade-avatar-information">
+			{#if name}<span class="mukade-avatar-name">{name}</span>{/if}
+			{#if sub}<span class="mukade-avatar-sub">{sub}</span>{/if}
 		</div>
 	{/if}
 </div>
 
 <style>
-	.avatar {
+	.mukade-avatar {
 		display: flex;
 		align-items: center;
 		gap: 0.8rem;
@@ -55,11 +55,11 @@
 		height: fit-content;
 	}
 
-	.profile {
+	.mukade-avatar-profile {
 		position: relative;
 	}
 
-	.profile-view {
+	.mukade-avatar-profile-view {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -77,35 +77,35 @@
 		color: var(--mukade-primary);
 	}
 
-	.image {
+	.mukade-avatar-image {
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
 	}
 
-	.status {
+	.mukade-avatar-status {
 		position: absolute;
 		bottom: 0;
 		right: 0;
 	}
 
-	.status:not(.custom) {
+	.mukade-avatar-status:not(.mukade-avatar-status-custom) {
 		height: 0.5rem;
 		background-color: var(--mukade-placeholder);
 		transform: translate(25%, 25%);
 		aspect-ratio: 1 / 1;
 	}
 
-	.status:not(.custom).online {
+	.mukade-avatar-status:not(.mukade-avatar-status-custom).mukade-avatar-status-online {
 		background-color: var(--mukade-success);
 	}
 
-	.status.custom {
+	.mukade-avatar-status.mukade-avatar-status-custom {
 		height: fit-content;
 		transform: translate(50%, 50%);
 	}
 
-	.information {
+	.mukade-avatar-information {
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
@@ -119,12 +119,12 @@
 		font-family: var(--mukade-font-mono);
 	}
 
-	.name {
+	.mukade-avatar-name {
 		font-size: 1rem;
 		color: var(--mukade-text);
 	}
 
-	.sub {
+	.mukade-avatar-sub {
 		font-size: 0.8rem;
 		color: var(--mukade-text-dim);
 	}

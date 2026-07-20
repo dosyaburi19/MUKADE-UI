@@ -43,27 +43,27 @@
 	let display = $derived(options[selected] || selected);
 </script>
 
-<div class="select" {...props}>
-	<button class="trigger" onclick={toggleOpen} style={width && `min-width: ${width}; max-width: ${width}`}>
-		<span class="selected-item" class:placeholder={!selected}>{display || placeholder}</span>
-		<span class="arrow">{!open ? '+' : '-'}</span>
+<div class="mukade-select" {...props}>
+	<button class="mukade-select-trigger" onclick={toggleOpen} style={width && `min-width: ${width}; max-width: ${width}`}>
+		<span class="mukade-select-selected-item" class:mukade-select-placeholder={!selected}>{display || placeholder}</span>
+		<span class="mukade-select-arrow">{!open ? '+' : '-'}</span>
 	</button>
 	{#if open}
-		<div class="dropdown" class:open>
+		<div class="mukade-select-dropdown" class:mukade-select-open={open}>
 			{@render children?.()}
 		</div>
 	{/if}
 </div>
 
 <style>
-	.select {
+	.mukade-select {
 		position: relative;
 		display: inline-block;
 
 		width: fit-content;
 	}
 
-	.trigger {
+	.mukade-select-trigger {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -79,7 +79,7 @@
 		background-color: var(--mukade-select-bg, var(--mukade-bg));
 	}
 
-	.selected-item {
+	.mukade-select-selected-item {
 		white-space: pre;
 
 		font-weight: 700;
@@ -91,11 +91,11 @@
 		text-overflow: ellipsis;
 	}
 
-	.selected-item.placeholder {
+	.mukade-select-selected-item.mukade-select-placeholder {
 		color: var(--mukade-placeholder);
 	}
 
-	.dropdown {
+	.mukade-select-dropdown {
 		position: absolute;
 
 		display: flex;
@@ -105,7 +105,7 @@
 		border: solid 1px var(--mukade-border-soft);
 	}
 
-	.arrow {
+	.mukade-select-arrow {
 		display: flex;
 		align-items: center;
 

@@ -10,12 +10,12 @@
 	let { width, children, ...props }: Props = $props();
 </script>
 
-<td class="cell" style:--cell-width={width} {...props}>
+<td class="mukade-table-cell" style:--cell-width={width} {...props}>
 	{@render children?.()}
 </td>
 
 <style>
-	.cell {
+	.mukade-table-cell {
 		width: var(--cell-width, auto);
 		max-width: var(--cell-width, none);
 		padding: 0.4rem 0.7rem;

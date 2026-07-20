@@ -11,18 +11,18 @@
 	let { checked = $bindable(false), size, label, disabled, class: className, style, ...props }: Props = $props();
 </script>
 
-<label class={['toggle-row', className]} style:--toggle-size={size} class:disabled {style}>
-	<input class="toggle-input" type="checkbox" bind:checked {disabled} {...props} />
-	<div class="toggle" class:checked></div>
+<label class={['mukade-toggle-row', className]} style:--toggle-size={size} class:mukade-toggle-disabled={disabled} {style}>
+	<input class="mukade-toggle-input" type="checkbox" bind:checked {disabled} {...props} />
+	<div class="mukade-toggle" class:mukade-toggle-checked={checked}></div>
 	{#if label}
-		<span class="label">{label}</span>
+		<span class="mukade-toggle-label">{label}</span>
 	{/if}
 </label>
 
 <style>
 	/* ============ TOGGLE WRAPPER STYLE ============ */
 
-	.toggle-row {
+	.mukade-toggle-row {
 		position: relative;
 
 		display: flex;
@@ -30,14 +30,14 @@
 		gap: 0.5rem;
 	}
 
-	.toggle-row.disabled {
+	.mukade-toggle-row.mukade-toggle-disabled {
 		opacity: 0.6;
 		cursor: not-allowed;
 	}
 
 	/* ============ TOGGLE INPUT STYLE ============ */
 
-	.toggle-input {
+	.mukade-toggle-input {
 		position: absolute;
 		opacity: 0;
 		pointer-events: none;
@@ -45,7 +45,7 @@
 
 	/* ============ TOGGLE TRACK STYLE ============ */
 
-	.toggle {
+	.mukade-toggle {
 		position: relative;
 
 		width: calc(var(--toggle-size, 1rem) * 2);
@@ -55,14 +55,14 @@
 		transition: background 0.5s;
 	}
 
-	.toggle.checked {
+	.mukade-toggle.mukade-toggle-checked {
 		background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.08) 2px, rgba(0, 0, 0, 0.08) 4px);
 		background-color: color-mix(in srgb, var(--mukade-primary) 15%, transparent);
 	}
 
 	/* ============ TOGGLE THUMB STYLE ============ */
 
-	.toggle::after {
+	.mukade-toggle::after {
 		content: '';
 
 		position: absolute;
@@ -79,14 +79,14 @@
 		background-color: var(--mukade-dim);
 	}
 
-	.toggle.checked::after {
+	.mukade-toggle.mukade-toggle-checked::after {
 		left: var(--toggle-size, 1rem);
 		background-color: var(--mukade-primary);
 	}
 
 	/* ============ TOGGLE LABEL STYLE ============ */
 
-	.label {
+	.mukade-toggle-label {
 		font-size: var(--toggle-size, 1rem);
 		font-family: var(--mukade-font-vt);
 		color: var(--mukade-primary);
