@@ -11,13 +11,13 @@
 	let { width, columns, children, ...props }: Props = $props();
 </script>
 
-<div class="table-container" class:fixed={width} style:--table-width={width} {...props}>
-	<table class="table">
+<div class="mukade-table-container" class:mukade-table-fixed={width} style:--_mukade-table-width={width} {...props}>
+	<table class="mukade-table">
 		{#if columns}
 			<thead>
-				<tr class="header-row">
+				<tr class="mukade-table-header-row">
 					{#each columns as column, index (index)}
-						<th class="header-cell">{column}</th>
+						<th class="mukade-table-header-cell">{column}</th>
 					{/each}
 				</tr>
 			</thead>
@@ -29,11 +29,17 @@
 </div>
 
 <style>
-	.table-container {
-		width: var(--table-width, fit-content);
-		max-width: var(--table-max-size, none);
+	/* 내부 전용: 상속 차단 (같은 요소에서 설정→소비) */
+	@property --_mukade-table-width {
+		syntax: '*';
+		inherits: false;
+	}
 
-		background-color: var(--mukade-bg-soft);
+	.mukade-table-container {
+		width: var(--_mukade-table-width, fit-content);
+		max-width: var(--mukade-table-max-size, none);
+
+		background-color: var(--mukade-table-bg, var(--mukade-bg-soft));
 		font-family: var(--mukade-font-vt);
 		font-size: 1rem;
 		color: var(--mukade-text);
@@ -41,32 +47,32 @@
 		overflow: auto;
 	}
 
-	.table-container::-webkit-scrollbar {
+	.mukade-table-container::-webkit-scrollbar {
 		display: none;
 	}
 
-	.table-container.fixed {
+	.mukade-table-container.mukade-table-fixed {
 		overflow: hidden;
 	}
 
-	.table {
+	.mukade-table {
 		border-collapse: collapse;
 	}
 
-	.table-container.fixed > .table {
+	.mukade-table-container.mukade-table-fixed > .mukade-table {
 		width: 100%;
 		table-layout: fixed;
 	}
 
-	.header-row {
-		border-bottom: 1px solid var(--mukade-primary);
-		background-color: color-mix(in srgb, var(--mukade-primary) 5%, var(--mukade-bg-soft));
+	.mukade-table-header-row {
+		border-bottom: 1px solid var(--mukade-table-accent, var(--mukade-primary));
+		background-color: color-mix(in srgb, var(--mukade-table-accent, var(--mukade-primary)) 5%, var(--mukade-table-bg, var(--mukade-bg-soft)));
 	}
 
-	.header-cell {
+	.mukade-table-header-cell {
 		padding: 0.4rem 0.7rem;
 		text-align: left;
-		color: var(--mukade-primary);
+		color: var(--mukade-table-accent, var(--mukade-primary));
 		white-space: nowrap;
 	}
 </style>

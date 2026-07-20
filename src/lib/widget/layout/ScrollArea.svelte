@@ -66,31 +66,31 @@
 	});
 </script>
 
-<div class="scroll-area {direction}" style:max-height={maxHeight} style:max-width={maxWidth} {...props}>
+<div class="mukade-scroll-area mukade-scroll-area-{direction}" style:max-height={maxHeight} style:max-width={maxWidth} {...props}>
 	{#if header}
-		<div class="header" bind:this={head} style:top="{headerTop}px">
+		<div class="mukade-scroll-area-header" bind:this={head} style:top="{headerTop}px">
 			{@render header()}
 		</div>
 	{/if}
 	<!-- {#if sidebar}
-		<div class="sidebar">
+		<div class="mukade-scroll-area-sidebar">
 			{@render sidebar()}
 		</div>
 	{/if} -->
-	<div class="viewport" bind:this={viewport} onscroll={thumbUpdate} style:padding-top="{head?.clientHeight || 0}px">
-		<div class="content" bind:this={content}>
+	<div class="mukade-scroll-area-viewport" bind:this={viewport} onscroll={thumbUpdate} style:padding-top="{head?.clientHeight || 0}px">
+		<div class="mukade-scroll-area-content" bind:this={content}>
 			{@render children?.()}
 		</div>
 	</div>
 	{#if thumbHeight < 100 && thumbHeight > 0}
-		<div class="track" bind:this={track} style:top="{Math.max(0, (head?.clientHeight || 0) + headerTop)}px">
-			<div class="thumb" style:height="{thumbHeight}%" style:top="{thumbTop}px"></div>
+		<div class="mukade-scroll-area-track" bind:this={track} style:top="{Math.max(0, (head?.clientHeight || 0) + headerTop)}px">
+			<div class="mukade-scroll-area-thumb" style:height="{thumbHeight}%" style:top="{thumbTop}px"></div>
 		</div>
 	{/if}
 </div>
 
 <style>
-	.scroll-area {
+	.mukade-scroll-area {
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -98,7 +98,7 @@
 		height: fit-content;
 	}
 
-	.viewport {
+	.mukade-scroll-area-viewport {
 		position: relative;
 		width: 100%;
 		height: 100%;
@@ -106,23 +106,23 @@
 		scrollbar-width: none;
 	}
 
-	.viewport::-webkit-scrollbar {
+	.mukade-scroll-area-viewport::-webkit-scrollbar {
 		display: none;
 	}
 
-	.scroll-area.vertical .viewport {
+	.mukade-scroll-area.mukade-scroll-area-vertical .mukade-scroll-area-viewport {
 		overflow-x: hidden;
 		overflow-y: scroll;
 	}
-	.scroll-area.horizontal .viewport {
+	.mukade-scroll-area.mukade-scroll-area-horizontal .mukade-scroll-area-viewport {
 		overflow-x: scroll;
 		overflow-y: hidden;
 	}
-	.scroll-area.both .viewport {
+	.mukade-scroll-area.mukade-scroll-area-both .mukade-scroll-area-viewport {
 		overflow: scroll;
 	}
 
-	.track {
+	.mukade-scroll-area-track {
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -132,18 +132,18 @@
 		background-color: color-mix(in srgb, var(--mukade-bg-soft) 90%, var(--mukade-bg));
 	}
 
-	.thumb {
+	.mukade-scroll-area-thumb {
 		position: absolute;
 		width: 100%;
 		min-height: 20px;
 		background-color: var(--mukade-primary);
 	}
 
-	.thumb:hover {
+	.mukade-scroll-area-thumb:hover {
 		background-color: var(--mukade-bright);
 	}
 
-	.header {
+	.mukade-scroll-area-header {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -154,7 +154,7 @@
 		background-color: var(--mukade-bg);
 	}
 
-	.sidebar {
+	.mukade-scroll-area-sidebar {
 		position: absolute;
 		top: 0;
 		left: 0;

@@ -11,10 +11,10 @@
 	let { tag = 'section', title, children, ...props }: Props = $props();
 </script>
 
-<svelte:element this={tag} class="-mukade-ui-section" {...props}>
+<svelte:element this={tag} class="mukade-section" {...props}>
 	{#if title}
-		<div class="title">
-			<span class="title-prefix">></span>
+		<div class="mukade-section-title">
+			<span class="mukade-section-title-prefix">></span>
 			{@render title()}
 		</div>
 	{/if}
@@ -22,12 +22,12 @@
 </svelte:element>
 
 <style>
-	.-mukade-ui-section {
+	.mukade-section {
 		margin: 0;
 		padding: 0;
 	}
 
-	.title {
+	.mukade-section-title {
 		display: flex;
 		align-items: center;
 		gap: 1rem;
@@ -35,7 +35,7 @@
 		margin-bottom: 1rem;
 	}
 
-	.title-prefix {
+	.mukade-section-title-prefix {
 		display: flex;
 		align-items: center;
 		padding: 1rem;

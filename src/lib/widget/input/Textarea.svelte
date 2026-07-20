@@ -13,24 +13,35 @@
 </script>
 
 <textarea
-	class="textarea"
-	class:no-resize={!resizing}
-	style:--textarea-width-size={width}
-	style:--textarea-height-size={height}
+	class="mukade-textarea"
+	class:mukade-textarea-no-resize={!resizing}
+	style:--_mukade-textarea-width={width}
+	style:--_mukade-textarea-height={height}
 	bind:value={text}
 	{placeholder}
 	{...props}
 ></textarea>
 
 <style>
-	.textarea {
-		width: var(--textarea-width-size, 12rem);
-		height: var(--textarea-height-size, 7rem);
+	/* 내부 전용: 상속 차단 (같은 요소에서 설정→소비) */
+	@property --_mukade-textarea-width {
+		syntax: '*';
+		inherits: false;
+	}
+
+	@property --_mukade-textarea-height {
+		syntax: '*';
+		inherits: false;
+	}
+
+	.mukade-textarea {
+		width: var(--_mukade-textarea-width, 12rem);
+		height: var(--_mukade-textarea-height, 7rem);
 		padding: 0.5rem;
 
-		background-color: var(--mukade-bg-inset);
+		background-color: var(--mukade-textarea-bg, var(--mukade-bg-inset));
 		box-sizing: border-box;
-		border: solid 1px var(--mukade-primary);
+		border: solid 1px var(--mukade-textarea-accent, var(--mukade-primary));
 		outline: none;
 
 		font-family: var(--mukade-font-vt);
@@ -38,32 +49,32 @@
 		color: var(--mukade-text);
 	}
 
-	.textarea.no-resize {
+	.mukade-textarea.mukade-textarea-no-resize {
 		resize: none;
 	}
 
-	.textarea::placeholder {
+	.mukade-textarea::placeholder {
 		color: var(--mukade-placeholder);
 	}
 
-	.textarea:focus {
+	.mukade-textarea:focus {
 		outline: solid 1px var(--mukade-dim);
 	}
 
-	.textarea::-webkit-scrollbar {
+	.mukade-textarea::-webkit-scrollbar {
 		width: 6px;
 		height: 6px;
 	}
 
-	.textarea::-webkit-scrollbar-track {
+	.mukade-textarea::-webkit-scrollbar-track {
 		background-color: var(--mukade-bg-soft);
 	}
 
-	.textarea::-webkit-scrollbar-thumb {
-		background-color: var(--mukade-primary);
+	.mukade-textarea::-webkit-scrollbar-thumb {
+		background-color: var(--mukade-textarea-accent, var(--mukade-primary));
 	}
 
-	.textarea::-webkit-scrollbar-thumb:hover {
+	.mukade-textarea::-webkit-scrollbar-thumb:hover {
 		background-color: var(--mukade-bright);
 	}
 </style>

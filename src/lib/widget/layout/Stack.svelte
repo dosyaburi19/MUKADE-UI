@@ -16,7 +16,7 @@
 </script>
 
 <div
-	class="stack"
+	class="mukade-stack"
 	style:flex-direction={direction}
 	style:gap
 	style:align-items={alignMap[align]}
@@ -28,7 +28,7 @@
 </div>
 
 <style>
-	.stack {
+	.mukade-stack {
 		display: flex;
 	}
 </style>

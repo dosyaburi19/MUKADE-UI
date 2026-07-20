@@ -27,16 +27,28 @@
 	}
 </script>
 
-<div class="alert {variant}" class:fixed={!!width} style:--width={width} role={variant === 'info' || variant === 'success' ? 'status' : 'alert'} {...props}>
-	<div class="icon">{icon}</div>
-	<div class="message">
-		<span class="title">{title}</span>
-		<span class="content">{@render children?.()}</span>
+<div
+	class="mukade-alert mukade-alert-{variant}"
+	class:mukade-alert-fixed={!!width}
+	style:--_mukade-alert-width={width}
+	role={variant === 'info' || variant === 'success' ? 'status' : 'alert'}
+	{...props}
+>
+	<div class="mukade-alert-icon">{icon}</div>
+	<div class="mukade-alert-message">
+		<span class="mukade-alert-title">{title}</span>
+		<span class="mukade-alert-content">{@render children?.()}</span>
 	</div>
 </div>
 
 <style>
-	.alert {
+	/* 내부 전용: 상속 차단 (같은 요소에서 설정→소비) */
+	@property --_mukade-alert-width {
+		syntax: '*';
+		inherits: false;
+	}
+
+	.mukade-alert {
 		display: flex;
 		align-self: flex-start;
 
@@ -49,31 +61,31 @@
 		font-family: var(--mukade-font-vt);
 	}
 
-	.alert.fixed {
+	.mukade-alert.mukade-alert-fixed {
 		min-width: 0;
-		width: var(--width);
+		width: var(--_mukade-alert-width);
 	}
 
-	.alert.info,
-	.alert.danger {
+	.mukade-alert.mukade-alert-info,
+	.mukade-alert.mukade-alert-danger {
 		border-color: var(--mukade-primary);
 		background-color: color-mix(in srgb, var(--mukade-dim) 10%, transparent);
 		color: var(--mukade-primary);
 	}
 
-	.alert.warn {
+	.mukade-alert.mukade-alert-warn {
 		border-color: var(--mukade-warn);
 		background-color: color-mix(in srgb, var(--mukade-warn-dim) 10%, transparent);
 		color: var(--mukade-warn);
 	}
 
-	.alert.success {
+	.mukade-alert.mukade-alert-success {
 		border-color: var(--mukade-success);
 		background-color: color-mix(in srgb, var(--mukade-success-dim) 10%, transparent);
 		color: var(--mukade-success);
 	}
 
-	.icon {
+	.mukade-alert-icon {
 		text-align: center;
 
 		min-width: 2rem;
@@ -82,7 +94,7 @@
 		font-size: 1rem;
 	}
 
-	.message {
+	.mukade-alert-message {
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
@@ -91,7 +103,7 @@
 		padding-left: 0;
 	}
 
-	.content {
+	.mukade-alert-content {
 		font-size: 0.8rem;
 		color: var(--mukade-text-dim);
 	}

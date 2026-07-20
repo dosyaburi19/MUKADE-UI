@@ -34,8 +34,8 @@
 
 <svelte:element
 	this={tag}
-	class="text {variant} {color} {font}"
-	class:glow
+	class="mukade-text mukade-text-{variant} mukade-text-{color} mukade-text-{font}"
+	class:mukade-text-glow={glow}
 	style:font-size={size}
 	style:letter-spacing={spacing}
 	style:text-align={align}
@@ -45,7 +45,7 @@
 </svelte:element>
 
 <style>
-	.text {
+	.mukade-text {
 		margin: 0;
 		padding: 0;
 
@@ -56,7 +56,7 @@
 
 	/* ============ TEXT VARIANT STYLE ============ */
 
-	.text.crt {
+	.mukade-text.mukade-text-crt {
 		background-image: repeating-linear-gradient(
 			0deg,
 			currentColor 0px,
@@ -70,38 +70,38 @@
 	}
 
 	/* ============ TEXT GLOW STYLE ============ */
-	.text.glow {
+	.mukade-text.mukade-text-glow {
 		text-shadow: 0 0 15px color-mix(in srgb, currentColor 50%, transparent);
 	}
 
 	/* ============ TEXT FONT STYLE ============ */
-	.text.mono {
+	.mukade-text.mukade-text-mono {
 		font-family: var(--mukade-font-mono);
 	}
 
-	.text.vt {
+	.mukade-text.mukade-text-vt {
 		font-family: var(--mukade-font-vt);
 	}
 
 	/* ============ TEXT COLOR STYLE ============ */
 
-	.text.dim {
+	.mukade-text.mukade-text-dim {
 		color: var(--mukade-text-dim);
 	}
 
-	.text.primary {
+	.mukade-text.mukade-text-primary {
 		color: var(--mukade-text);
 	}
 
-	.text.danger {
+	.mukade-text.mukade-text-danger {
 		color: var(--mukade-primary);
 	}
 
-	.text.warn {
+	.mukade-text.mukade-text-warn {
 		color: var(--mukade-warn);
 	}
 
-	.text.success {
+	.mukade-text.mukade-text-success {
 		color: var(--mukade-success);
 	}
 </style>
