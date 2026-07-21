@@ -28,7 +28,7 @@
 
 	.mukade-button {
 		width: var(--_mukade-button-width, fit-content);
-		padding: 0.2rem 0.7rem;
+		padding: calc(var(--_mukade-button-size, 1rem) * 0.2) calc(var(--_mukade-button-size, 1rem) * 0.7);
 
 		border-width: 1px;
 		border-style: solid;
@@ -48,6 +48,11 @@
 	.mukade-button[disabled] {
 		cursor: not-allowed;
 		opacity: 0.6;
+	}
+
+	.mukade-button:focus-visible {
+		outline: 1px solid;
+		outline-offset: 1px;
 	}
 
 	/* ============ PRIMARY VARIANT STYLE ============ */

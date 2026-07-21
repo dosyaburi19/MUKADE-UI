@@ -25,11 +25,11 @@
 				<div class="header-content">
 					<a class="link" href="#mukade-ui">[MUKADE-UI]</a>
 					/
+					<a class="link" href="#system">[SYSTEM]</a>
+					/
 					<a class="link" href="#features">[FEATURES]</a>
 					/
 					<a class="link" href="#components">[COMPONENTS]</a>
-					/
-					<a class="link" href="#license">[LICENSE]</a>
 				</div>
 				<div class="github">
 					<Button variant="primary" onclick={linkToGithub} style="font-size: 1.2rem">[GITHUB]</Button>

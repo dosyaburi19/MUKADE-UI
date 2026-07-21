@@ -42,4 +42,9 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
+
+	.mukade-select-option:focus-visible {
+		outline: solid 1px var(--mukade-select-accent, var(--mukade-primary));
+		outline-offset: -1px;
+	}
 </style>

@@ -136,7 +136,7 @@
 		position: absolute;
 		width: 100%;
 		min-height: 20px;
-		background-color: var(--mukade-primary);
+		background-color: var(--mukade-scrollarea-accent, var(--mukade-primary));
 	}
 
 	.mukade-scroll-area-thumb:hover {
@@ -150,7 +150,7 @@
 		width: 100%;
 		z-index: 1;
 
-		border-bottom: solid 1px var(--mukade-primary);
+		border-bottom: solid 1px var(--mukade-scrollarea-accent, var(--mukade-primary));
 		background-color: var(--mukade-bg);
 	}
 

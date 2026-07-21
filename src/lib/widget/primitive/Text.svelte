@@ -50,7 +50,9 @@
 
 		font-size: 1rem;
 		letter-spacing: 0.4rem;
-		color: var(--mukade-text);
+
+		--_mukade-text-tone: var(--mukade-text-accent, var(--mukade-text));
+		color: var(--_mukade-text-tone);
 	}
 
 	/* ============ TEXT VARIANT STYLE ============ */
@@ -84,22 +86,22 @@
 
 	/* ============ TEXT COLOR STYLE ============ */
 	.mukade-text.mukade-text-dim {
-		color: var(--mukade-text-dim);
+		--_mukade-text-tone: var(--mukade-text-accent, var(--mukade-text-dim));
 	}
 
 	.mukade-text.mukade-text-primary {
-		color: var(--mukade-primary);
+		--_mukade-text-tone: var(--mukade-text-accent, var(--mukade-primary));
 	}
 
 	.mukade-text.mukade-text-danger {
-		color: var(--mukade-bright);
+		--_mukade-text-tone: var(--mukade-text-accent, var(--mukade-bright));
 	}
 
 	.mukade-text.mukade-text-warn {
-		color: var(--mukade-warn);
+		--_mukade-text-tone: var(--mukade-text-accent, var(--mukade-warn));
 	}
 
 	.mukade-text.mukade-text-success {
-		color: var(--mukade-success);
+		--_mukade-text-tone: var(--mukade-text-accent, var(--mukade-success));
 	}
 </style>

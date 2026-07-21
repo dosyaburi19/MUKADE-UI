@@ -99,6 +99,11 @@
 		background-color: var(--mukade-select-bg, var(--mukade-bg));
 	}
 
+	.mukade-select-trigger:focus-visible {
+		outline: solid 1px var(--mukade-select-accent, var(--mukade-primary));
+		outline-offset: 1px;
+	}
+
 	.mukade-select-selected-item {
 		white-space: pre;
 
@@ -123,6 +128,7 @@
 
 		display: flex;
 		flex-direction: column;
+		gap: 0.1rem;
 		min-width: 100%;
 
 		border: solid 1px var(--mukade-border-soft);
