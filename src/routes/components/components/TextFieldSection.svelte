@@ -8,8 +8,18 @@
 
 <BaseSection id="TEXTFIELD" sectionTitle="TextField">
 	<Stack gap="1.5rem" wrap={true}>
-		<TextField label="USERNAME" placeholder="type here" bind:value={outlinedValue} width="14rem" />
+		<TextField
+			label="USERNAME"
+			placeholder="type here"
+			bind:value={outlinedValue}
+			width="14rem"
+			style="font-size:2rem;"
+			required={true}
+			onfocus={() => console.log('onblur event executed!')}
+		/>
 		<TextField variant="filled" label="PASSWORD" type="password" bind:value={filledValue} width="14rem" />
+		<TextField variant="outlined" type="text" placeholder="outlined" bind:value={outlinedValue} width="14rem" />
+		<TextField variant="filled" type="text" placeholder="filled" bind:value={filledValue} width="14rem" />
 	</Stack>
 	{#snippet propsContent()}
 		<TableRow>

@@ -1,16 +1,15 @@
 <script lang="ts">
-	import type { Font, TextAlign, TextVariant } from '$lib/utils/type.ts';
+	import type { Font, TextAlign, TextTone, TextVariant } from '$lib/utils/type.ts';
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 
 	type TextTag = 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'label' | 'small';
-	type TextColor = 'primary' | 'dim' | 'danger' | 'success' | 'warn';
 
 	interface Props extends HTMLAttributes<HTMLElement> {
 		tag?: TextTag;
 		variant?: TextVariant;
 		glow?: boolean;
-		color?: TextColor;
+		color?: TextTone;
 		font?: Font;
 		size?: string;
 		spacing?: string;
@@ -22,7 +21,7 @@
 		tag = 'p',
 		variant = 'led',
 		glow = false,
-		color = 'primary',
+		color = 'default',
 		font = 'vt',
 		size,
 		spacing = '0.2rem',
@@ -84,17 +83,16 @@
 	}
 
 	/* ============ TEXT COLOR STYLE ============ */
-
 	.mukade-text.mukade-text-dim {
 		color: var(--mukade-text-dim);
 	}
 
 	.mukade-text.mukade-text-primary {
-		color: var(--mukade-text);
+		color: var(--mukade-primary);
 	}
 
 	.mukade-text.mukade-text-danger {
-		color: var(--mukade-primary);
+		color: var(--mukade-bright);
 	}
 
 	.mukade-text.mukade-text-warn {

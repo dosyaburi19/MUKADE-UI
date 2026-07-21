@@ -1,15 +1,14 @@
 <script lang="ts">
 	import type { HTMLTextareaAttributes } from 'svelte/elements';
 
-	interface Props extends HTMLTextareaAttributes {
+	interface Props extends Omit<HTMLTextareaAttributes, 'value'> {
 		width?: string;
 		height?: string;
-		text?: string;
+		value?: string;
 		resizing?: boolean;
-		placeholder?: string;
 	}
 
-	let { width, height, text = $bindable(''), resizing = false, placeholder, ...props }: Props = $props();
+	let { width, height, value = $bindable(''), resizing = false, ...props }: Props = $props();
 </script>
 
 <textarea
@@ -17,8 +16,7 @@
 	class:mukade-textarea-no-resize={!resizing}
 	style:--_mukade-textarea-width={width}
 	style:--_mukade-textarea-height={height}
-	bind:value={text}
-	{placeholder}
+	bind:value
 	{...props}
 ></textarea>
 
@@ -76,5 +74,12 @@
 
 	.mukade-textarea::-webkit-scrollbar-thumb:hover {
 		background-color: var(--mukade-bright);
+	}
+
+	.mukade-textarea:disabled {
+		background-color: var(--mukade-bg-soft);
+		border-color: var(--mukade-border-soft);
+		cursor: not-allowed;
+		opacity: 0.6;
 	}
 </style>

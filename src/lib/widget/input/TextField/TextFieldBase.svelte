@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { formatTerminalStyleText } from '$lib/utils/text.ts';
-	import { generateUUID } from '$lib/utils/uuid.ts';
-	import { untrack, type Snippet } from 'svelte';
+	import { type Snippet } from 'svelte';
+	import type { HTMLInputAttributes } from 'svelte/elements';
 
-	interface Props {
+	interface Props extends Omit<HTMLInputAttributes, 'value' | 'size' | 'type' | 'children'> {
 		type?: string;
 		label?: string;
 		placeholder?: string;
@@ -20,51 +20,43 @@
 		>;
 	}
 
-	const uuid = generateUUID();
-	let { type = 'text', label = '', placeholder = '', value = $bindable(''), children }: Props = $props();
+	const generatedId = $props.id();
+	let { id, type = 'text', label = '', placeholder = '', value = $bindable(''), children, onblur, onfocus, ...props }: Props = $props();
+	let inputId = $derived(id ?? generatedId);
 	let focused = $state(false);
 	let floated = $derived(focused || value.length > 0);
 	let unlabeled = $derived(!label);
 	let labelIndex = $state(0);
-	let interval: ReturnType<typeof setInterval> | null = null;
 
 	let typingLabel = $derived(formatTerminalStyleText(label.slice(0, labelIndex)));
 
 	$effect(() => {
-		if (floated && label.length) {
-			untrack(() => {
-				clearInterval(interval!);
-				labelIndex = 0;
-				interval = setInterval(() => {
-					if (labelIndex < label.length) {
-						labelIndex++;
-					} else {
-						clearInterval(interval!);
-						interval = null;
-					}
-				}, 50);
-			});
-		} else {
-			untrack(() => {
-				clearInterval(interval!);
-				interval = null;
-				labelIndex = 0;
-			});
-		}
+		labelIndex = 0;
+		if (!floated || !label.length) return;
+
+		const intervalId = setInterval(() => {
+			labelIndex++;
+			if (labelIndex >= label.length) clearInterval(intervalId);
+		}, 50);
+
+		return () => clearInterval(intervalId);
 	});
 
-	function onFocus() {
+	function onFocus(event: FocusEvent & { currentTarget: EventTarget & HTMLInputElement }) {
 		focused = true;
+		onfocus?.(event);
 	}
 
-	function onBlur() {
+	function onBlur(event: FocusEvent & { currentTarget: EventTarget & HTMLInputElement }) {
 		focused = false;
+		onblur?.(event);
 	}
 </script>
 
 <div class="mukade-textfield-container">
 	<input
-		id={uuid}
+		id={inputId}
+		class="mukade-textfield-input"
 		class:mukade-textfield-focused={focused}
 		class:mukade-textfield-unlabeled={unlabeled}
 		{type}
@@ -72,10 +64,11 @@
 		bind:value
 		onfocus={onFocus}
 		onblur={onBlur}
+		{...props}
 	/>
 
 	{#if label}
-		<label for={uuid} class:mukade-textfield-floated={floated} class:mukade-textfield-focused={focused}>
+		<label for={inputId} class="mukade-textfield-label" class:mukade-textfield-floated={floated} class:mukade-textfield-focused={focused}>
 			{floated ? typingLabel : formatTerminalStyleText(label)}
 		</label>
 	{/if}
@@ -92,7 +85,7 @@
 		font-family: var(--mukade-font-vt);
 	}
 
-	input {
+	.mukade-textfield-input {
 		width: 100%;
 		padding: var(--_mukade-textfield-input-padding, 17px 14px);
 
@@ -107,19 +100,19 @@
 		z-index: 1;
 	}
 
-	input::placeholder {
+	.mukade-textfield-input::placeholder {
 		opacity: 0;
 	}
 
-	input.mukade-textfield-focused::placeholder {
+	.mukade-textfield-input.mukade-textfield-focused::placeholder {
 		opacity: 1;
 	}
 
-	input.mukade-textfield-unlabeled::placeholder {
+	.mukade-textfield-input.mukade-textfield-unlabeled::placeholder {
 		opacity: 1;
 	}
 
-	label {
+	.mukade-textfield-label {
 		position: absolute;
 		left: 1rem;
 		top: 50%;
@@ -137,7 +130,7 @@
 		z-index: 2;
 	}
 
-	label.mukade-textfield-floated {
+	.mukade-textfield-label.mukade-textfield-floated {
 		top: var(--_mukade-textfield-label-floated-top);
 		left: var(--_mukade-textfield-label-floated-left);
 
@@ -145,7 +138,7 @@
 		transition: none;
 	}
 
-	label.mukade-textfield-focused {
+	.mukade-textfield-label.mukade-textfield-focused {
 		color: var(--mukade-textfield-accent, var(--mukade-primary));
 	}
 </style>

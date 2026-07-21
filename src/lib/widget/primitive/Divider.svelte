@@ -51,9 +51,7 @@
 	.mukade-divider.mukade-divider-horizontal::after {
 		content: '';
 		flex: 1;
-		/* height: var(--_mukade-divider-line-weight, 1px);
-		background: var(--mukade-primary); */
-		border-top: var(--_mukade-divider-line-weight, 1px) var(--_mukade-divider-variant) var(--mukade-divider-color, var(--mukade-primary));
+		border-top: var(--_mukade-divider-line-weight, 1px) var(--_mukade-divider-variant, solid) var(--mukade-divider-accent, var(--mukade-primary));
 	}
 
 	.mukade-divider.mukade-divider-vertical {
@@ -67,9 +65,7 @@
 	.mukade-divider.mukade-divider-vertical::after {
 		content: '';
 		flex: 1;
-		/* width: var(--_mukade-divider-line-weight, 1px);
-		background-color: var(--mukade-primary); */
-		border-left: var(--_mukade-divider-line-weight, 1px) var(--_mukade-divider-variant) var(--mukade-primary);
+		border-left: var(--_mukade-divider-line-weight, 1px) var(--_mukade-divider-variant, solid) var(--mukade-divider-accent, var(--mukade-primary));
 	}
 
 	.mukade-divider.mukade-divider-vertical .mukade-divider-label {
@@ -81,6 +77,6 @@
 	.mukade-divider-label {
 		font-size: var(--_mukade-divider-font-size, 1rem);
 		font-family: var(--mukade-font-vt);
-		color: var(--mukade-divider-color, var(--mukade-primary));
+		color: var(--mukade-divider-accent, var(--mukade-primary));
 	}
 </style>

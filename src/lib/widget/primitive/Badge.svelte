@@ -3,7 +3,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 
 	interface Props extends HTMLAttributes<HTMLSpanElement> {
-		variant?: 'primary' | 'idle' | 'danger' | 'warn' | 'success';
+		variant?: 'primary' | 'ghost' | 'danger' | 'warn' | 'success';
 		label?: string;
 		count?: number;
 		max?: number;
@@ -93,7 +93,7 @@
 		color: var(--mukade-primary);
 	}
 
-	.mukade-badge-overlay.mukade-badge-idle > .mukade-badge-overlay-item {
+	.mukade-badge-overlay.mukade-badge-ghost > .mukade-badge-overlay-item {
 		border-color: var(--mukade-border-soft);
 		color: var(--mukade-text-dim);
 	}
@@ -140,7 +140,7 @@
 		color: var(--mukade-primary);
 	}
 
-	.mukade-badge-tag.mukade-badge-idle {
+	.mukade-badge-tag.mukade-badge-ghost {
 		border-color: var(--mukade-border-soft);
 		color: var(--mukade-text-dim);
 	}
