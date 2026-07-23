@@ -5,7 +5,7 @@ A single cell inside a [`TableRow`](./TableRow.md). Accepts any content and can 
 ## Import
 
 ```svelte
-import { Table, TableRow, TableCell } from 'mukade-ui';
+import {(Table, TableRow, TableCell)} from 'mukade-ui';
 ```
 
 ## Usage
@@ -21,10 +21,10 @@ import { Table, TableRow, TableCell } from 'mukade-ui';
 
 ## Props
 
-| Prop       | Type      | Default | Description                                          |
-| ---------- | --------- | ------- | ---------------------------------------------------- |
-| `width`    | `string`  | `auto`  | Fixed cell width; also caps `max-width`.             |
-| `children` | `Snippet` | —       | Cell content (text or nested components).            |
+| Prop       | Type      | Default | Description                              |
+| ---------- | --------- | ------- | ---------------------------------------- |
+| `width`    | `string`  | `auto`  | Fixed cell width; also caps `max-width`. |
+| `children` | `Snippet` | —       | Cell content (text or nested widgets).   |
 
 All other `HTMLAttributes` are forwarded to the `<td>`.
 

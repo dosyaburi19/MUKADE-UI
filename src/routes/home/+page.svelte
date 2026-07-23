@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Button, Container } from '$lib/index.ts';
 	import ScrollArea from '$lib/widget/layout/ScrollArea.svelte';
-	import ComponentsSection from './components/ComponentsSection.svelte';
+	import WidgetsSection from './components/WidgetsSection.svelte';
 	import FeaturesSection from './components/FeaturesSection.svelte';
 	import GetStartSection from './components/GetStartSection.svelte';
 	import MainSection from './components/MainSection.svelte';
@@ -23,13 +23,15 @@
 			<div class="fixed">
 				<div class="brand-logo"></div>
 				<div class="header-content">
-					<a class="link" href="#mukade-ui">[MUKADE-UI]</a>
+					<a class="link" href="#main">[MUKADE-UI]</a>
 					/
-					<a class="link" href="#system">[SYSTEM]</a>
+					<a class="link" href="#status">[SYSTEM]</a>
 					/
 					<a class="link" href="#features">[FEATURES]</a>
 					/
-					<a class="link" href="#components">[COMPONENTS]</a>
+					<a class="link" href="#showcase">[SHOWCASE]</a>
+					/
+					<a class="link" href="#widgets">[WIDGETS]</a>
 				</div>
 				<div class="github">
 					<Button variant="primary" onclick={linkToGithub} style="font-size: 1.2rem">[GITHUB]</Button>
@@ -42,7 +44,7 @@
 			<SystemStatusSection />
 			<FeaturesSection />
 			<ShowcaseSection />
-			<ComponentsSection />
+			<WidgetsSection />
 		</div>
 		<div class="footer"></div>
 	</ScrollArea>
@@ -94,7 +96,7 @@
 
 	@media (max-width: 767px) {
 		.contents {
-			padding-inline: 1%;
+			padding-inline: 5%;
 		}
 
 		.header-content {

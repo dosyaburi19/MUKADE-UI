@@ -30,7 +30,7 @@
 						<Badge variant="danger" label="[DANGER]" />
 						<Badge variant="warn" label="[WARN]" />
 						<Badge variant="success" label="[SUCCESS]" />
-						<Badge variant="idle" label="[IDLE]" />
+						<Badge variant="ghost" label="[GHOST]" />
 					</Stack>
 				</Stack>
 				<Stack direction="column" gap="0.5rem">
@@ -46,7 +46,7 @@
 				</Stack>
 			</Stack>
 			{#snippet footer()}
-				this component is panel.
+				this widget is panel.
 			{/snippet}
 		</Panel>
 	</Container>

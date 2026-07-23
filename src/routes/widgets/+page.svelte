@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { Container } from '$lib/index.ts';
-
 	// primitive
 	import TextSection from './components/TextSection.svelte';
 	import AvatarSection from './components/AvatarSection.svelte';
@@ -30,40 +28,30 @@
 	import TableSection from './components/TableSection.svelte';
 </script>
 
-<div class="components-page">
-	<Container class="container" style="padding-inline:20%">
-		<!-- primitive -->
-		<TextSection />
-		<AvatarSection />
-		<BadgeSection />
-		<DividerSection />
+<!-- primitive -->
+<TextSection />
+<AvatarSection />
+<BadgeSection />
+<DividerSection />
 
-		<!-- layout -->
-		<ContainerSection />
-		<StackSection />
-		<ScrollAreaSection />
-		<PanelSection />
-		<SectionSection />
+<!-- layout -->
+<ContainerSection />
+<StackSection />
+<ScrollAreaSection />
+<PanelSection />
+<SectionSection />
 
-		<!-- input -->
-		<ButtonSection />
-		<CheckboxSection />
-		<InputSection />
-		<TextareaSection />
-		<ToggleSection />
-		<TextFieldSection />
-		<SelectSection />
+<!-- input -->
+<ButtonSection />
+<CheckboxSection />
+<InputSection />
+<TextareaSection />
+<ToggleSection />
+<TextFieldSection />
+<SelectSection />
 
-		<!-- feedback -->
-		<AlertSection />
+<!-- feedback -->
+<AlertSection />
 
-		<!-- data -->
-		<TableSection />
-	</Container>
-</div>
-
-<style>
-	.components-page {
-		padding-block: 3rem;
-	}
-</style>
+<!-- data -->
+<TableSection />

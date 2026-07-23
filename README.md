@@ -1,6 +1,6 @@
 # MUKADE-UI
 
-A terminal-style **Svelte 5** UI component library. Retro hacker / CRT aesthetics for modern web applications, with a minimal dependency footprint.
+A terminal-style **Svelte 5** UI widget library. Retro hacker / CRT aesthetics for modern web applications, with a minimal dependency footprint.
 
 > Aiming to be for Svelte what MUI is for React — but with its own scanline soul.
 
@@ -18,7 +18,7 @@ npm install mukade-ui
 
 ## Setup
 
-Importing any component automatically pulls in the default theme (CSS custom properties) as a side effect — no separate stylesheet import is required.
+Importing any widget automatically pulls in the default theme (CSS custom properties) as a side effect — no separate stylesheet import is required.
 
 ```svelte
 <script>
@@ -28,7 +28,7 @@ Importing any component automatically pulls in the default theme (CSS custom pro
 
 ### Fonts
 
-The `VT323` and `Share Tech Mono` web fonts are core to the terminal look, so the theme loads them from Google Fonts automatically — no extra import is needed. If a font fails to load (offline, blocked, etc.), the components fall back to the system monospace stack.
+The `VT323` and `Share Tech Mono` web fonts are core to the terminal look, so the theme loads them from Google Fonts automatically — no extra import is needed. If a font fails to load (offline, blocked, etc.), the widgets fall back to the system monospace stack.
 
 ### Theming
 
@@ -80,25 +80,25 @@ The full default palette ships in [`src/lib/common/index.css`](src/lib/common/in
 MUKADE-UI is customizable in three layers, from broad to precise:
 
 1. **Theme tokens** — `--mukade-*` globals retheme everything at once.
-2. **Props** — curated `variant` / `size` / `width` options per component.
-3. **Per-component CSS hooks** — `--mukade-{widget}-accent` / `-bg` recolor a single component (or a subtree) without `:global()`. For example:
+2. **Props** — curated `variant` / `size` / `width` options per widget.
+3. **Per-widget CSS hooks** — `--mukade-{widget}-accent` / `-bg` recolor a single widget (or a subtree) without `:global()`. For example:
 
 ```svelte
 <Button variant="primary">default red</Button>
 <Table style="--mukade-table-accent: cyan; --mukade-table-bg: #001010;">…</Table>
 ```
 
-Internal-only variables use the `--_mukade-*` prefix and are locked with `@property { inherits: false }`, so external CSS never leaks into a component's private layout.
+Internal-only variables use the `--_mukade-*` prefix and are locked with `@property { inherits: false }`, so external CSS never leaks into a widget's private layout.
 
 ---
 
-## Components
+## Widgets
 
-Per-component documentation lives in [`src/lib/widget/.claude/`](src/lib/widget/.claude) (English) and [`.claude/ko/`](src/lib/widget/.claude/ko) (한국어).
+Per-widget documentation lives in [`src/lib/widget/.claude/`](src/lib/widget/.claude) (English) and [`.claude/ko/`](src/lib/widget/.claude/ko) (한국어).
 
 ### Primitive
 
-| Component                                      | Description                                    |
+| Widget                                         | Description                                    |
 | ---------------------------------------------- | ---------------------------------------------- |
 | [`Text`](src/lib/widget/.claude/Text.md)       | Themed text with color, font, CRT/LED variants |
 | [`Badge`](src/lib/widget/.claude/Badge.md)     | Status tag / corner overlay with count support |
@@ -107,7 +107,7 @@ Per-component documentation lives in [`src/lib/widget/.claude/`](src/lib/widget/
 
 ### Layout
 
-| Component                                            | Description                              |
+| Widget                                               | Description                              |
 | ---------------------------------------------------- | ---------------------------------------- |
 | [`Container`](src/lib/widget/.claude/Container.md)   | Full-width centering wrapper             |
 | [`Stack`](src/lib/widget/.claude/Stack.md)           | Flex row / column layout                 |
@@ -117,7 +117,7 @@ Per-component documentation lives in [`src/lib/widget/.claude/`](src/lib/widget/
 
 ### Input
 
-| Component                                                | Description                          |
+| Widget                                                   | Description                          |
 | -------------------------------------------------------- | ------------------------------------ |
 | [`Button`](src/lib/widget/.claude/Button.md)             | Button with variants, size, width    |
 | [`Input`](src/lib/widget/.claude/Input.md)               | Single-line text input               |
@@ -130,13 +130,13 @@ Per-component documentation lives in [`src/lib/widget/.claude/`](src/lib/widget/
 
 ### Feedback
 
-| Component                                  | Description                      |
+| Widget                                     | Description                      |
 | ------------------------------------------ | -------------------------------- |
 | [`Alert`](src/lib/widget/.claude/Alert.md) | Status message box with variants |
 
 ### Data
 
-| Component                                          | Description                      |
+| Widget                                             | Description                      |
 | -------------------------------------------------- | -------------------------------- |
 | [`Table`](src/lib/widget/.claude/Table.md)         | Data table (fixed / fit-content) |
 | [`TableRow`](src/lib/widget/.claude/TableRow.md)   | Table row                        |
@@ -152,7 +152,7 @@ The largest release so far. It hardens every widget, closes accessibility gaps, 
 
 **Customization API**
 
-- Added per-component CSS hooks across the library: `--mukade-{widget}-accent` and, where relevant, `-bg` (`Button` excluded — it uses `size`/`width` props). Each falls back to a theme token, so setting nothing keeps the default look.
+- Added per-widget CSS hooks across the library: `--mukade-{widget}-accent` and, where relevant, `-bg` (`Button` excluded — it uses `size`/`width` props). Each falls back to a theme token, so setting nothing keeps the default look.
 - All widget class names are namespaced with the `mukade-` prefix, preventing collisions with consumer global CSS.
 - Internal-only variables moved to the `--_mukade-*` convention and locked with `@property { inherits: false }`, so ambient CSS can no longer leak into private layout values.
 
@@ -161,7 +161,7 @@ The largest release so far. It hardens every widget, closes accessibility gaps, 
 - `Checkbox` and `Toggle` now render a visible `:focus-visible` ring on the styled control (the native input is hidden, so keyboard focus was previously invisible).
 - `Alert` sets `role="status"` / `role="alert"` per severity.
 
-**Component fixes**
+**Widget fixes**
 
 - `Select`: closes on outside click and `Escape`; the dropdown now has a solid background and a configurable `z-index` (`--mukade-select-z-index`).
 - `TextField`: SSR-safe ids via `$props.id()`; forwards native input attributes (`name`, `required`, `disabled`, `onchange`, …) so it works in real forms; user `onfocus`/`onblur` handlers are preserved; label typing/cleanup no longer leaks a timer.
@@ -182,7 +182,7 @@ The largest release so far. It hardens every widget, closes accessibility gaps, 
 
 ### v0.4.0 — Widget expansion & demo site
 
-- Expanded the widget set and added the demo / component showcase pages.
+- Expanded the widget set and added the demo / widget showcase pages.
 
 ### v0.3.0
 
