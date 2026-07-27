@@ -44,8 +44,8 @@
 		</Stack>
 		<Stack direction="row" wrap={true} gap="1rem">
 			{#each components as { name, id } (id)}
-				<Button size="large" style="padding: 0.5rem 1rem;" onclick={() => moveTo(id)}>
-					{name} -->
+				<Button size="2rem" onclick={() => moveTo(id)}>
+					{name.toUpperCase()} -->
 					<!-- <Text size="1.5rem" font="vt" color="danger" spacing="0.2rem">{name}</Text>
 					<Text size="1.2rem" font="vt" color="danger" spacing="0"></Text> -->
 				</Button>

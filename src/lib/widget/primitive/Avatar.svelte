@@ -64,8 +64,8 @@
 		justify-content: center;
 		align-items: center;
 		width: var(--_mukade-avatar-size, 3rem);
-		border: 1px solid var(--mukade-primary);
-		background-color: color-mix(in srgb, var(--mukade-primary) 5%, transparent);
+		border: 1px solid var(--mukade-avatar-accent, var(--mukade-primary));
+		background-color: color-mix(in srgb, var(--mukade-avatar-accent, var(--mukade-primary)) 5%, transparent);
 		overflow: hidden;
 
 		aspect-ratio: 1 / 1;
@@ -74,7 +74,7 @@
 		font-family: var(--mukade-font-mono);
 		font-size: 2rem;
 		font-weight: 700;
-		color: var(--mukade-primary);
+		color: var(--mukade-avatar-accent, var(--mukade-primary));
 	}
 
 	.mukade-avatar-image {

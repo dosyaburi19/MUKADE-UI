@@ -5,24 +5,35 @@
 	interface Props extends HTMLButtonAttributes {
 		children?: Snippet<[]>;
 		variant?: 'primary' | 'danger' | 'warn' | 'success' | 'ghost';
-		size?: 'large' | 'medium' | 'small';
+		size?: string;
+		width?: string;
 	}
 
-	const { children, variant = 'primary', size = 'medium', ...props }: Props = $props();
+	const { children, variant = 'primary', size, width, ...props }: Props = $props();
 </script>
 
-<button class="mukade-button mukade-button-{variant} mukade-button-{size}" type="button" {...props}>
+<button class="mukade-button mukade-button-{variant}" style:--_mukade-button-size={size} style:--_mukade-button-width={width} type="button" {...props}>
 	{@render children?.()}
 </button>
 
 <style>
+	@property --_mukade-button-size {
+		syntax: '*';
+		inherits: false;
+	}
+	@property --_mukade-button-width {
+		syntax: '*';
+		inherits: false;
+	}
+
 	.mukade-button {
-		padding: 0.2rem 0.7rem;
+		width: var(--_mukade-button-width, fit-content);
+		padding: calc(var(--_mukade-button-size, 1rem) * 0.2) calc(var(--_mukade-button-size, 1rem) * 0.7);
 
 		border-width: 1px;
 		border-style: solid;
 
-		font-size: 1rem;
+		font-size: var(--_mukade-button-size, 1rem);
 		font-family: var(--mukade-font-vt);
 
 		transition: transform 0.08s;
@@ -39,12 +50,9 @@
 		opacity: 0.6;
 	}
 
-	.mukade-button.mukade-button-large {
-		font-size: 1.5rem;
-	}
-
-	.mukade-button.mukade-button-small {
-		font-size: 0.7rem;
+	.mukade-button:focus-visible {
+		outline: 1px solid;
+		outline-offset: 1px;
 	}
 
 	/* ============ PRIMARY VARIANT STYLE ============ */

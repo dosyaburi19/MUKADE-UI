@@ -19,3 +19,4 @@ export type Align = keyof typeof alignMap;
 export type TextAlign = 'start' | 'left' | 'center' | 'right' | 'end' | 'justify';
 export type Font = 'mono' | 'vt';
 export type TextVariant = 'crt' | 'led';
+export type TextTone = 'default' | 'dim' | 'primary' | 'success' | 'warn' | 'danger';
