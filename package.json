@@ -9,6 +9,8 @@
 		"svelte5",
 		"ui",
 		"component-library",
+		"widget-library",
+		"ui-library",
 		"terminal"
 	],
 	"repository": {
