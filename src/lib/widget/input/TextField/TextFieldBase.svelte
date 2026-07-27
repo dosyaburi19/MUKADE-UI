@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { formatTerminalStyleText } from '$lib/utils/text.ts';
+	import { formatTerminalStyleText } from '$lib/utils/text';
 	import { type Snippet } from 'svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 

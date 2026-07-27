@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Font, TextAlign, TextTone, TextVariant } from '$lib/utils/type.ts';
+	import type { Font, TextAlign, TextTone, TextVariant } from '$lib/utils/type';
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 
