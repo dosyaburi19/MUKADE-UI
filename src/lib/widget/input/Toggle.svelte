@@ -43,6 +43,11 @@
 		pointer-events: none;
 	}
 
+	.mukade-toggle-input:focus-visible + .mukade-toggle {
+		outline: 1px solid var(--mukade-toggle-accent, var(--mukade-bright));
+		outline-offset: 1px;
+	}
+
 	/* ============ TOGGLE TRACK STYLE ============ */
 
 	.mukade-toggle {

@@ -1,7 +1,8 @@
 <script lang="ts">
+	import type { HTMLInputAttributes } from 'svelte/elements';
 	import TextFieldBase from './TextFieldBase.svelte';
 
-	interface Props {
+	interface Props extends Omit<HTMLInputAttributes, 'value' | 'size' | 'type' | 'children'> {
 		type?: string;
 		label?: string;
 		placeholder?: string;
@@ -9,16 +10,16 @@
 		width?: string;
 	}
 
-	let { type = '', label = '', placeholder = '', value = $bindable(''), width = '' }: Props = $props();
+	let { value = $bindable(''), width, class: className, style, ...props }: Props = $props();
 </script>
 
-<div class="mukade-textfield-outlined" style="width: {width ?? '100%'}">
-	<TextFieldBase {type} {label} {placeholder} bind:value>
+<div class={['mukade-textfield-outlined', className]} style:width {style}>
+	<TextFieldBase bind:value {...props}>
 		{#snippet children({ focused, floated, label })}
-			<fieldset class:mukade-textfield-focused={focused}>
+			<fieldset class="mukade-textfield-fieldset-outlined" class:mukade-textfield-focused={focused}>
 				{#if label}
-					<legend class:mukade-textfield-floated={floated}>
-						<span>{floated ? label : ''}</span>
+					<legend class="mukade-textfield-legend" class:mukade-textfield-floated={floated}>
+						<span class="mukade-textfield-legend-text">{floated ? label : ''}</span>
 					</legend>
 				{/if}
 			</fieldset>
@@ -37,7 +38,7 @@
 		padding-top: 12px;
 	}
 
-	fieldset {
+	.mukade-textfield-fieldset-outlined {
 		position: absolute;
 
 		padding: 0 8px;
@@ -51,19 +52,19 @@
 		pointer-events: none;
 	}
 
-	fieldset.mukade-textfield-focused {
+	.mukade-textfield-fieldset-outlined.mukade-textfield-focused {
 		border: 2px solid var(--mukade-textfield-accent, var(--mukade-primary));
 	}
 
-	fieldset:not(:has(legend)) {
+	.mukade-textfield-fieldset-outlined:not(:has(.mukade-textfield-legend)) {
 		inset: 0;
 	}
 
-	fieldset.mukade-textfield-focused:not(:has(legend)) {
+	.mukade-textfield-fieldset-outlined.mukade-textfield-focused:not(:has(.mukade-textfield-legend)) {
 		inset: 1px 0 1px 0;
 	}
 
-	legend {
+	.mukade-textfield-legend {
 		display: block;
 
 		width: 0.01px;
@@ -77,13 +78,13 @@
 		overflow: hidden;
 	}
 
-	legend.mukade-textfield-floated {
+	.mukade-textfield-legend.mukade-textfield-floated {
 		width: auto;
 
 		padding: 0 5px;
 	}
 
-	legend span {
+	.mukade-textfield-legend .mukade-textfield-legend-text {
 		display: inline-block;
 
 		padding: 0 5px;

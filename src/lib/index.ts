@@ -1,4 +1,4 @@
-// Reexport your entry components here
+// Reexport your entry widgets here
 import './common/index.css';
 
 /* ============ PRIMITIVE ============ */

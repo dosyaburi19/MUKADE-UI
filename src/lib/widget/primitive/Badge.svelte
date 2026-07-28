@@ -3,7 +3,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 
 	interface Props extends HTMLAttributes<HTMLSpanElement> {
-		variant?: 'primary' | 'idle' | 'danger' | 'warn' | 'success';
+		variant?: 'primary' | 'ghost' | 'danger' | 'warn' | 'success';
 		label?: string;
 		count?: number;
 		max?: number;
@@ -89,34 +89,34 @@
 	}
 
 	.mukade-badge-overlay.mukade-badge-primary > .mukade-badge-overlay-item {
-		border-color: var(--mukade-primary);
-		color: var(--mukade-primary);
+		--_mukade-badge-border-tone: var(--mukade-badge-accent, var(--mukade-primary));
+		--_mukade-badge-text-tone: var(--mukade-badge-accent, var(--mukade-primary));
 	}
 
-	.mukade-badge-overlay.mukade-badge-idle > .mukade-badge-overlay-item {
-		border-color: var(--mukade-border-soft);
-		color: var(--mukade-text-dim);
+	.mukade-badge-overlay.mukade-badge-ghost > .mukade-badge-overlay-item {
+		--_mukade-badge-border-tone: var(--mukade-badge-accent, var(--mukade-border-soft));
+		--_mukade-badge-text-tone: var(--mukade-badge-accent, var(--mukade-text-dim));
 	}
 
 	.mukade-badge-overlay.mukade-badge-danger > .mukade-badge-overlay-item {
 		padding: 0.25rem 0.4rem;
 
 		background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.08) 2px, rgba(0, 0, 0, 0.08) 4px);
-		background-color: var(--mukade-primary);
-		border-color: var(--mukade-primary);
+		background-color: var(--mukade-badge-accent, var(--mukade-primary));
+		--_mukade-badge-border-tone: var(--mukade-badge-accent, var(--mukade-primary));
+		--_mukade-badge-text-tone: var(--mukade-text-dark);
 
 		font-weight: 700;
-		color: var(--mukade-text-dark);
 	}
 
 	.mukade-badge-overlay.mukade-badge-warn > .mukade-badge-overlay-item {
-		border-color: var(--mukade-warn);
-		color: var(--mukade-warn);
+		--_mukade-badge-border-tone: var(--mukade-badge-accent, var(--mukade-warn));
+		--_mukade-badge-text-tone: var(--mukade-badge-accent, var(--mukade-warn));
 	}
 
 	.mukade-badge-overlay.mukade-badge-success > .mukade-badge-overlay-item {
-		border-color: var(--mukade-success);
-		color: var(--mukade-success);
+		--_mukade-badge-border-tone: var(--mukade-badge-accent, var(--mukade-success));
+		--_mukade-badge-text-tone: var(--mukade-badge-accent, var(--mukade-success));
 	}
 
 	/* ============ TAG-BADGE STYLE ============ */
@@ -136,33 +136,40 @@
 	}
 
 	.mukade-badge-tag.mukade-badge-primary {
-		border-color: var(--mukade-primary);
-		color: var(--mukade-primary);
+		--_mukade-badge-border-tone: var(--mukade-badge-accent, var(--mukade-primary));
+		--_mukade-badge-text-tone: var(--mukade-badge-accent, var(--mukade-primary));
 	}
 
-	.mukade-badge-tag.mukade-badge-idle {
-		border-color: var(--mukade-border-soft);
-		color: var(--mukade-text-dim);
+	.mukade-badge-tag.mukade-badge-ghost {
+		--_mukade-badge-border-tone: var(--mukade-badge-accent, var(--mukade-border-soft));
+		--_mukade-badge-text-tone: var(--mukade-badge-accent, var(--mukade-text-dim));
 	}
 
 	.mukade-badge-tag.mukade-badge-danger {
 		padding: 0.25rem 0.4rem;
 
 		background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.08) 2px, rgba(0, 0, 0, 0.08) 4px);
-		background-color: var(--mukade-primary);
-		border-color: var(--mukade-primary);
+		background-color: var(--mukade-badge-accent, var(--mukade-primary));
+		--_mukade-badge-border-tone: var(--mukade-badge-accent, var(--mukade-primary));
+		--_mukade-badge-text-tone: var(--mukade-text-dark);
 
 		font-weight: 700;
-		color: var(--mukade-text-dark);
 	}
 
 	.mukade-badge-tag.mukade-badge-warn {
-		border-color: var(--mukade-warn);
-		color: var(--mukade-warn);
+		--_mukade-badge-border-tone: var(--mukade-badge-accent, var(--mukade-warn));
+		--_mukade-badge-text-tone: var(--mukade-badge-accent, var(--mukade-warn));
 	}
 
 	.mukade-badge-tag.mukade-badge-success {
-		border-color: var(--mukade-success);
-		color: var(--mukade-success);
+		--_mukade-badge-border-tone: var(--mukade-badge-accent, var(--mukade-success));
+		--_mukade-badge-text-tone: var(--mukade-badge-accent, var(--mukade-success));
+	}
+
+	/* ============ TAG-BADGE CUSTOM STYLE ============ */
+	.mukade-badge-tag,
+	.mukade-badge-overlay > .mukade-badge-overlay-item {
+		border-color: var(--_mukade-badge-border-tone);
+		color: var(--_mukade-badge-text-tone);
 	}
 </style>

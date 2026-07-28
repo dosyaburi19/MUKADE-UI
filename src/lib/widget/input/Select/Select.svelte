@@ -19,6 +19,7 @@
 		children?: Snippet<[]>;
 	}
 
+	let root = $state<HTMLDivElement>();
 	let { selected = $bindable(''), open = $bindable(false), placeholder, width, children, ...props }: Props = $props();
 	let options = $state<Options>({});
 
@@ -40,10 +41,29 @@
 		addOptions
 	});
 
+	$effect(() => {
+		if (!open) return;
+
+		function onPointerDown(event: PointerEvent) {
+			if (root && !root.contains(event.target as Node)) open = false;
+		}
+		function onKeyDown(event: KeyboardEvent) {
+			if (event.key === 'Escape') open = false;
+		}
+
+		document.addEventListener('pointerdown', onPointerDown, true);
+		document.addEventListener('keydown', onKeyDown);
+
+		return () => {
+			document.removeEventListener('pointerdown', onPointerDown, true);
+			document.removeEventListener('keydown', onKeyDown);
+		};
+	});
+
 	let display = $derived(options[selected] || selected);
 </script>
 
-<div class="mukade-select" {...props}>
+<div class="mukade-select" bind:this={root} {...props}>
 	<button class="mukade-select-trigger" onclick={toggleOpen} style={width && `min-width: ${width}; max-width: ${width}`}>
 		<span class="mukade-select-selected-item" class:mukade-select-placeholder={!selected}>{display || placeholder}</span>
 		<span class="mukade-select-arrow">{!open ? '+' : '-'}</span>
@@ -79,6 +99,11 @@
 		background-color: var(--mukade-select-bg, var(--mukade-bg));
 	}
 
+	.mukade-select-trigger:focus-visible {
+		outline: solid 1px var(--mukade-select-accent, var(--mukade-primary));
+		outline-offset: 1px;
+	}
+
 	.mukade-select-selected-item {
 		white-space: pre;
 
@@ -97,12 +122,17 @@
 
 	.mukade-select-dropdown {
 		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: var(--mukade-select-z-index, 10);
 
 		display: flex;
 		flex-direction: column;
+		gap: 0.1rem;
 		min-width: 100%;
 
 		border: solid 1px var(--mukade-border-soft);
+		background-color: var(--mukade-select-bg, var(--mukade-bg));
 	}
 
 	.mukade-select-arrow {

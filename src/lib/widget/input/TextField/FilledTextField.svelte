@@ -1,7 +1,8 @@
 <script lang="ts">
+	import type { HTMLInputAttributes } from 'svelte/elements';
 	import TextFieldBase from './TextFieldBase.svelte';
 
-	interface Props {
+	interface Props extends Omit<HTMLInputAttributes, 'value' | 'size' | 'type' | 'children'> {
 		type?: string;
 		label?: string;
 		placeholder?: string;
@@ -9,11 +10,11 @@
 		width?: string;
 	}
 
-	let { type = '', label = '', placeholder = '', value = $bindable(''), width = '' }: Props = $props();
+	let { value = $bindable(''), width, class: className, style, ...props }: Props = $props();
 </script>
 
-<div class="mukade-textfield-filled" style="width: {width ?? '100%'}">
-	<TextFieldBase {type} {label} {placeholder} bind:value>
+<div class={['mukade-textfield-filled', className]} style:width {style}>
+	<TextFieldBase bind:value {...props}>
 		{#snippet children({ focused })}
 			<div class="mukade-textfield-background" class:mukade-textfield-focused={focused}></div>
 

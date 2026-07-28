@@ -66,11 +66,20 @@
 		width: var(--_mukade-alert-width);
 	}
 
-	.mukade-alert.mukade-alert-info,
-	.mukade-alert.mukade-alert-danger {
+	.mukade-alert.mukade-alert-info {
 		border-color: var(--mukade-primary);
 		background-color: color-mix(in srgb, var(--mukade-dim) 10%, transparent);
 		color: var(--mukade-primary);
+	}
+
+	.mukade-alert.mukade-alert-danger {
+		border-color: var(--mukade-primary);
+
+		background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.08) 2px, rgba(0, 0, 0, 0.08) 4px);
+		background-color: color-mix(in srgb, var(--mukade-primary) 15%, transparent);
+
+		color: var(--mukade-primary);
+		font-weight: 700;
 	}
 
 	.mukade-alert.mukade-alert-warn {

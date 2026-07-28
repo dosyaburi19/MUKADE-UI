@@ -50,6 +50,11 @@
 		pointer-events: none;
 	}
 
+	.mukade-checkbox-input:focus-visible + .mukade-checkbox {
+		outline: 1px solid var(--mukade-checkbox-accent, var(--mukade-bright));
+		outline-offset: 1px;
+	}
+
 	/* ============ CHECKBOX MAIN STYLE ============ */
 
 	.mukade-checkbox-row:not(.mukade-checkbox-disabled):hover .mukade-checkbox {
