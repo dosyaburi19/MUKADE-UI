@@ -1,4 +1,6 @@
-# MUKADE-UI
+# Patch (v0.6.0)
+
+# MUKADE-UI (DEMO)
 
 A terminal-style **Svelte 5** UI widget library. Retro hacker / CRT aesthetics for modern web applications, with a minimal dependency footprint.
 
@@ -94,53 +96,50 @@ Internal-only variables use the `--_mukade-*` prefix and are locked with `@prope
 
 ## Widgets
 
-Per-widget documentation lives in [`src/lib/widget/.claude/`](src/lib/widget/.claude) (English) and [`.claude/ko/`](src/lib/widget/.claude/ko) (한국어).
-
 ### Primitive
 
-| Widget                                         | Description                                    |
-| ---------------------------------------------- | ---------------------------------------------- |
-| [`Text`](src/lib/widget/.claude/Text.md)       | Themed text with color, font, CRT/LED variants |
-| [`Badge`](src/lib/widget/.claude/Badge.md)     | Status tag / corner overlay with count support |
-| [`Avatar`](src/lib/widget/.claude/Avatar.md)   | Profile image with status and name block       |
-| [`Divider`](src/lib/widget/.claude/Divider.md) | Horizontal / vertical separator with label     |
+- Text
+- Badge
+- Avatar
+- Divider
 
 ### Layout
 
-| Widget                                               | Description                              |
-| ---------------------------------------------------- | ---------------------------------------- |
-| [`Container`](src/lib/widget/.claude/Container.md)   | Full-width centering wrapper             |
-| [`Stack`](src/lib/widget/.claude/Stack.md)           | Flex row / column layout                 |
-| [`Section`](src/lib/widget/.claude/Section.md)       | Semantic block with terminal-style title |
-| [`Panel`](src/lib/widget/.claude/Panel.md)           | Card with header / footer / status dots  |
-| [`ScrollArea`](src/lib/widget/.claude/ScrollArea.md) | Overflow container with custom scrollbar |
+- Container
+- Stack
+- Section
+- Panel
+- ScrollArea
 
 ### Input
 
-| Widget                                                   | Description                          |
-| -------------------------------------------------------- | ------------------------------------ |
-| [`Button`](src/lib/widget/.claude/Button.md)             | Button with variants, size, width    |
-| [`Input`](src/lib/widget/.claude/Input.md)               | Single-line text input               |
-| [`Textarea`](src/lib/widget/.claude/Textarea.md)         | Multi-line text input                |
-| [`Checkbox`](src/lib/widget/.claude/Checkbox.md)         | Boolean box with indeterminate state |
-| [`Toggle`](src/lib/widget/.claude/Toggle.md)             | Switch-style boolean input           |
-| [`Select`](src/lib/widget/.claude/Select.md)             | Dropdown selector                    |
-| [`SelectOption`](src/lib/widget/.claude/SelectOption.md) | Option item for `Select`             |
-| [`TextField`](src/lib/widget/.claude/TextField.md)       | Labeled input with floating label    |
+- Button
+- Input
+- Textarea
+- Checkbox
+- Toggle
+- Select
+- SelectOption
+- TextField
 
 ### Feedback
 
-| Widget                                     | Description                      |
-| ------------------------------------------ | -------------------------------- |
-| [`Alert`](src/lib/widget/.claude/Alert.md) | Status message box with variants |
+- Alert
 
 ### Data
 
-| Widget                                             | Description                      |
-| -------------------------------------------------- | -------------------------------- |
-| [`Table`](src/lib/widget/.claude/Table.md)         | Data table (fixed / fit-content) |
-| [`TableRow`](src/lib/widget/.claude/TableRow.md)   | Table row                        |
-| [`TableCell`](src/lib/widget/.claude/TableCell.md) | Table cell (accepts any content) |
+- Table
+- TableRow
+- TableCell
+
+---
+
+## Roadmap
+
+- **0.6.0** is the final demo-phase release. Development is now moving toward a stable **1.0.0**.
+- mukade-ui embraces a distinctive retro aesthetic — the design direction is intentionally opinionated rather than general-purpose.
+- Even at 1.0.0, the API shouldn't be read as perfectly final — early 1.0.x releases may still bring small, targeted adjustments as real-world usage surfaces edge cases. Semantic versioning will be followed throughout.
+- A dedicated site introducing mukade-ui is planned alongside the 1.0.0 release.
 
 ---
 
