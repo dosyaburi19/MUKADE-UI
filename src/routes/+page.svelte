@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import {
 		Button,
 		Input,
@@ -16,10 +16,35 @@
 		Table,
 		TableRow,
 		TableCell,
-		Textarea
+		Textarea,
+		Progress
 	} from '$lib/index.ts';
 
 	let checkbox = $state(false);
+
+	let value = $state(0);
+
+	let isDecent = $state(false);
+
+	$effect(() => {
+		if (value === 0) {
+			setInterval(() => {
+				if (isDecent) {
+					value -= 5;
+
+					if (value <= 5) {
+						isDecent = false;
+					}
+				} else {
+					value += 5;
+
+					if (value >= 100) {
+						isDecent = true;
+					}
+				}
+			}, 1000);
+		}
+	});
 </script>
 
 <ScrollArea maxHeight="100%">
@@ -58,7 +83,7 @@
 
 	<div style="display: flex; flex-direction: row; gap: 1rem; margin-top: 1rem;">
 		<Badge variant="primary" label="ERROR" />
-		<Badge variant="idle" label="ERROR" />
+		<Badge variant="ghost" label="ERROR" />
 		<Badge variant="danger" label="ERROR" />
 		<Badge variant="warn" label="ERROR" />
 		<Badge variant="success" label="ERROR" />
@@ -86,7 +111,7 @@
 	</div>
 
 	<div style="display: flex; flex-direction: row; gap: 1rem; margin-top: 1rem">
-		<Alert title="ERROR / Alert Test" variant="danger" size="15rem">This is Error Alert. You can create this alert.</Alert>
+		<Alert title="ERROR / Alert Test" variant="danger" width="15rem">This is Error Alert. You can create this alert.</Alert>
 		<Alert title="ERROR / Alert Test" variant="warn">This is Error Alert. You can create this alert.</Alert>
 		<Alert title="ERROR / Alert Test" variant="success">This is Error Alert. You can create this alert.</Alert>
 	</div>
@@ -112,7 +137,7 @@
 	</div>
 
 	<div style="display: flex; flex-direction: row; gap: 1rem; margin-top: 1rem">
-		<Panel dots={{ max: 4, index: 3 }} size="20rem">
+		<Panel dots={{ max: 4, index: 3 }} width="20rem">
 			{#snippet header()}
 				<span style="font-size:1.1rem; font-family: var(--mukade-font-mono);">SYS_INFO</span>
 			{/snippet}
@@ -157,6 +182,17 @@
 				<TableCell>12</TableCell>
 			</TableRow>
 		</Table>
+	</div>
+	<div style="display: flex; flex-direction: row; gap: 1rem; margin: 2rem">
+		<Progress {value} size="0.5rem" />
+		<Progress variant="packets" {value} count={1} size="0.7rem" />
+		<Progress variant="packets" {value} count={10} size="0.7rem" />
+		<Progress variant="packets" {value} count={2} size="0.7rem" --mukade-progress-bg="#0000ff" />
+		<Progress variant="packets" {value} count={15} width="30rem;" --mukade-progress-accent="#00ff00" --mukade-progress-bg="#0000ff" />
+		<Progress variant="packets" {value} count={5} size="0.7rem" --mukade-progress-accent="#00ff00" />
+		<Progress {value} size="0.7rem" --mukade-progress-bg="#0000ff" />
+		<Progress {value} width="30rem;" --mukade-progress-accent="#00ff00" --mukade-progress-bg="#0000ff" />
+		<Progress {value} size="0.7rem" --mukade-progress-accent="#00ff00" />
 	</div>
 	<!-- <div class="header">
 		<div class="header-title">

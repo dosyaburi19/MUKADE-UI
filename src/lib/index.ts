@@ -29,6 +29,7 @@ export { default as SelectOption } from '$lib/widget/input/Select/SelectOption.s
 /* ============ FEEDBACK ============ */
 
 export { default as Alert } from '$lib/widget/feedback/Alert.svelte';
+export { default as Progress } from '$lib/widget/feedback/Progress.svelte';
 
 /* ============ DATA ============ */
 
