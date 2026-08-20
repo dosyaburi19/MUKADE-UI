@@ -26,3 +26,5 @@ vite.config.ts.timestamp-*
 
 # *.md
 # !.README.md
+
+TEMP.md
