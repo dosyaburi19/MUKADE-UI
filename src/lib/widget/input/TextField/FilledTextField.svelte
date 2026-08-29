@@ -43,13 +43,7 @@
 		border-radius: 4px 4px 0 0;
 		background-color: var(--mukade-textfield-bg, var(--mukade-bg));
 
-		transition: background-color 0.2s;
 		pointer-events: none;
-	}
-
-	.mukade-textfield-background:hover,
-	.mukade-textfield-background.mukade-textfield-focused {
-		background-color: var(--mukade-textfield-bg, var(--mukade-bg));
 	}
 
 	.mukade-textfield-underline {

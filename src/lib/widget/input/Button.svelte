@@ -43,6 +43,7 @@
 
 	.mukade-button:active:not([disabled]) {
 		transform: scale(0.94);
+		filter: brightness(1.3);
 	}
 
 	.mukade-button[disabled] {
@@ -63,14 +64,12 @@
 		color: var(--mukade-primary);
 	}
 
-	.mukade-button.mukade-button-primary:hover:not([disabled]) {
-		background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.08) 2px, rgba(0, 0, 0, 0.08) 4px);
-		background-color: var(--mukade-primary);
-		color: var(--mukade-text-dark);
-	}
-
-	.mukade-button.mukade-button-primary:active:not([disabled]) {
-		/* 디자인 미정 */
+	@media (hover: hover) {
+		.mukade-button.mukade-button-primary:hover:not([disabled]) {
+			background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.08) 2px, rgba(0, 0, 0, 0.08) 4px);
+			background-color: var(--mukade-primary);
+			color: var(--mukade-text-dark);
+		}
 	}
 
 	/* ============ DANGER VARIANT STYLE ============ */
@@ -82,9 +81,11 @@
 		color: var(--mukade-bright);
 	}
 
-	.mukade-button.mukade-button-danger:hover:not([disabled]) {
-		background-color: var(--mukade-primary);
-		color: var(--mukade-text-dark);
+	@media (hover: hover) {
+		.mukade-button.mukade-button-danger:hover:not([disabled]) {
+			background-color: var(--mukade-primary);
+			color: var(--mukade-text-dark);
+		}
 	}
 
 	/* ============ WARN VARIANT STYLE ============ */
@@ -95,9 +96,11 @@
 		color: var(--mukade-warn-dim);
 	}
 
-	.mukade-button.mukade-button-warn:hover:not([disabled]) {
-		background-color: var(--mukade-warn);
-		color: var(--mukade-text-dark);
+	@media (hover: hover) {
+		.mukade-button.mukade-button-warn:hover:not([disabled]) {
+			background-color: var(--mukade-warn);
+			color: var(--mukade-text-dark);
+		}
 	}
 
 	/* ============ SUCCESS VARIANT STYLE ============ */
@@ -108,9 +111,11 @@
 		color: var(--mukade-success-dim);
 	}
 
-	.mukade-button.mukade-button-success:hover:not([disabled]) {
-		background-color: var(--mukade-success);
-		color: var(--mukade-text-dark);
+	@media (hover: hover) {
+		.mukade-button.mukade-button-success:hover:not([disabled]) {
+			background-color: var(--mukade-success);
+			color: var(--mukade-text-dark);
+		}
 	}
 
 	/* ============ GHOST VARIANT STYLE ============ */
@@ -122,7 +127,9 @@
 		color: var(--mukade-text-dim);
 	}
 
-	.mukade-button.mukade-button-ghost:hover:not([disabled]) {
-		border-color: var(--mukade-text-dim);
+	@media (hover: hover) {
+		.mukade-button.mukade-button-ghost:hover:not([disabled]) {
+			border-color: var(--mukade-text-dim);
+		}
 	}
 </style>
