@@ -1,5 +1,24 @@
 # Changelog
 
+## v1.0.1 — Mobile and accessibility pass
+
+No API changes. This release is entirely CSS, and desktop rendering is untouched — every adjustment sits behind a device-capability query (`hover`, `pointer`, `prefers-reduced-motion`).
+
+**Fixed**
+
+- Hover styles no longer stick after a tap on touch devices. Every `:hover` rule is now guarded with `@media (hover: hover)`, so a tapped button no longer stays highlighted until you tap somewhere else.
+- `Button` now brightens while pressed, so touch users still get press feedback even though hover never applies to them.
+- `Checkbox` and `Toggle` meet a 44px minimum touch target on coarse pointers. The controls themselves are unchanged — only the label's hit area grows, and only on touch devices.
+- `Alert` no longer overflows narrow viewports. Its `min-width` is now capped at the container width.
+
+**Accessibility**
+
+- `Progress` respects `prefers-reduced-motion`. Simply stopping the animation would have made the in-flight packet indistinguishable from an idle one, so the transmitting packet takes a static intermediate color instead — progress stays readable without motion.
+
+**Internal**
+
+- Removed two undesigned placeholder rules: `Button`'s empty `:active` block and a no-op background rule in `FilledTextField`. The library now type-checks with zero warnings.
+
 ## v1.0.0 — First stable release
 
 The public surface — prop names, `mukade-` class names, and `--mukade-*` hooks — is now considered settled. Semantic versioning applies from here on.
