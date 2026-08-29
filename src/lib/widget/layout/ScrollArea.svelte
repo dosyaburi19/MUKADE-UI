@@ -139,8 +139,10 @@
 		background-color: var(--mukade-scrollarea-accent, var(--mukade-primary));
 	}
 
-	.mukade-scroll-area-thumb:hover {
-		background-color: var(--mukade-bright);
+	@media (hover: hover) {
+		.mukade-scroll-area-thumb:hover {
+			background-color: var(--mukade-bright);
+		}
 	}
 
 	.mukade-scroll-area-header {

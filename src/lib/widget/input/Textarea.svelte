@@ -72,8 +72,10 @@
 		background-color: var(--mukade-textarea-accent, var(--mukade-primary));
 	}
 
-	.mukade-textarea::-webkit-scrollbar-thumb:hover {
-		background-color: var(--mukade-bright);
+	@media (hover: hover) {
+		.mukade-textarea::-webkit-scrollbar-thumb:hover {
+			background-color: var(--mukade-bright);
+		}
 	}
 
 	.mukade-textarea:disabled {

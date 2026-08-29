@@ -17,7 +17,8 @@
 		TableRow,
 		TableCell,
 		Textarea,
-		Progress
+		Progress,
+		TextField
 	} from '$lib/index.ts';
 
 	let checkbox = $state(false);
@@ -134,6 +135,10 @@
 		<Avatar online={false} name="Good" sub="yeahhhhh"></Avatar>
 		<Avatar online={false} name="Good"></Avatar>
 		<Avatar online={false} profile="https://assets.clip-studio.com/ko-kr/description/1983627/img/e7a490f340-e64d-3088-a085-0f6baf88e6.jpg"></Avatar>
+	</div>
+
+	<div style="display: flex; flex-direction: row; gap: 1rem; margin-top: 1rem">
+		<TextField variant="filled" label="aseff"></TextField>
 	</div>
 
 	<div style="display: flex; flex-direction: row; gap: 1rem; margin-top: 1rem">
