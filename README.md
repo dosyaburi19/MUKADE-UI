@@ -1,4 +1,4 @@
-# MUKADE-UI [v_1.0.0]
+# MUKADE-UI [v_1.0.1]
 
 [![npm](https://img.shields.io/npm/v/mukade-ui)](https://www.npmjs.com/package/mukade-ui)
 [![license](https://img.shields.io/npm/l/mukade-ui)](LICENSE)
@@ -57,6 +57,10 @@ No configuration step is required — importing any widget is enough.
 ### Fonts
 
 `VT323` and `Share Tech Mono` are core to the terminal look, so the theme loads them from Google Fonts automatically. If a font fails to load — offline, blocked, or otherwise — widgets fall back to the system monospace stack.
+
+### Touch and motion
+
+Hover styles are guarded with `@media (hover: hover)`, so they never stick after a tap on a touch device. `Checkbox` and `Toggle` expand to a 44px touch target on coarse pointers without changing their visual size. `Progress` respects `prefers-reduced-motion` — its transmitting packet takes a static color instead of animating, so progress stays readable without motion.
 
 ---
 
