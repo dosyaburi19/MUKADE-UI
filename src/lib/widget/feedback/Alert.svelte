@@ -52,7 +52,7 @@
 		display: flex;
 		align-self: flex-start;
 
-		min-width: 20rem;
+		min-width: min(20rem, 100%);
 		min-height: 4rem;
 		height: fit-content;
 		border-left: solid 0.2rem;

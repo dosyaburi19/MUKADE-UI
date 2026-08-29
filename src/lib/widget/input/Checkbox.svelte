@@ -31,7 +31,7 @@
 
 	.mukade-checkbox-row {
 		display: flex;
-		align-items: flex-start;
+		align-items: center;
 		gap: 0.5rem;
 
 		cursor: pointer;
@@ -40,6 +40,12 @@
 	.mukade-checkbox-row.mukade-checkbox-disabled {
 		opacity: 0.6;
 		cursor: not-allowed;
+	}
+
+	@media (pointer: coarse) {
+		.mukade-checkbox-row {
+			min-height: 44px;
+		}
 	}
 
 	/* ============ CHECKBOX INPUT STYLE ============ */
@@ -57,10 +63,12 @@
 
 	/* ============ CHECKBOX MAIN STYLE ============ */
 
-	.mukade-checkbox-row:not(.mukade-checkbox-disabled):hover .mukade-checkbox {
-		/* border-color: var(--mukade-checkbox-accent, var(--mukade-bright)); */
-		--_mukade-checkbox-accent-bright: hsl(from var(--mukade-checkbox-accent) h s calc(l * 1.19));
-		border-color: var(--_mukade-checkbox-accent-bright, var(--mukade-bright));
+	@media (hover: hover) {
+		.mukade-checkbox-row:not(.mukade-checkbox-disabled):hover .mukade-checkbox {
+			/* border-color: var(--mukade-checkbox-accent, var(--mukade-bright)); */
+			--_mukade-checkbox-accent-bright: hsl(from var(--mukade-checkbox-accent) h s calc(l * 1.19));
+			border-color: var(--_mukade-checkbox-accent-bright, var(--mukade-bright));
+		}
 	}
 
 	.mukade-checkbox {

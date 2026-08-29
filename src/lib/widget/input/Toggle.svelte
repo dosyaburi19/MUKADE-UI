@@ -28,11 +28,19 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
+
+		cursor: pointer;
 	}
 
 	.mukade-toggle-row.mukade-toggle-disabled {
 		opacity: 0.6;
 		cursor: not-allowed;
+	}
+
+	@media (pointer: coarse) {
+		.mukade-toggle-row {
+			min-height: 44px;
+		}
 	}
 
 	/* ============ TOGGLE INPUT STYLE ============ */

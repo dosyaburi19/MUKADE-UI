@@ -162,4 +162,16 @@
 			border-color: color-mix(in srgb, var(--mukade-progress-accent, var(--mukade-primary)) 15%, var(--mukade-bg));
 		}
 	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.mukade-progress-fill,
+		.mukade-progress-packet {
+			transition: none;
+		}
+
+		.mukade-progress-packet.mukade-progress-transmitting {
+			animation: none;
+			background-color: color-mix(in srgb, var(--mukade-progress-accent, var(--mukade-primary)) 40%, transparent);
+		}
+	}
 </style>
