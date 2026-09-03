@@ -1,4 +1,4 @@
-# MUKADE-UI [v_1.0.1]
+# MUKADE-UI [v_1.1.0]
 
 [![npm](https://img.shields.io/npm/v/mukade-ui)](https://www.npmjs.com/package/mukade-ui)
 [![license](https://img.shields.io/npm/l/mukade-ui)](LICENSE)
@@ -60,7 +60,7 @@ No configuration step is required — importing any widget is enough.
 
 ### Touch and motion
 
-Hover styles are guarded with `@media (hover: hover)`, so they never stick after a tap on a touch device. `Checkbox` and `Toggle` expand to a 44px touch target on coarse pointers without changing their visual size. `Progress` respects `prefers-reduced-motion` — its transmitting packet takes a static color instead of animating, so progress stays readable without motion.
+Hover styles are guarded with `@media (hover: hover)`, so they never stick after a tap on a touch device. `Checkbox`, `Radio`, and `Toggle` expand to a 44px touch target on coarse pointers without changing their visual size. Animated widgets respect `prefers-reduced-motion`: `Progress` keeps its transmitting packet distinct with a static color rather than simply stopping, `Spinner` holds a single glyph, and `Drawer` appears without sliding.
 
 ---
 
@@ -105,13 +105,13 @@ Internal-only variables use the `--_mukade-*` prefix and are locked with `@prope
 
 Props, CSS variables, and live examples for each widget are on the documentation site.
 
-| Category      | Widgets                                                                    |
-| ------------- | -------------------------------------------------------------------------- |
-| **Primitive** | Text, Badge, Avatar, Divider                                               |
-| **Layout**    | Container, Stack, Section, Panel, ScrollArea                               |
-| **Input**     | Button, Input, Textarea, Checkbox, Toggle, Select, SelectOption, TextField |
-| **Feedback**  | Alert, Progress                                                            |
-| **Data**      | Table, TableRow, TableCell                                                 |
+| Category      | Widgets                                                                           |
+| ------------- | --------------------------------------------------------------------------------- |
+| **Primitive** | Text, Badge, Avatar, Divider                                                      |
+| **Layout**    | Container, Stack, Section, Panel, ScrollArea, Drawer                              |
+| **Input**     | Button, Input, Textarea, Checkbox, Radio, Toggle, Select, SelectOption, TextField |
+| **Feedback**  | Alert, Progress, Spinner                                                          |
+| **Data**      | Table, TableRow, TableCell                                                        |
 
 ---
 

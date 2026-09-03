@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
 
-	interface Props extends Omit<HTMLInputAttributes, 'size'> {
+	interface Props extends Omit<HTMLInputAttributes, 'type' | 'size'> {
 		label?: string;
 		checked?: boolean;
 		indeterminate?: boolean;
