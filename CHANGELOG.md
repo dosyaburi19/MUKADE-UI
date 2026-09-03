@@ -1,5 +1,19 @@
 # Changelog
 
+## v1.1.0 — Drawer, Radio, and Spinner
+
+Three new widgets. No changes to existing APIs.
+
+**Added**
+
+- `Drawer` — an edge panel that anchors to any of the four sides. `permanent` sits in the layout as a flex sibling and reserves space; `temporary` opens as a modal overlay built on the native `<dialog>` element, which supplies focus trapping, `Escape` to close, and top-layer stacking without hand-rolled logic. Closes on backdrop click and slides in via `@starting-style`.
+- `Radio` — single-choice input, drawn in the terminal convention as `( )` and `(X)` so it stays distinguishable at a glance from `Checkbox`'s `[ ]`. Selection is driven by a bindable `group` prop paired with each option's `value`; passing a shared `name` additionally enables the browser's native arrow-key navigation between options.
+- `Spinner` — an indeterminate loading indicator cycling through `-\|/`. It covers the case `Progress` cannot: work whose completion ratio is unknown. Exposed as a `status` region while the cycling glyphs stay out of screen reader output, so the change never reads as noise.
+
+**Accessibility**
+
+- `Drawer` and `Spinner` respect `prefers-reduced-motion`. `Spinner` holds a single glyph rather than cycling, and `Drawer` appears without sliding.
+
 ## v1.0.1 — Mobile and accessibility pass
 
 No API changes. This release is entirely CSS, and desktop rendering is untouched — every adjustment sits behind a device-capability query (`hover`, `pointer`, `prefers-reduced-motion`).

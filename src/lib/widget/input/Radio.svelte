@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLInputAttributes } from 'svelte/elements';
 
-	interface Props extends HTMLAttributes<HTMLInputElement> {
+	interface Props extends Omit<HTMLInputAttributes, 'type' | 'size' | 'checked'> {
 		group?: string;
 		value: string;
 		size?: string;
@@ -9,13 +9,18 @@
 		label?: string;
 	}
 
-	let { group = $bindable(''), value, size, disabled, label, class: className, ...props }: Props = $props();
+	let { group = $bindable(''), value, size, disabled, label, style, class: className, onchange, ...props }: Props = $props();
 
 	let checked = $derived(group === value);
+
+	function onRadioChange(event: Event & { currentTarget: HTMLInputElement }) {
+		group = value;
+		onchange?.(event);
+	}
 </script>
 
-<label class={['mukade-radio-row', className]} class:mukade-radio-disabled={disabled} style:--_mukade-radio-size={size}>
-	<input class="mukade-radio-input" type="radio" {value} {disabled} checked={group === value} onchange={() => (group = value)} {...props} />
+<label class={['mukade-radio-row', className]} class:mukade-radio-disabled={disabled} style:--_mukade-radio-size={size} {style}>
+	<input class="mukade-radio-input" type="radio" {value} {disabled} checked={group === value} onchange={onRadioChange} {...props} />
 	<div class="mukade-radio">
 		{#if checked}
 			<span class="mukade-radio-checked">X</span>

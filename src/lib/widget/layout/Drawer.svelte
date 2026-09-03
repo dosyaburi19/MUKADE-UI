@@ -77,7 +77,7 @@
 	}
 
 	@media (hover: hover) {
-		.mukade-drawer::-webkit-scrollbar-thumb {
+		.mukade-drawer::-webkit-scrollbar-thumb:hover {
 			background-color: var(--mukade-drawer-accent, var(--mukade-bright));
 		}
 	}
