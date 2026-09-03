@@ -14,11 +14,13 @@ export { default as Stack } from '$lib/widget/layout/Stack.svelte';
 export { default as ScrollArea } from '$lib/widget/layout/ScrollArea.svelte';
 export { default as Panel } from '$lib/widget/layout/Panel.svelte';
 export { default as Section } from '$lib/widget/layout/Section.svelte';
+export { default as Drawer } from '$lib/widget/layout/Drawer.svelte';
 
 /* ============ INPUT ============ */
 
 export { default as Button } from '$lib/widget/input/Button.svelte';
 export { default as Checkbox } from '$lib/widget/input/Checkbox.svelte';
+export { default as Radio } from '$lib/widget/input/Radio.svelte';
 export { default as Input } from '$lib/widget/input/Input.svelte';
 export { default as Textarea } from '$lib/widget/input/Textarea.svelte';
 export { default as Toggle } from '$lib/widget/input/Toggle.svelte';
@@ -30,6 +32,7 @@ export { default as SelectOption } from '$lib/widget/input/Select/SelectOption.s
 
 export { default as Alert } from '$lib/widget/feedback/Alert.svelte';
 export { default as Progress } from '$lib/widget/feedback/Progress.svelte';
+export { default as Spinner } from '$lib/widget/feedback/Spinner.svelte';
 
 /* ============ DATA ============ */
 
