@@ -8,10 +8,10 @@
 		children?: Snippet<[]>;
 	}
 
-	let { tag = 'section', title, children, ...props }: Props = $props();
+	let { tag = 'section', title, children, class: className, ...props }: Props = $props();
 </script>
 
-<svelte:element this={tag} class="mukade-section" {...props}>
+<svelte:element this={tag} class={['mukade-section', className]} {...props}>
 	{#if title}
 		<div class="mukade-section-title">
 			<span class="mukade-section-title-prefix">></span>

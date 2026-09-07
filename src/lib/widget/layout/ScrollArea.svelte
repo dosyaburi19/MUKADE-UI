@@ -12,7 +12,7 @@
 		children?: Snippet<[]>;
 	}
 
-	let { maxHeight, maxWidth, direction = 'vertical', variant = 'sticky', header, /*sidebar,*/ children, ...props }: Props = $props();
+	let { maxHeight, maxWidth, direction = 'vertical', variant = 'sticky', header, /*sidebar,*/ children, class: className, ...props }: Props = $props();
 
 	let viewport = $state<HTMLDivElement>();
 	let content = $state<HTMLDivElement>();
@@ -66,7 +66,7 @@
 	});
 </script>
 
-<div class="mukade-scroll-area mukade-scroll-area-{direction}" style:max-height={maxHeight} style:max-width={maxWidth} {...props}>
+<div class={[`mukade-scroll-area mukade-scroll-area-${direction}`, className]} style:max-height={maxHeight} style:max-width={maxWidth} {...props}>
 	{#if header}
 		<div class="mukade-scroll-area-header" bind:this={head} style:top="{headerTop}px">
 			{@render header()}

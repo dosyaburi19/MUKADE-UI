@@ -11,7 +11,7 @@
 		children?: Snippet<[]>;
 	}
 
-	let { profile, online = false, name, sub, size, children, ...props }: Props = $props();
+	let { profile, online = false, name, sub, size, children, class: className, ...props }: Props = $props();
 	let imgLoadFail = $state(false);
 
 	function onImageLoadError() {
@@ -23,7 +23,7 @@
 	}
 </script>
 
-<div class="mukade-avatar" style:--_mukade-avatar-size={size} {...props}>
+<div class={['mukade-avatar', className]} style:--_mukade-avatar-size={size} {...props}>
 	<div class="mukade-avatar-profile">
 		<span class="mukade-avatar-profile-view">
 			{#if profile && !imgLoadFail}

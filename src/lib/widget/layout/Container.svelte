@@ -6,10 +6,10 @@
 		children?: Snippet<[]>;
 	}
 
-	const { children, ...props }: Props = $props();
+	const { children, class: className, ...props }: Props = $props();
 </script>
 
-<div class="mukade-container" {...props}>
+<div class={['mukade-container', className]} {...props}>
 	{@render children?.()}
 </div>
 

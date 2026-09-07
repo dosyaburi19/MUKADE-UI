@@ -11,7 +11,7 @@
 		children?: Snippet<[]>;
 	}
 
-	let { variant = 'primary', label, count, position = 'top-right', children, max, ...props }: Props = $props();
+	let { variant = 'primary', label, count, position = 'top-right', children, max, class: className, ...props }: Props = $props();
 
 	function getDisplay() {
 		if (count !== undefined) {
@@ -27,7 +27,7 @@
 </script>
 
 {#if children}
-	<span class="mukade-badge-overlay mukade-badge-{variant}" {...props}>
+	<span class={[`mukade-badge-overlay mukade-badge-${variant}`, className]} {...props}>
 		{@render children?.()}
 		<span class="mukade-badge-overlay-item mukade-badge-{position}">
 			{display}

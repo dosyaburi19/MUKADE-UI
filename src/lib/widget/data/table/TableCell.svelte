@@ -7,10 +7,10 @@
 		children?: Snippet<[]>;
 	}
 
-	let { width, children, ...props }: Props = $props();
+	let { width, children, class: className, ...props }: Props = $props();
 </script>
 
-<td class="mukade-table-cell" style:--_mukade-table-cell-width={width} {...props}>
+<td class={['mukade-table-cell', className]} style:--_mukade-table-cell-width={width} {...props}>
 	{@render children?.()}
 </td>
 

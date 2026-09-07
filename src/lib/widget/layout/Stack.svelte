@@ -12,11 +12,11 @@
 		children?: Snippet<[]>;
 	}
 
-	let { direction = 'row', gap, align = 'start', justify = 'start', wrap = false, children, ...props }: Props = $props();
+	let { direction = 'row', gap, align = 'start', justify = 'start', wrap = false, children, class: className, ...props }: Props = $props();
 </script>
 
 <div
-	class="mukade-stack"
+	class={['mukade-stack', className]}
 	style:flex-direction={direction}
 	style:gap
 	style:align-items={alignMap[align]}

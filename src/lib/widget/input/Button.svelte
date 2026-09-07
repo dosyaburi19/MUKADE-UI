@@ -9,10 +9,16 @@
 		width?: string;
 	}
 
-	const { children, variant = 'primary', size, width, ...props }: Props = $props();
+	const { children, variant = 'primary', size, width, class: className, ...props }: Props = $props();
 </script>
 
-<button class="mukade-button mukade-button-{variant}" style:--_mukade-button-size={size} style:--_mukade-button-width={width} type="button" {...props}>
+<button
+	class={[`mukade-button mukade-button-${variant}`, className]}
+	style:--_mukade-button-size={size}
+	style:--_mukade-button-width={width}
+	type="button"
+	{...props}
+>
 	{@render children?.()}
 </button>
 

@@ -8,11 +8,11 @@
 		resizing?: boolean;
 	}
 
-	let { width, height, value = $bindable(''), resizing = false, ...props }: Props = $props();
+	let { width, height, value = $bindable(''), resizing = false, class: className, ...props }: Props = $props();
 </script>
 
 <textarea
-	class="mukade-textarea"
+	class={['mukade-textarea', className]}
 	class:mukade-textarea-no-resize={!resizing}
 	style:--_mukade-textarea-width={width}
 	style:--_mukade-textarea-height={height}

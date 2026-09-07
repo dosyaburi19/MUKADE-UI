@@ -13,12 +13,12 @@
 		children?: Snippet<[]>;
 	}
 
-	let { header, footer, variant = 'primary', width, dots, children, ...props }: Props = $props();
+	let { header, footer, variant = 'primary', width, dots, children, class: className, ...props }: Props = $props();
 
 	let dotItems = $derived(Array.from({ length: dots?.max ?? 0 }, (_, index) => ({ key: index, positive: index < (dots?.index ?? 0) })));
 </script>
 
-<div class="mukade-panel mukade-panel-{variant}" style:--_mukade-panel-width={width} {...props}>
+<div class={[`mukade-panel mukade-panel-${variant}`, className]} style:--_mukade-panel-width={width} {...props}>
 	{#if header}
 		<div class="mukade-panel-header">
 			{@render header()}

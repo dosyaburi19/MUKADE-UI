@@ -10,7 +10,7 @@
 		children?: Snippet<[]>;
 	}
 
-	let { variant = 'permanent', open = $bindable(false), children, direction = 'left', size, ...props }: Props = $props();
+	let { variant = 'permanent', open = $bindable(false), children, direction = 'left', size, class: className, ...props }: Props = $props();
 
 	let dialogElement = $state<HTMLDialogElement | null>(null);
 
@@ -31,7 +31,7 @@
 </script>
 
 {#if variant === 'permanent'}
-	<aside class={`mukade-drawer mukade-drawer-permanent mukade-drawer-${direction}`} style:--_mukade-drawer-size={size} {...props}>
+	<aside class={[`mukade-drawer mukade-drawer-permanent mukade-drawer-${direction}`, className]} style:--_mukade-drawer-size={size} {...props}>
 		<div class="mukade-drawer-content">
 			{@render children?.()}
 		</div>

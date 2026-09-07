@@ -9,7 +9,7 @@
 		children?: Snippet<[]>;
 	}
 
-	let { variant = 'info', title, width, children, ...props }: Props = $props();
+	let { variant = 'info', title, width, children, class: className, ...props }: Props = $props();
 
 	let icon = $derived(getIcon());
 
@@ -28,7 +28,7 @@
 </script>
 
 <div
-	class="mukade-alert mukade-alert-{variant}"
+	class={[`mukade-alert mukade-alert-${variant}`, className]}
 	class:mukade-alert-fixed={!!width}
 	style:--_mukade-alert-width={width}
 	role={variant === 'info' || variant === 'success' ? 'status' : 'alert'}

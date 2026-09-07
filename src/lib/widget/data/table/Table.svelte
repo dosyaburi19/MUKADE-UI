@@ -8,10 +8,10 @@
 		children?: Snippet<[]>;
 	}
 
-	let { width, columns, children, ...props }: Props = $props();
+	let { width, columns, children, class: className, ...props }: Props = $props();
 </script>
 
-<div class="mukade-table-container" class:mukade-table-fixed={width} style:--_mukade-table-width={width} {...props}>
+<div class={['mukade-table-container', className]} class:mukade-table-fixed={width} style:--_mukade-table-width={width} {...props}>
 	<table class="mukade-table">
 		{#if columns}
 			<thead>
