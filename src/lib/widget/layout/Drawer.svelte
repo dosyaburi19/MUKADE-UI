@@ -39,7 +39,7 @@
 {:else if variant === 'temporary'}
 	<dialog
 		bind:this={dialogElement}
-		class={`mukade-drawer mukade-drawer-temporary mukade-drawer-${direction}`}
+		class={[`mukade-drawer mukade-drawer-temporary mukade-drawer-${direction}`, className]}
 		{...props}
 		onclick={onBackdropClick}
 		onclose={onClose}

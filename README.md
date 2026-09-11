@@ -17,7 +17,7 @@ A terminal-style **Svelte 5** UI widget library. Retro hacker / CRT aesthetics f
 npm install mukade-ui
 ```
 
-**Requires** `svelte ^5.0.0` as a peer dependency.
+**Requires** `svelte ^5.45.6` as a peer dependency.
 
 ---
 

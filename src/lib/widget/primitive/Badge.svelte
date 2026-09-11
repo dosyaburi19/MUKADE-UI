@@ -34,7 +34,7 @@
 		</span>
 	</span>
 {:else}
-	<span class="mukade-badge-tag mukade-badge-{variant}" {...props}>
+	<span class={[`mukade-badge-tag mukade-badge-${variant}`, className]} {...props}>
 		{display}
 	</span>
 {/if}
