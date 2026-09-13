@@ -52,6 +52,10 @@
 			}, 1000);
 		}
 	});
+
+	$effect(() => {
+		console.log(group);
+	});
 </script>
 
 <Stack direction="row" style="height: 50%;" gap="1rem">
@@ -237,13 +241,13 @@
 			<Spinner size="5rem" duration={1000}></Spinner>
 		</div>
 		<div style="display: flex; flex-direction: row; gap: 2rem; margin: 1rem;">
-			<Radio value="1" bind:group></Radio>
-			<Radio value="2" bind:group size="2rem" --mukade-radio-accent="#47bb92"></Radio>
-			<Radio value="3" bind:group disabled></Radio>
-			<Radio value="4" bind:group label="Radio button!" --mukade-radio-accent="#b29a7c"></Radio>
-			<Radio value="5" bind:group size="3rem" label="good!"></Radio>
-			<Radio value="6" bind:group label="g" disabled --mukade-radio-accent="#a26be1"></Radio>
-			<Radio value="7" bind:group size="1.5rem" disabled></Radio>
+			<Radio value="1" bind:group name="radio-sample"></Radio>
+			<Radio value="2" bind:group name="radio-sample" size="2rem" --mukade-radio-accent="#47bb92"></Radio>
+			<Radio value="3" bind:group name="radio-sample" disabled></Radio>
+			<Radio value="4" bind:group name="radio-sample" label="Radio button!" --mukade-radio-accent="#b29a7c"></Radio>
+			<Radio value="5" bind:group name="radio-sample" size="3rem" label="good!"></Radio>
+			<Radio value="6" bind:group name="radio-sample" label="g" disabled --mukade-radio-accent="#a26be1"></Radio>
+			<Radio value="7" bind:group name="radio-sample" size="1.5rem" disabled></Radio>
 		</div>
 		<!-- <div class="header">
 		<div class="header-title">

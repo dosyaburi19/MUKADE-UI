@@ -9,10 +9,10 @@
 		value?: string | number;
 	}
 
-	let { variant = 'outlined', value = $bindable(''), type = 'text', ...props }: Props = $props();
+	let { variant = 'outlined', value = $bindable(''), type = 'text', class: className, ...props }: Props = $props();
 </script>
 
-<input class="mukade-input mukade-input-{variant}" bind:value {type} {...props} />
+<input class={[`mukade-input mukade-input-${variant}`, className]} bind:value {type} {...props} />
 
 <style>
 	.mukade-input {
@@ -24,7 +24,7 @@
 
 		font-size: 1rem;
 		font-weight: 700;
-		font-family: monospace;
+		font-family: var(--mukade-font-vt);
 		color: var(--mukade-text);
 
 		outline: none;

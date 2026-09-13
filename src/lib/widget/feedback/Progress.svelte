@@ -15,7 +15,17 @@
 		value?: number; // base 0 ~ 100
 	}
 
-	let { variant = 'bar', width, size, count = 10, value = 0, 'aria-label': ariaLabel, 'aria-valuetext': ariaValuetext, ...props }: Props = $props();
+	let {
+		variant = 'bar',
+		width,
+		size,
+		count = 10,
+		value = 0,
+		'aria-label': ariaLabel,
+		'aria-valuetext': ariaValuetext,
+		class: className,
+		...props
+	}: Props = $props();
 
 	let progressed = $derived(Math.min(Math.max(Number(value) || 0, 0), 100));
 
@@ -30,7 +40,7 @@
 	});
 </script>
 
-<div class="mukade-progress" style:--_mukade-progress-width={width} style:--_mukade-progress-size={size} {...props}>
+<div class={['mukade-progress', className]} style:--_mukade-progress-width={width} style:--_mukade-progress-size={size} {...props}>
 	{#if variant === 'bar'}
 		<div
 			class="mukade-progress-track"

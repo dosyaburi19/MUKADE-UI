@@ -6,7 +6,7 @@
 		duration?: number;
 	}
 
-	let { size, duration = 200, ...props }: Props = $props();
+	let { size, duration = 200, class: className, ...props }: Props = $props();
 
 	const spinnerTexts = ['-', '\\', '|', '/'];
 	let index = $state(0);
@@ -29,7 +29,7 @@
 	});
 </script>
 
-<div class="mukade-spinner" role="status" aria-label="loading" {...props}>
+<div class={['mukade-spinner', className]} role="status" aria-label="loading" {...props}>
 	<span class="mukade-spinner-text" aria-hidden="true" style:--_mukade-spinner-size={size}>{spinnerTexts[index]}</span>
 </div>
 

@@ -2,14 +2,14 @@
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	interface Props extends HTMLAttributes<HTMLDivElement> {
+	interface Props extends HTMLAttributes<HTMLTableRowElement> {
 		children?: Snippet<[]>;
 	}
 
-	let { children, ...props }: Props = $props();
+	let { children, class: className, ...props }: Props = $props();
 </script>
 
-<tr class="mukade-table-row" {...props}>
+<tr class={['mukade-table-row', className]} {...props}>
 	{@render children?.()}
 </tr>
 

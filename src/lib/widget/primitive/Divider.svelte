@@ -9,11 +9,11 @@
 		weight?: string;
 	}
 
-	let { orientation = 'horizontal', variant = 'solid', label, size, weight, ...props }: Props = $props();
+	let { orientation = 'horizontal', variant = 'solid', label, size, weight, class: className, ...props }: Props = $props();
 </script>
 
 <div
-	class="mukade-divider mukade-divider-{orientation}"
+	class={[`mukade-divider mukade-divider-${orientation}`, className]}
 	role="separator"
 	aria-orientation={orientation}
 	style:--_mukade-divider-variant={variant}
