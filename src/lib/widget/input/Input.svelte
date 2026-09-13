@@ -24,7 +24,7 @@
 
 		font-size: 1rem;
 		font-weight: 700;
-		font-family: monospace;
+		font-family: var(--mukade-font-vt);
 		color: var(--mukade-text);
 
 		outline: none;

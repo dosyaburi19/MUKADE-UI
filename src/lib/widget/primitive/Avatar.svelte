@@ -18,7 +18,7 @@
 		imgLoadFail = true;
 	}
 
-	function onImageLoadStart() {
+	function onImageLoad() {
 		imgLoadFail = false;
 	}
 </script>
@@ -27,7 +27,7 @@
 	<div class="mukade-avatar-profile">
 		<span class="mukade-avatar-profile-view">
 			{#if profile && !imgLoadFail}
-				<img class="mukade-avatar-image" src={profile} alt={name} onloadstart={onImageLoadStart} onerror={onImageLoadError} />
+				<img class="mukade-avatar-image" src={profile} alt={name ?? ''} onload={onImageLoad} onerror={onImageLoadError} />
 			{:else}
 				{name?.slice(0, 1)}
 			{/if}

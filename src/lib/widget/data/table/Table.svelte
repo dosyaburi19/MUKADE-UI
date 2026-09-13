@@ -17,7 +17,7 @@
 			<thead>
 				<tr class="mukade-table-header-row">
 					{#each columns as column, index (index)}
-						<th class="mukade-table-header-cell">{column}</th>
+						<th class="mukade-table-header-cell" scope="col">{column}</th>
 					{/each}
 				</tr>
 			</thead>
