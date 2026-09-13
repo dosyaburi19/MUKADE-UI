@@ -20,7 +20,7 @@
 	}
 
 	let root = $state<HTMLDivElement>();
-	let { selected = $bindable(''), open = $bindable(false), placeholder, width, children, ...props }: Props = $props();
+	let { selected = $bindable(''), open = $bindable(false), placeholder, width, children, class: className, ...props }: Props = $props();
 	let options = $state<Options>({});
 
 	function toggleOpen() {
@@ -63,7 +63,7 @@
 	let display = $derived(options[selected] || selected);
 </script>
 
-<div class="mukade-select" bind:this={root} {...props}>
+<div class={['mukade-select', className]} bind:this={root} {...props}>
 	<button class="mukade-select-trigger" onclick={toggleOpen} style={width && `min-width: ${width}; max-width: ${width}`}>
 		<span class="mukade-select-selected-item" class:mukade-select-placeholder={!selected}>{display || placeholder}</span>
 		<span class="mukade-select-arrow">{!open ? '+' : '-'}</span>

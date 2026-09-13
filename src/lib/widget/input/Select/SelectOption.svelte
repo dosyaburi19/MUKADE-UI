@@ -8,7 +8,7 @@
 		label?: string;
 	}
 
-	let { key, label, onclick, ...props }: Props = $props();
+	let { key, label, onclick, class: className, ...props }: Props = $props();
 	let { select, addOptions } = getContext<SelectContext>('mukade-select');
 
 	onMount(() => {
@@ -17,7 +17,7 @@
 </script>
 
 <button
-	class="mukade-select-option"
+	class={['mukade-select-option', className]}
 	type="button"
 	onclick={(event) => {
 		select(key);

@@ -27,13 +27,14 @@
 		spacing = '0.2rem',
 		align = 'left',
 		children,
+		class: className,
 		...props
 	}: Props = $props();
 </script>
 
 <svelte:element
 	this={tag}
-	class="mukade-text mukade-text-{variant} mukade-text-{color} mukade-text-{font}"
+	class={[`mukade-text mukade-text-${variant} mukade-text-${color} mukade-text-${font}`, className]}
 	class:mukade-text-glow={glow}
 	style:font-size={size}
 	style:letter-spacing={spacing}
