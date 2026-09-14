@@ -19,7 +19,7 @@ MUKADE-UI 위젯의 소스를 읽어, MUI 같은 UI 라이브러리에서 쓰는
 ## 대상 위젯 찾기
 
 - `--name {WidgetName}` — `src/lib/widget/` 하위에서 같은 이름의 `.svelte` 파일을 재귀적으로 찾는다.
-- `--all` — `src/lib/index.ts` 가 export 하는 위젯 전체를 대상으로 한다.
+- `--all` — `src/lib/index.ts` 가 export 하는 위젯 전체를 대상으로 한다. (이 때, 사용자에게 묻거나 세션 허락을 받지 않고 모두 자동으로 생성 시킨다.)
 
 ## 출력 위치
 

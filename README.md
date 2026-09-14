@@ -1,4 +1,4 @@
-# MUKADE-UI [v_1.1.0]
+# MUKADE-UI
 
 [![npm](https://img.shields.io/npm/v/mukade-ui)](https://www.npmjs.com/package/mukade-ui)
 [![license](https://img.shields.io/npm/l/mukade-ui)](LICENSE)
