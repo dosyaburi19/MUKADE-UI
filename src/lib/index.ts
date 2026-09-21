@@ -33,6 +33,7 @@ export { default as SelectOption } from '$lib/widget/input/Select/SelectOption.s
 export { default as Alert } from '$lib/widget/feedback/Alert.svelte';
 export { default as Progress } from '$lib/widget/feedback/Progress.svelte';
 export { default as Spinner } from '$lib/widget/feedback/Spinner.svelte';
+export { default as Skeleton } from '$lib/widget/feedback/Skeleton.svelte';
 
 /* ============ DATA ============ */
 

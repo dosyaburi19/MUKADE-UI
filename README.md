@@ -110,7 +110,7 @@ Props, CSS variables, and live examples for each widget are on the documentation
 | **Primitive** | Text, Badge, Avatar, Divider                                                      |
 | **Layout**    | Container, Stack, Section, Panel, ScrollArea, Drawer                              |
 | **Input**     | Button, Input, Textarea, Checkbox, Radio, Toggle, Select, SelectOption, TextField |
-| **Feedback**  | Alert, Progress, Spinner                                                          |
+| **Feedback**  | Alert, Progress, Skeleton, Spinner                                                |
 | **Data**      | Table, TableRow, TableCell                                                        |
 
 ---
