@@ -1,5 +1,29 @@
 # Changelog
 
+## v1.1.1 — Class merging and Svelte peer range
+
+No new widgets. Passing `class` no longer strips a widget's own styling, and the Svelte peer dependency now reflects what the library actually requires. TypeScript users of `Radio` should read the breaking-change note.
+
+**⚠️ Breaking changes**
+
+- `Radio` — `name` is now a required prop in its TypeScript type. A shared `name` is what turns separate options into a native radio group, providing arrow-key navigation and form submission, and leaving it optional made that easy to miss. TypeScript projects that render `Radio` without `name` will see a type error. Plain JavaScript usage is unaffected.
+
+**Fixed**
+
+- Passing `class` no longer removes a widget's built-in styling. Previously a consumer's `class` replaced the widget's own `mukade-*` classes and left it unstyled; it is now merged alongside them. Affects `Alert`, `Avatar`, `Badge`, `Button`, `Container`, `Divider`, `Drawer`, `Input`, `Panel`, `Progress`, `ScrollArea`, `Section`, `Select`, `SelectOption`, `Spinner`, `Stack`, `Table`, `TableCell`, `TableRow`, `Text`, and `Textarea`. `Checkbox`, `Radio`, and `Toggle` already merged correctly.
+- The `svelte` peer dependency is raised from `^5.0.0` to `^5.45.6`. The old range was inaccurate: the library relies on `$props.id()` (added in Svelte 5.20) and array `class` values (added in 5.16), so installs on early Svelte 5 releases could break without a clear error. The new floor is the version the library is developed and tested against.
+- `Input` now renders in the theme's `--mukade-font-vt` like every other widget, instead of a hard-coded `monospace`, so changing the theme fonts reaches it.
+- `TableCell` and `TableRow` props are typed against their real elements, `<td>` and `<tr>`, instead of `<div>`, so event handlers receive the correct `currentTarget` type.
+
+**Accessibility**
+
+- `Table` header cells carry `scope="col"`, so screen readers announce the column header when entering a cell instead of relying on inference.
+- `Avatar` images without a `name` get an empty `alt` and are treated as decorative, instead of screen readers potentially reading out the image URL.
+
+**Internal**
+
+- `Avatar` replaced its `onloadstart` handler, which never fires on `<img>`, with `onload`.
+
 ## v1.1.0 — Drawer, Radio, and Spinner
 
 Three new widgets. No changes to existing APIs.
