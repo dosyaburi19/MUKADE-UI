@@ -21,6 +21,7 @@
 		TextField,
 		Stack
 	} from '$lib/index.ts';
+	import Skeleton from '$lib/widget/feedback/Skeleton.svelte';
 	import Spinner from '$lib/widget/feedback/Spinner.svelte';
 	import Radio from '$lib/widget/input/Radio.svelte';
 	import Drawer from '$lib/widget/layout/Drawer.svelte';
@@ -83,6 +84,9 @@
 	<ScrollArea maxHeight="80vh">
 		<div style="padding: 16px;">
 			<Input variant="outlined" placeholder="1231" />
+			<Skeleton variant="box" effect="wave" width="50%" height="3rem" radius="0.5rem" />
+			<Skeleton variant="circle" effect="rain" width="5rem" />
+			<Skeleton variant="line" effect="crt" width="20%" height="1.5rem" />
 		</div>
 		<div style="display: flex; flex-direction: row; gap: 2rem;">
 			<div>

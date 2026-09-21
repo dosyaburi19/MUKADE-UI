@@ -42,7 +42,6 @@
 </div>
 
 <style>
-	/* 내부 전용: 상속 차단 (같은 요소에서 설정→소비) */
 	@property --_mukade-alert-width {
 		syntax: '*';
 		inherits: false;
