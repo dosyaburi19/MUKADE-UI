@@ -1,5 +1,7 @@
 <script lang="ts">
-	interface Props {
+	import type { HTMLAttributes } from 'svelte/elements';
+
+	interface Props extends HTMLAttributes<HTMLDivElement> {
 		variant: 'box' | 'circle' | 'line';
 		width: string;
 		height?: string;
@@ -7,15 +9,16 @@
 		effect?: 'crt' | 'none' | 'rain' | 'wave';
 	}
 
-	let { variant, width, height, radius, effect = 'none' }: Props = $props();
+	let { variant, width, height = '1rem', radius, effect = 'none', class: className, ...props }: Props = $props();
 </script>
 
 <div
-	class="mukade-skeleton mukade-skeleton-{variant} mukade-skeleton-{effect}"
+	class={[`mukade-skeleton mukade-skeleton-${variant} mukade-skeleton-${effect}`, className]}
 	style:--_mukade-skeleton-width={width}
 	style:--_mukade-skeleton-height={height}
 	style:--_mukade-skeleton-radius={radius}
 	aria-hidden={true}
+	{...props}
 ></div>
 
 <style>
@@ -115,14 +118,14 @@
 	}
 
 	/* ============ WAVE EFFECT STYLE ============ */
-	.mukade-skeleton.mukade-skeleton-wave {
+	.mukade-skeleton-wave {
 		background: repeating-linear-gradient(
 			90deg,
 			color-mix(in srgb, var(--mukade-skeleton-accent, var(--mukade-primary)) 15%, transparent) 0 2px,
 			transparent 2px 4px
 		);
 	}
-	.mukade-skeleton.mukade-skeleton-wave::after {
+	.mukade-skeleton-wave::after {
 		content: '';
 		position: absolute;
 		inset: 0;

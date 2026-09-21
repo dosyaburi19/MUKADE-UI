@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.2.0 — Skeleton
+
+One new widget. No changes to existing APIs.
+
+**Added**
+
+- `Skeleton` — a placeholder for content that has not arrived yet. It is drawn as a CRT scanline texture rather than a plain grey block, so a loading layout still reads as part of the terminal. Three shapes cover the usual cases: `box` for cards and images, `circle` for avatars, and `line` for text. The `effect` prop selects the texture and its motion: `none` holds a static pattern, `crt` steps a scanline down the shape, `rain` runs the pattern on a diagonal, and `wave` sweeps a brighter band across it. Colors derive from `--mukade-skeleton-accent`, falling back to the theme's primary.
+
+**Accessibility**
+
+- `Skeleton` is `aria-hidden`. A placeholder shape carries nothing a screen reader can act on, so the loading state belongs on the surrounding region instead — `Spinner`'s `role="status"`, or `aria-busy` on the container.
+- The effects respect `prefers-reduced-motion`, holding a static texture instead of animating.
+
 ## v1.1.1 — Class merging and Svelte peer range
 
 No new widgets. Passing `class` no longer strips a widget's own styling, and the Svelte peer dependency now reflects what the library actually requires. TypeScript users of `Radio` should read the breaking-change note.
